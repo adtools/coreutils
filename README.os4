@@ -1,0 +1,40 @@
+coreutils 8.29 ported to AmigaOS4.
+
+The sourcecode can be found on http://os4depot.net if you search for coreutils-src.
+
+Please read the original README file that is in the same directory.
+
+Best regards,
+Henning Nielsen Lund
+hnl_dk@amigaos.dk
+
+
+18-08-2017 - Version 54.7
+replace /dev/null with /nil.
+recognice Amiga style absolute paths.
+
+15-08-2017 - Version 54.6
+ls is now also respecting amiga style absolute paths.
+kill should now be able to kill a process.
+
+14-08-2017 - Version 54.5
+stat is now able to read the filesystem data.
+use the clib2 fseeko implementation instead of the GNUlib version.
+
+14-08-2017 - Version 54.4
+Error() has now been fixed, will no longer crash, when you for example access a nonexisting file.
+Thanks to Hubert Maier (Raziel) for reporting this problem.
+
+13-08-2017 - Version 54.3
+cp did not copy permissions correctly. Hack it to set executable, just in case. This should be fixed later.
+Revert cut to an older code, as fgetc() corrupted the stream with the newer codebase. Will look into this. Thanks to Hubert Maier (Raziel) for reporting this problem.
+
+08-08-2017 - Version 54.2
+We do not have proc filesystem. Replace with AmigaOS4 code.
+Handle paths correctly.
+Cleanup Configure.ac and Makefile.am, to disable the creation of documents (generated from the help files).
+
+06-08-2017 - Version 54.1 
+Coreutils 8.29 source used for the port
+The sourcecode for Sort and Split have been replaced with the old 5.2.1-9 code.
+To compile you need libwide found on http://os4depot.net and the current clib2 code from http://github.com/adtools/clib2

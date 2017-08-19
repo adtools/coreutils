@@ -508,10 +508,10 @@ am__aclocal_m4_deps = $(top_srcdir)/m4/00gnulib.m4 \
 	$(top_srcdir)/m4/openat.m4 $(top_srcdir)/m4/opendir.m4 \
 	$(top_srcdir)/m4/parse-datetime.m4 $(top_srcdir)/m4/pathmax.m4 \
 	$(top_srcdir)/m4/perl.m4 $(top_srcdir)/m4/perror.m4 \
-	$(top_srcdir)/m4/physmem.m4 $(top_srcdir)/m4/pipe.m4 \
-	$(top_srcdir)/m4/po.m4 $(top_srcdir)/m4/posix-shell.m4 \
-	$(top_srcdir)/m4/posixtm.m4 $(top_srcdir)/m4/posixver.m4 \
-	$(top_srcdir)/m4/prereq.m4 $(top_srcdir)/m4/printf-frexp.m4 \
+	$(top_srcdir)/m4/physmem.m4 $(top_srcdir)/m4/po.m4 \
+	$(top_srcdir)/m4/posix-shell.m4 $(top_srcdir)/m4/posixtm.m4 \
+	$(top_srcdir)/m4/posixver.m4 $(top_srcdir)/m4/prereq.m4 \
+	$(top_srcdir)/m4/printf-frexp.m4 \
 	$(top_srcdir)/m4/printf-frexpl.m4 $(top_srcdir)/m4/printf.m4 \
 	$(top_srcdir)/m4/priv-set.m4 $(top_srcdir)/m4/progtest.m4 \
 	$(top_srcdir)/m4/pthread.m4 \
@@ -618,8 +618,7 @@ am_libtests_a_OBJECTS = localename.$(OBJEXT) glthread/thread.$(OBJEXT) \
 	timespec-add.$(OBJEXT) timespec-sub.$(OBJEXT) \
 	unlinkdir.$(OBJEXT)
 libtests_a_OBJECTS = $(am_libtests_a_OBJECTS)
-am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibexecdir)" \
-	"$(DESTDIR)$(man1dir)"
+am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibexecdir)"
 PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS) $(pkglibexec_PROGRAMS)
 test_accept_SOURCES = test-accept.c
 test_accept_OBJECTS = test-accept.$(OBJEXT)
@@ -2089,36 +2088,6 @@ am__can_run_installinfo = \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
-am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
-am__vpath_adj = case $$p in \
-    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
-    *) f=$$p;; \
-  esac;
-am__strip_dir = f=`echo $$p | sed -e 's|^.*/||'`;
-am__install_max = 40
-am__nobase_strip_setup = \
-  srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*|]/\\\\&/g'`
-am__nobase_strip = \
-  for p in $$list; do echo "$$p"; done | sed -e "s|$$srcdirstrip/||"
-am__nobase_list = $(am__nobase_strip_setup); \
-  for p in $$list; do echo "$$p $$p"; done | \
-  sed "s| $$srcdirstrip/| |;"' / .*\//!s/ .*/ ./; s,\( .*\)/[^/]*$$,\1,' | \
-  $(AWK) 'BEGIN { files["."] = "" } { files[$$2] = files[$$2] " " $$1; \
-    if (++n[$$2] == $(am__install_max)) \
-      { print $$2, files[$$2]; n[$$2] = 0; files[$$2] = "" } } \
-    END { for (dir in files) print dir, files[dir] }'
-am__base_list = \
-  sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
-  sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__uninstall_files_from_dir = { \
-  test -z "$$files" \
-    || { test ! -d "$$dir" && test ! -f "$$dir" && test ! -r "$$dir"; } \
-    || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
-         $(am__cd) "$$dir" && rm -f $$files; }; \
-  }
-man1dir = $(mandir)/man1
-NROFF = nroff
-MANS = $(man1_MANS)
 HEADERS = $(noinst_HEADERS)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
@@ -2169,6 +2138,33 @@ am__tty_colors = { \
     std='[m'; \
   fi; \
 }
+am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
+am__vpath_adj = case $$p in \
+    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
+    *) f=$$p;; \
+  esac;
+am__strip_dir = f=`echo $$p | sed -e 's|^.*/||'`;
+am__install_max = 40
+am__nobase_strip_setup = \
+  srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*|]/\\\\&/g'`
+am__nobase_strip = \
+  for p in $$list; do echo "$$p"; done | sed -e "s|$$srcdirstrip/||"
+am__nobase_list = $(am__nobase_strip_setup); \
+  for p in $$list; do echo "$$p $$p"; done | \
+  sed "s| $$srcdirstrip/| |;"' / .*\//!s/ .*/ ./; s,\( .*\)/[^/]*$$,\1,' | \
+  $(AWK) 'BEGIN { files["."] = "" } { files[$$2] = files[$$2] " " $$1; \
+    if (++n[$$2] == $(am__install_max)) \
+      { print $$2, files[$$2]; n[$$2] = 0; files[$$2] = "" } } \
+    END { for (dir in files) print dir, files[dir] }'
+am__base_list = \
+  sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
+  sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
+am__uninstall_files_from_dir = { \
+  test -z "$$files" \
+    || { test ! -d "$$dir" && test ! -f "$$dir" && test ! -r "$$dir"; } \
+    || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
+         $(am__cd) "$$dir" && rm -f $$files; }; \
+  }
 am__recheck_rx = ^[ 	]*:recheck:[ 	]*
 am__global_test_result_rx = ^[ 	]*:global-test-result:[ 	]*
 am__copy_in_global_log_rx = ^[ 	]*:copy-in-global-log:[ 	]*
@@ -5708,47 +5704,6 @@ test_xvasprintf-test-xvasprintf.obj: test-xvasprintf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test-xvasprintf.c' object='test_xvasprintf-test-xvasprintf.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_xvasprintf_CFLAGS) $(CFLAGS) -c -o test_xvasprintf-test-xvasprintf.obj `if test -f 'test-xvasprintf.c'; then $(CYGPATH_W) 'test-xvasprintf.c'; else $(CYGPATH_W) '$(srcdir)/test-xvasprintf.c'; fi`
-install-man1: $(man1_MANS)
-	@$(NORMAL_INSTALL)
-	@list1='$(man1_MANS)'; \
-	list2=''; \
-	test -n "$(man1dir)" \
-	  && test -n "`echo $$list1$$list2`" \
-	  || exit 0; \
-	echo " $(MKDIR_P) '$(DESTDIR)$(man1dir)'"; \
-	$(MKDIR_P) "$(DESTDIR)$(man1dir)" || exit 1; \
-	{ for i in $$list1; do echo "$$i"; done;  \
-	if test -n "$$list2"; then \
-	  for i in $$list2; do echo "$$i"; done \
-	    | sed -n '/\.1[a-z]*$$/p'; \
-	fi; \
-	} | while read p; do \
-	  if test -f $$p; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; echo "$$p"; \
-	done | \
-	sed -e 'n;s,.*/,,;p;h;s,.*\.,,;s,^[^1][0-9a-z]*$$,1,;x' \
-	      -e 's,\.[0-9a-z]*$$,,;$(transform);G;s,\n,.,' | \
-	sed 'N;N;s,\n, ,g' | { \
-	list=; while read file base inst; do \
-	  if test "$$base" = "$$inst"; then list="$$list $$file"; else \
-	    echo " $(INSTALL_DATA) '$$file' '$(DESTDIR)$(man1dir)/$$inst'"; \
-	    $(INSTALL_DATA) "$$file" "$(DESTDIR)$(man1dir)/$$inst" || exit $$?; \
-	  fi; \
-	done; \
-	for i in $$list; do echo "$$i"; done | $(am__base_list) | \
-	while read files; do \
-	  test -z "$$files" || { \
-	    echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(man1dir)'"; \
-	    $(INSTALL_DATA) $$files "$(DESTDIR)$(man1dir)" || exit $$?; }; \
-	done; }
-
-uninstall-man1:
-	@$(NORMAL_UNINSTALL)
-	@list='$(man1_MANS)'; test -n "$(man1dir)" || exit 0; \
-	files=`{ for i in $$list; do echo "$$i"; done; \
-	} | sed -e 's,.*/,,;h;s,.*\.,,;s,^[^1][0-9a-z]*$$,1,;x' \
-	      -e 's,\.[0-9a-z]*$$,,;$(transform);G;s,\n,.,'`; \
-	dir='$(DESTDIR)$(man1dir)'; $(am__uninstall_files_from_dir)
 
 # This directory's subdirectories are mostly independent; you can cd
 # into them and run 'make' without going through this Makefile.
@@ -8263,10 +8218,10 @@ check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
 check: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) check-recursive
-all-am: Makefile $(LIBRARIES) $(PROGRAMS) $(MANS) $(HEADERS)
+all-am: Makefile $(LIBRARIES) $(PROGRAMS) $(HEADERS)
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibexecdir)" "$(DESTDIR)$(man1dir)"; do \
+	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibexecdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: $(BUILT_SOURCES)
@@ -8338,7 +8293,7 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-man
+install-data-am:
 
 install-dvi: install-dvi-recursive
 
@@ -8354,7 +8309,7 @@ install-info: install-info-recursive
 
 install-info-am:
 
-install-man: install-man1
+install-man:
 
 install-pdf: install-pdf-recursive
 
@@ -8384,10 +8339,7 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-man \
-	uninstall-pkglibexecPROGRAMS
-
-uninstall-man: uninstall-man1
+uninstall-am: uninstall-binPROGRAMS uninstall-pkglibexecPROGRAMS
 
 .MAKE: $(am__recursive_targets) all check check-am install install-am \
 	install-strip
@@ -8402,14 +8354,14 @@ uninstall-man: uninstall-man1
 	install-am install-binPROGRAMS install-data install-data-am \
 	install-dvi install-dvi-am install-exec install-exec-am \
 	install-html install-html-am install-info install-info-am \
-	install-man install-man1 install-pdf install-pdf-am \
+	install-man install-pdf install-pdf-am \
 	install-pkglibexecPROGRAMS install-ps install-ps-am \
 	install-strip installcheck installcheck-am installdirs \
 	installdirs-am maintainer-clean maintainer-clean-generic \
 	mostlyclean mostlyclean-compile mostlyclean-generic \
 	mostlyclean-local pdf pdf-am ps ps-am recheck tags tags-am \
-	uninstall uninstall-am uninstall-binPROGRAMS uninstall-man \
-	uninstall-man1 uninstall-pkglibexecPROGRAMS
+	uninstall uninstall-am uninstall-binPROGRAMS \
+	uninstall-pkglibexecPROGRAMS
 
 .PRECIOUS: Makefile
 

@@ -248,12 +248,8 @@ AM_CONDITIONAL([SINGLE_BINARY], [test "$gl_single_binary" != no])
 AC_FUNC_FORK
 
 optional_bin_progs=
-AC_CHECK_FUNCS([chroot],
-        gl_ADD_PROG([optional_bin_progs], [chroot]))
 AC_CHECK_FUNCS([gethostid],
         gl_ADD_PROG([optional_bin_progs], [hostid]))
-AC_CHECK_FUNCS([sigsuspend],
-        gl_ADD_PROG([optional_bin_progs], [timeout]))
 
 gl_WINSIZE_IN_PTEM
 
@@ -336,13 +332,6 @@ AC_CACHE_CHECK([for 3-argument setpriority function],
        [[setpriority (0, 0, 0);]])],
     [utils_cv_func_setpriority=yes],
     [utils_cv_func_setpriority=no])])
-if test $utils_cv_func_setpriority = no; then
-  AC_CHECK_FUNCS([nice])
-fi
-case $utils_cv_func_setpriority,$ac_cv_func_nice in
-*yes*)
-  gl_ADD_PROG([optional_bin_progs], [nice])
-esac
 
 AC_DEFUN([coreutils_DUMMY_1],
 [
@@ -350,7 +339,6 @@ AC_DEFUN([coreutils_DUMMY_1],
   if test $ac_cv_header_utmp_h = yes || test $ac_cv_header_utmpx_h = yes; then
     gl_ADD_PROG([optional_bin_progs], [who])
     gl_ADD_PROG([optional_bin_progs], [users])
-    gl_ADD_PROG([optional_bin_progs], [pinky])
   fi
 ])
 coreutils_DUMMY_1
@@ -391,8 +379,6 @@ AC_SYS_POSIX_TERMIOS()
 gl_HEADER_TIOCGWINSZ_NEEDS_SYS_IOCTL
 
 if test $ac_cv_sys_posix_termios = yes; then
-  gl_ADD_PROG([optional_bin_progs], [stty])
-
   AC_MSG_CHECKING([whether termios.h needs _XOPEN_SOURCE])
   AC_CACHE_VAL([su_cv_sys_termios_needs_xopen_source],
   [AC_EGREP_CPP([yes], [#include <termios.h>
@@ -514,31 +500,12 @@ case " $optional_bin_progs " in
   *) pkglibexec_PROGRAMS='';;
 esac
 
-man1_MANS=`
-  for p in $optional_bin_progs; do
-    # Change "ginstall.1" to "install.1".
-    test $p = ginstall && p=install
-    # Ignore the "[" program, since writing a portable make rule to
-    # generate its manpage is not practical.
-    dnl Use the autoconf-provided quadrigraph to represent "[",
-    dnl otherwise we will incur in dreadful quoting issues.
-    test x$p = x'@<:@' && continue
-    echo "man/$p.1"
-  done`
-
-# Not installed by "make install", but must be built when creating
-# a distribution tarball.
-EXTRA_MANS=`for p in $no_install_progs_default $gl_no_install_prog; do
-              echo man/$p.1
-            done`
-
 # Replace all the programs by the single binary and symlinks if specified.
 single_binary_progs=
 single_binary_libs=
 single_binary_deps=
 single_binary_install_type=
 if test "$gl_single_binary" != no; then
-  man1_MANS="$man1_MANS man/coreutils.1"
   # Convert the list to a space separated list
   gl_single_binary_exceptions=`echo $gl_single_binary_exceptions | tr ',' ' '`
 
@@ -585,16 +552,11 @@ AC_SUBST([single_binary_install_type], [$single_binary_install_type])
 bin_PROGRAMS=`
   for p in $optional_bin_progs; do echo src/"$p"'$(EXEEXT)'; done`
 
-# Normalize whitespace.
-man1_MANS=`echo $man1_MANS`
-EXTRA_MANS=`echo $EXTRA_MANS`
 bin_PROGRAMS=`echo $bin_PROGRAMS`
 pkglibexec_PROGS=`echo $pkglibexec_PROGRAMS`
 
 AC_SUBST([bin_PROGRAMS])        AM_SUBST_NOTMAKE([bin_PROGRAMS])
 AC_SUBST([pkglibexec_PROGRAMS]) AM_SUBST_NOTMAKE([pkglibexec_PROGRAMS])
-AC_SUBST([man1_MANS])           AM_SUBST_NOTMAKE([man1_MANS])
-AC_SUBST([EXTRA_MANS])          AM_SUBST_NOTMAKE([EXTRA_MANS])
 
 AC_SUBST([built_programs], [$optional_bin_progs])
 

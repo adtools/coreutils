@@ -36,6 +36,11 @@
 #include "utimens.h"
 #include "acl.h"
 
+#if defined __amigaos4__ && defined __CLIB2__ /* AmigaOS4 CLIB2 */
+# include <dos.h>
+# include <proto/dos.h>
+#endif
+
 #if ! HAVE_LCHOWN
 # define lchown(name, uid, gid) chown (name, uid, gid)
 #endif
@@ -774,6 +779,32 @@ do_copy (int n_files, char **file, const char *target_directory,
           new_dest = dest;
         }
 
+#if defined __amigaos4__ && defined __CLIB2__ /* AmigaOS4 CLIB2 */
+        // Hack as we do not get the correct permissions if the destination does not exist before the copy. But this results in executive permissions no matter what.
+# warning "AmigaOS4 fix me"
+	const char *amigasrc = source;
+	struct name_translation_info nti;
+
+	__translate_unix_to_amiga_path_name(&amigasrc,&nti);
+	BPTR srclock = IDOS->Lock(amigasrc, SHARED_LOCK);
+	IDOS->UnLock(srclock);
+
+        if (srclock != ZERO)
+        {
+	  const char *amigadst = new_dest;
+          struct name_translation_info nti;
+
+          __translate_unix_to_amiga_path_name(&amigadst,&nti);
+          BPTR dstlock = IDOS->Lock(amigadst, SHARED_LOCK);
+          IDOS->UnLock(dstlock);
+
+          if (dstlock == ZERO)
+          {
+            BPTR file = IDOS->Open(amigadst, MODE_NEWFILE);
+            IDOS->Close(file);
+          }
+        }
+#endif
       ok = copy (source, new_dest, 0, x, &unused, NULL);
     }
 

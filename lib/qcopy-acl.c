@@ -39,6 +39,22 @@ int
 qcopy_acl (const char *src_name, int source_desc, const char *dst_name,
            int dest_desc, mode_t mode)
 {
+#if defined __amigaos__ /* AmigaOS */
+  struct stat st;
+  mode_t newmode = mode & (S_ISUID | S_ISGID | S_ISVTX);
+
+  if (source_desc != -1)
+    return fstat (source_desc, &st);
+  else
+    return stat (src_name, &st);
+
+  newmode &= st.st_mode;
+
+  if (dest_desc != -1)
+    return fchmod (dest_desc, newmode);
+  else
+    return chmod (dst_name, newmode);
+#else
   struct permission_context ctx;
   int ret;
 
@@ -48,4 +64,5 @@ qcopy_acl (const char *src_name, int source_desc, const char *dst_name,
   ret = set_permissions (&ctx, dst_name, dest_desc);
   free_permission_context (&ctx);
   return ret;
+#endif
 }

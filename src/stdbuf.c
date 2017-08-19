@@ -31,6 +31,12 @@
 #include "xstrtol.h"
 #include "c-ctype.h"
 
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+# define __USE_INLINE__
+# include <dos.h>
+# include <proto/dos.h>
+#endif
+
 /* The official name of this program (e.g., no 'g' prefix).  */
 #define PROGRAM_NAME "stdbuf"
 #define LIB_NAME "libstdbuf.so" /* FIXME: don't hardcode  */
@@ -140,9 +146,23 @@ set_program_path (const char *arg)
     }
   else
     {
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+      char *path;
+
+      if (NameFromLock(GetProgramDir(), path, PATH_MAX))
+      {
+        const char *amigapath = path;
+        struct name_translation_info nti;
+
+        __translate_amiga_to_unix_path_name(&amigapath,&nti);
+	path = strdup(amigapath);
+        program_path = dir_name (path);
+      }
+#else
       char *path = xreadlink ("/proc/self/exe");
       if (path)
         program_path = dir_name (path);
+#endif
       else if ((path = getenv ("PATH")))
         {
           char *dir;

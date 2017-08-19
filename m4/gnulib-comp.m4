@@ -445,9 +445,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module memrchr-tests:
   # Code from module mgetgroups:
   # Code from module minmax:
-  # Code from module mkancesdirs:
   # Code from module mkdir:
-  # Code from module mkdir-p:
   # Code from module mkdir-tests:
   # Code from module mkfifo:
   # Code from module mkfifo-tests:
@@ -1563,10 +1561,6 @@ AC_DEFUN([gl_INIT],
   gl_PATHMAX
   gl_PERL
   gl_PHYSMEM
-  gl_FUNC_PIPE
-  if test $HAVE_PIPE = 0; then
-    AC_LIBOBJ([pipe])
-  fi
   gl_UNISTD_MODULE_INDICATOR([pipe])
   gl_POSIX_SHELL
   gl_POSIXTM
@@ -3271,7 +3265,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/perl.m4
   m4/perror.m4
   m4/physmem.m4
-  m4/pipe.m4
   m4/posix-shell.m4
   m4/posixtm.m4
   m4/posixver.m4

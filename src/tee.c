@@ -163,8 +163,10 @@ main (int argc, char **argv)
   if (ignore_interrupts)
     signal (SIGINT, SIG_IGN);
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
   if (output_error != output_error_sigpipe)
     signal (SIGPIPE, SIG_IGN);
+#endif
 
   /* Do *not* warn if tee is given no file arguments.
      POSIX requires that it work when given no arguments.  */

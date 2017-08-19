@@ -30,6 +30,13 @@
 
 #include <tempname.h>
 
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+#include "openat-priv.h"
+int renameat(int oldfd, const char *old, int newfd, const char *new){
+  return at_func2 (oldfd, old, newfd, new, rename);
+}
+#endif
+
 /* A basename pattern suitable for a temporary file.  It should work
    even on file systems like FAT that support only short names.
    "Cu" is short for "Coreutils" or for "Changeable unstable",

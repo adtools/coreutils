@@ -176,7 +176,9 @@ get_nonce (void *buffer, size_t bufsize, size_t bytes_bound)
     }
   ISAAC_SEED (struct timeval, gettimeofday (&v, NULL));
   ISAAC_SEED (pid_t, v = getpid ());
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
   ISAAC_SEED (pid_t, v = getppid ());
+#endif
   ISAAC_SEED (uid_t, v = getuid ());
   ISAAC_SEED (uid_t, v = getgid ());
 

@@ -33,6 +33,9 @@
 #  define FILE_SYSTEM_DRIVE_PREFIX_CAN_BE_RELATIVE 1
 # endif
 # define ISSLASH(C) ((C) == '/' || (C) == '\\')
+#elif defined __amigaos__ /* AmigaOS */
+# define FILE_SYSTEM_PREFIX_LEN(Filename) 0
+# define ISSLASH(C) ((C) == '/' || (C) == ':')
 #else
 # define FILE_SYSTEM_PREFIX_LEN(Filename) 0
 # define ISSLASH(C) ((C) == '/')
@@ -43,9 +46,9 @@
 #endif
 
 #if FILE_SYSTEM_DRIVE_PREFIX_CAN_BE_RELATIVE
-#  define IS_ABSOLUTE_FILE_NAME(F) ISSLASH ((F)[FILE_SYSTEM_PREFIX_LEN (F)])
-# else
-#  define IS_ABSOLUTE_FILE_NAME(F)                              \
+# define IS_ABSOLUTE_FILE_NAME(F) ISSLASH ((F)[FILE_SYSTEM_PREFIX_LEN (F)])
+#else
+# define IS_ABSOLUTE_FILE_NAME(F)                              \
      (ISSLASH ((F)[0]) || FILE_SYSTEM_PREFIX_LEN (F) != 0)
 #endif
 #define IS_RELATIVE_FILE_NAME(F) (! IS_ABSOLUTE_FILE_NAME (F))

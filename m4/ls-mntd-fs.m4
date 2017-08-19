@@ -348,11 +348,12 @@ if test -z "$ac_list_mounted_fs"; then
 fi
 
 if test -z "$ac_list_mounted_fs"; then
-  AC_MSG_ERROR([could not determine how to read list of mounted file systems])
+  AC_MSG_WARN([could not determine how to read list of mounted file systems])
   # FIXME -- no need to abort building the whole package
   # Can't build mountlist.c or anything that needs its functions
 fi
 
-AS_IF([test $ac_list_mounted_fs = found], [$1], [$2])
+## HACK TO GET IT TO WORK ON AMIGAOS4
+AS_IF([test $ac_list_mounted_fs = found], [$1], [$1])
 
   ])

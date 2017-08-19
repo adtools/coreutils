@@ -57,42 +57,6 @@
 # Make coreutils programs.                             -*-Makefile-*-
 # This is included by the top-level Makefile.am.
 
-# Make coreutils documentation.				-*-Makefile-*-
-# This is included by the top-level Makefile.am.
-
-# Copyright (C) 1995-2017 Free Software Foundation, Inc.
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-# Make coreutils man pages.				-*-Makefile-*-
-# This is included by the top-level Makefile.am.
-
-# Copyright (C) 2002-2017 Free Software Foundation, Inc.
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 
 
 VPATH = @srcdir@
@@ -176,14 +140,9 @@ noinst_PROGRAMS = src/getlimits$(EXEEXT) src/make-prime-list$(EXEEXT)
 @SINGLE_BINARY_FALSE@	$(am__DEPENDENCIES_2)
 # Command arch
 # Command hostname
-# Command chroot
 # Command df
 # Command hostid
-# Command nice
-# Command pinky
 # Command stdbuf
-# Command stty
-# Command timeout
 # Command uptime
 # Command users
 # Command who
@@ -234,7 +193,6 @@ noinst_PROGRAMS = src/getlimits$(EXEEXT) src/make-prime-list$(EXEEXT)
 # Command mv
 # Command nl
 # Command nproc
-# Command nohup
 # Command numfmt
 # Command od
 # Command paste
@@ -283,14 +241,9 @@ noinst_PROGRAMS = src/getlimits$(EXEEXT) src/make-prime-list$(EXEEXT)
 # Command yes
 @SINGLE_BINARY_TRUE@am__append_4 = src/libsinglebin_arch.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_hostname.a \
-@SINGLE_BINARY_TRUE@	src/libsinglebin_chroot.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_df.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_hostid.a \
-@SINGLE_BINARY_TRUE@	src/libsinglebin_nice.a \
-@SINGLE_BINARY_TRUE@	src/libsinglebin_pinky.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_stdbuf.a \
-@SINGLE_BINARY_TRUE@	src/libsinglebin_stty.a \
-@SINGLE_BINARY_TRUE@	src/libsinglebin_timeout.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_uptime.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_users.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_who.a \
@@ -341,7 +294,6 @@ noinst_PROGRAMS = src/getlimits$(EXEEXT) src/make-prime-list$(EXEEXT)
 @SINGLE_BINARY_TRUE@	src/libsinglebin_mv.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_nl.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_nproc.a \
-@SINGLE_BINARY_TRUE@	src/libsinglebin_nohup.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_numfmt.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_od.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_paste.a \
@@ -388,7 +340,6 @@ noinst_PROGRAMS = src/getlimits$(EXEEXT) src/make-prime-list$(EXEEXT)
 @SINGLE_BINARY_TRUE@	src/libsinglebin_wc.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_whoami.a \
 @SINGLE_BINARY_TRUE@	src/libsinglebin_yes.a
-@SINGLE_BINARY_TRUE@am__append_5 = src/coreutils$(EXEEXT)
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/00gnulib.m4 \
@@ -518,10 +469,10 @@ am__aclocal_m4_deps = $(top_srcdir)/m4/00gnulib.m4 \
 	$(top_srcdir)/m4/openat.m4 $(top_srcdir)/m4/opendir.m4 \
 	$(top_srcdir)/m4/parse-datetime.m4 $(top_srcdir)/m4/pathmax.m4 \
 	$(top_srcdir)/m4/perl.m4 $(top_srcdir)/m4/perror.m4 \
-	$(top_srcdir)/m4/physmem.m4 $(top_srcdir)/m4/pipe.m4 \
-	$(top_srcdir)/m4/po.m4 $(top_srcdir)/m4/posix-shell.m4 \
-	$(top_srcdir)/m4/posixtm.m4 $(top_srcdir)/m4/posixver.m4 \
-	$(top_srcdir)/m4/prereq.m4 $(top_srcdir)/m4/printf-frexp.m4 \
+	$(top_srcdir)/m4/physmem.m4 $(top_srcdir)/m4/po.m4 \
+	$(top_srcdir)/m4/posix-shell.m4 $(top_srcdir)/m4/posixtm.m4 \
+	$(top_srcdir)/m4/posixver.m4 $(top_srcdir)/m4/prereq.m4 \
+	$(top_srcdir)/m4/printf-frexp.m4 \
 	$(top_srcdir)/m4/printf-frexpl.m4 $(top_srcdir)/m4/printf.m4 \
 	$(top_srcdir)/m4/priv-set.m4 $(top_srcdir)/m4/progtest.m4 \
 	$(top_srcdir)/m4/pthread.m4 \
@@ -611,8 +562,7 @@ am__aclocal_m4_deps = $(top_srcdir)/m4/00gnulib.m4 \
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 DIST_COMMON = $(srcdir)/Makefile.am $(top_srcdir)/configure \
-	$(am__configure_deps) $(srcdir)/doc/version.texi \
-	$(srcdir)/doc/stamp-vti $(noinst_HEADERS) $(am__DIST_COMMON)
+	$(am__configure_deps) $(noinst_HEADERS) $(am__DIST_COMMON)
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
@@ -886,12 +836,6 @@ am__src_libsinglebin_chown_a_SOURCES_DIST = src/chown.c \
 @SINGLE_BINARY_TRUE@	src/src_libsinglebin_chown_a-chown-core.$(OBJEXT)
 src_libsinglebin_chown_a_OBJECTS =  \
 	$(am_src_libsinglebin_chown_a_OBJECTS)
-src_libsinglebin_chroot_a_AR = $(AR) $(ARFLAGS)
-src_libsinglebin_chroot_a_LIBADD =
-am__src_libsinglebin_chroot_a_SOURCES_DIST = src/chroot.c
-@SINGLE_BINARY_TRUE@am_src_libsinglebin_chroot_a_OBJECTS = src/src_libsinglebin_chroot_a-chroot.$(OBJEXT)
-src_libsinglebin_chroot_a_OBJECTS =  \
-	$(am_src_libsinglebin_chroot_a_OBJECTS)
 src_libsinglebin_cksum_a_AR = $(AR) $(ARFLAGS)
 src_libsinglebin_cksum_a_LIBADD =
 am__src_libsinglebin_cksum_a_SOURCES_DIST = src/cksum.c
@@ -1170,24 +1114,12 @@ am__objects_12 = src/src_libsinglebin_mv_a-selinux.$(OBJEXT)
 @SINGLE_BINARY_TRUE@	src/src_libsinglebin_mv_a-remove.$(OBJEXT) \
 @SINGLE_BINARY_TRUE@	$(am__objects_11) $(am__objects_12)
 src_libsinglebin_mv_a_OBJECTS = $(am_src_libsinglebin_mv_a_OBJECTS)
-src_libsinglebin_nice_a_AR = $(AR) $(ARFLAGS)
-src_libsinglebin_nice_a_LIBADD =
-am__src_libsinglebin_nice_a_SOURCES_DIST = src/nice.c
-@SINGLE_BINARY_TRUE@am_src_libsinglebin_nice_a_OBJECTS = src/src_libsinglebin_nice_a-nice.$(OBJEXT)
-src_libsinglebin_nice_a_OBJECTS =  \
-	$(am_src_libsinglebin_nice_a_OBJECTS)
 src_libsinglebin_nl_a_AR = $(AR) $(ARFLAGS)
 src_libsinglebin_nl_a_LIBADD =
 am__src_libsinglebin_nl_a_SOURCES_DIST = src/nl.c
 @SINGLE_BINARY_TRUE@am_src_libsinglebin_nl_a_OBJECTS =  \
 @SINGLE_BINARY_TRUE@	src/src_libsinglebin_nl_a-nl.$(OBJEXT)
 src_libsinglebin_nl_a_OBJECTS = $(am_src_libsinglebin_nl_a_OBJECTS)
-src_libsinglebin_nohup_a_AR = $(AR) $(ARFLAGS)
-src_libsinglebin_nohup_a_LIBADD =
-am__src_libsinglebin_nohup_a_SOURCES_DIST = src/nohup.c
-@SINGLE_BINARY_TRUE@am_src_libsinglebin_nohup_a_OBJECTS = src/src_libsinglebin_nohup_a-nohup.$(OBJEXT)
-src_libsinglebin_nohup_a_OBJECTS =  \
-	$(am_src_libsinglebin_nohup_a_OBJECTS)
 src_libsinglebin_nproc_a_AR = $(AR) $(ARFLAGS)
 src_libsinglebin_nproc_a_LIBADD =
 am__src_libsinglebin_nproc_a_SOURCES_DIST = src/nproc.c
@@ -1220,12 +1152,6 @@ am__src_libsinglebin_pathchk_a_SOURCES_DIST = src/pathchk.c
 @SINGLE_BINARY_TRUE@am_src_libsinglebin_pathchk_a_OBJECTS = src/src_libsinglebin_pathchk_a-pathchk.$(OBJEXT)
 src_libsinglebin_pathchk_a_OBJECTS =  \
 	$(am_src_libsinglebin_pathchk_a_OBJECTS)
-src_libsinglebin_pinky_a_AR = $(AR) $(ARFLAGS)
-src_libsinglebin_pinky_a_LIBADD =
-am__src_libsinglebin_pinky_a_SOURCES_DIST = src/pinky.c
-@SINGLE_BINARY_TRUE@am_src_libsinglebin_pinky_a_OBJECTS = src/src_libsinglebin_pinky_a-pinky.$(OBJEXT)
-src_libsinglebin_pinky_a_OBJECTS =  \
-	$(am_src_libsinglebin_pinky_a_OBJECTS)
 src_libsinglebin_pr_a_AR = $(AR) $(ARFLAGS)
 src_libsinglebin_pr_a_LIBADD =
 am__src_libsinglebin_pr_a_SOURCES_DIST = src/pr.c
@@ -1371,12 +1297,6 @@ am__src_libsinglebin_stdbuf_a_SOURCES_DIST = src/stdbuf.c
 @SINGLE_BINARY_TRUE@am_src_libsinglebin_stdbuf_a_OBJECTS = src/src_libsinglebin_stdbuf_a-stdbuf.$(OBJEXT)
 src_libsinglebin_stdbuf_a_OBJECTS =  \
 	$(am_src_libsinglebin_stdbuf_a_OBJECTS)
-src_libsinglebin_stty_a_AR = $(AR) $(ARFLAGS)
-src_libsinglebin_stty_a_LIBADD =
-am__src_libsinglebin_stty_a_SOURCES_DIST = src/stty.c
-@SINGLE_BINARY_TRUE@am_src_libsinglebin_stty_a_OBJECTS = src/src_libsinglebin_stty_a-stty.$(OBJEXT)
-src_libsinglebin_stty_a_OBJECTS =  \
-	$(am_src_libsinglebin_stty_a_OBJECTS)
 src_libsinglebin_sum_a_AR = $(AR) $(ARFLAGS)
 src_libsinglebin_sum_a_LIBADD =
 am__src_libsinglebin_sum_a_SOURCES_DIST = src/sum.c
@@ -1413,14 +1333,6 @@ am__src_libsinglebin_test_a_SOURCES_DIST = src/test.c
 @SINGLE_BINARY_TRUE@am_src_libsinglebin_test_a_OBJECTS = src/src_libsinglebin_test_a-test.$(OBJEXT)
 src_libsinglebin_test_a_OBJECTS =  \
 	$(am_src_libsinglebin_test_a_OBJECTS)
-src_libsinglebin_timeout_a_AR = $(AR) $(ARFLAGS)
-src_libsinglebin_timeout_a_LIBADD =
-am__src_libsinglebin_timeout_a_SOURCES_DIST = src/timeout.c \
-	src/operand2sig.c
-@SINGLE_BINARY_TRUE@am_src_libsinglebin_timeout_a_OBJECTS = src/src_libsinglebin_timeout_a-timeout.$(OBJEXT) \
-@SINGLE_BINARY_TRUE@	src/src_libsinglebin_timeout_a-operand2sig.$(OBJEXT)
-src_libsinglebin_timeout_a_OBJECTS =  \
-	$(am_src_libsinglebin_timeout_a_OBJECTS)
 src_libsinglebin_touch_a_AR = $(AR) $(ARFLAGS)
 src_libsinglebin_touch_a_LIBADD =
 am__src_libsinglebin_touch_a_SOURCES_DIST = src/touch.c
@@ -1533,9 +1445,8 @@ nodist_src_libver_a_OBJECTS = src/version.$(OBJEXT)
 src_libver_a_OBJECTS = $(nodist_src_libver_a_OBJECTS)
 am__EXEEXT_1 = src/arch$(EXEEXT) src/coreutils$(EXEEXT) \
 	src/hostname$(EXEEXT)
-am__EXEEXT_2 = src/chroot$(EXEEXT) src/df$(EXEEXT) src/hostid$(EXEEXT) \
-	src/libstdbuf.so$(EXEEXT) src/nice$(EXEEXT) src/pinky$(EXEEXT) \
-	src/stdbuf$(EXEEXT) src/stty$(EXEEXT) src/timeout$(EXEEXT) \
+am__EXEEXT_2 = src/df$(EXEEXT) src/hostid$(EXEEXT) \
+	src/libstdbuf.so$(EXEEXT) src/stdbuf$(EXEEXT) \
 	src/uptime$(EXEEXT) src/users$(EXEEXT) src/who$(EXEEXT)
 am__EXEEXT_3 = src/[$(EXEEXT) src/b2sum$(EXEEXT) src/base64$(EXEEXT) \
 	src/base32$(EXEEXT) src/basename$(EXEEXT) src/cat$(EXEEXT) \
@@ -1552,25 +1463,24 @@ am__EXEEXT_3 = src/[$(EXEEXT) src/b2sum$(EXEEXT) src/base64$(EXEEXT) \
 	src/ln$(EXEEXT) src/logname$(EXEEXT) src/ls$(EXEEXT) \
 	src/md5sum$(EXEEXT) src/mkdir$(EXEEXT) src/mkfifo$(EXEEXT) \
 	src/mknod$(EXEEXT) src/mktemp$(EXEEXT) src/mv$(EXEEXT) \
-	src/nl$(EXEEXT) src/nproc$(EXEEXT) src/nohup$(EXEEXT) \
-	src/numfmt$(EXEEXT) src/od$(EXEEXT) src/paste$(EXEEXT) \
-	src/pathchk$(EXEEXT) src/pr$(EXEEXT) src/printenv$(EXEEXT) \
-	src/printf$(EXEEXT) src/ptx$(EXEEXT) src/pwd$(EXEEXT) \
-	src/readlink$(EXEEXT) src/realpath$(EXEEXT) src/rm$(EXEEXT) \
-	src/rmdir$(EXEEXT) src/runcon$(EXEEXT) src/seq$(EXEEXT) \
-	src/sha1sum$(EXEEXT) src/sha224sum$(EXEEXT) \
-	src/sha256sum$(EXEEXT) src/sha384sum$(EXEEXT) \
-	src/sha512sum$(EXEEXT) src/shred$(EXEEXT) src/shuf$(EXEEXT) \
-	src/sleep$(EXEEXT) src/sort$(EXEEXT) src/split$(EXEEXT) \
-	src/stat$(EXEEXT) src/sum$(EXEEXT) src/sync$(EXEEXT) \
-	src/tac$(EXEEXT) src/tail$(EXEEXT) src/tee$(EXEEXT) \
-	src/test$(EXEEXT) src/touch$(EXEEXT) src/tr$(EXEEXT) \
-	src/true$(EXEEXT) src/truncate$(EXEEXT) src/tsort$(EXEEXT) \
-	src/tty$(EXEEXT) src/uname$(EXEEXT) src/unexpand$(EXEEXT) \
-	src/uniq$(EXEEXT) src/unlink$(EXEEXT) src/vdir$(EXEEXT) \
-	src/wc$(EXEEXT) src/whoami$(EXEEXT) src/yes$(EXEEXT)
-am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibexecdir)" \
-	"$(DESTDIR)$(infodir)" "$(DESTDIR)$(man1dir)"
+	src/nl$(EXEEXT) src/nproc$(EXEEXT) src/numfmt$(EXEEXT) \
+	src/od$(EXEEXT) src/paste$(EXEEXT) src/pathchk$(EXEEXT) \
+	src/pr$(EXEEXT) src/printenv$(EXEEXT) src/printf$(EXEEXT) \
+	src/ptx$(EXEEXT) src/pwd$(EXEEXT) src/readlink$(EXEEXT) \
+	src/realpath$(EXEEXT) src/rm$(EXEEXT) src/rmdir$(EXEEXT) \
+	src/runcon$(EXEEXT) src/seq$(EXEEXT) src/sha1sum$(EXEEXT) \
+	src/sha224sum$(EXEEXT) src/sha256sum$(EXEEXT) \
+	src/sha384sum$(EXEEXT) src/sha512sum$(EXEEXT) \
+	src/shred$(EXEEXT) src/shuf$(EXEEXT) src/sleep$(EXEEXT) \
+	src/sort$(EXEEXT) src/split$(EXEEXT) src/stat$(EXEEXT) \
+	src/sum$(EXEEXT) src/sync$(EXEEXT) src/tac$(EXEEXT) \
+	src/tail$(EXEEXT) src/tee$(EXEEXT) src/test$(EXEEXT) \
+	src/touch$(EXEEXT) src/tr$(EXEEXT) src/true$(EXEEXT) \
+	src/truncate$(EXEEXT) src/tsort$(EXEEXT) src/tty$(EXEEXT) \
+	src/uname$(EXEEXT) src/unexpand$(EXEEXT) src/uniq$(EXEEXT) \
+	src/unlink$(EXEEXT) src/vdir$(EXEEXT) src/wc$(EXEEXT) \
+	src/whoami$(EXEEXT) src/yes$(EXEEXT)
+am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibexecdir)"
 PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS) $(pkglibexec_PROGRAMS)
 am_src___OBJECTS = src/lbracket.$(OBJEXT)
 src___OBJECTS = $(am_src___OBJECTS)
@@ -1612,9 +1522,6 @@ src_chmod_DEPENDENCIES = $(am__DEPENDENCIES_2)
 am_src_chown_OBJECTS = src/chown.$(OBJEXT) src/chown-core.$(OBJEXT)
 src_chown_OBJECTS = $(am_src_chown_OBJECTS)
 src_chown_DEPENDENCIES = $(am__DEPENDENCIES_2)
-src_chroot_SOURCES = src/chroot.c
-src_chroot_OBJECTS = src/chroot.$(OBJEXT)
-src_chroot_DEPENDENCIES = $(am__DEPENDENCIES_2)
 src_cksum_SOURCES = src/cksum.c
 src_cksum_OBJECTS = src/cksum.$(OBJEXT)
 src_cksum_DEPENDENCIES = $(am__DEPENDENCIES_2)
@@ -1780,15 +1687,9 @@ src_mv_OBJECTS = $(am_src_mv_OBJECTS)
 am__DEPENDENCIES_6 = $(am__DEPENDENCIES_1)
 src_mv_DEPENDENCIES = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_4) \
 	$(am__DEPENDENCIES_6)
-src_nice_SOURCES = src/nice.c
-src_nice_OBJECTS = src/nice.$(OBJEXT)
-src_nice_DEPENDENCIES = $(am__DEPENDENCIES_2)
 src_nl_SOURCES = src/nl.c
 src_nl_OBJECTS = src/nl.$(OBJEXT)
 src_nl_DEPENDENCIES = $(am__DEPENDENCIES_2)
-src_nohup_SOURCES = src/nohup.c
-src_nohup_OBJECTS = src/nohup.$(OBJEXT)
-src_nohup_DEPENDENCIES = $(am__DEPENDENCIES_2)
 src_nproc_SOURCES = src/nproc.c
 src_nproc_OBJECTS = src/nproc.$(OBJEXT)
 src_nproc_DEPENDENCIES = $(am__DEPENDENCIES_2)
@@ -1804,9 +1705,6 @@ src_paste_DEPENDENCIES = $(am__DEPENDENCIES_2)
 src_pathchk_SOURCES = src/pathchk.c
 src_pathchk_OBJECTS = src/pathchk.$(OBJEXT)
 src_pathchk_DEPENDENCIES = $(am__DEPENDENCIES_2)
-src_pinky_SOURCES = src/pinky.c
-src_pinky_OBJECTS = src/pinky.$(OBJEXT)
-src_pinky_DEPENDENCIES = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1)
 src_pr_SOURCES = src/pr.c
 src_pr_OBJECTS = src/pr.$(OBJEXT)
 src_pr_DEPENDENCIES = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1)
@@ -1884,9 +1782,6 @@ src_stat_DEPENDENCIES = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1) \
 src_stdbuf_SOURCES = src/stdbuf.c
 src_stdbuf_OBJECTS = src/stdbuf.$(OBJEXT)
 src_stdbuf_DEPENDENCIES = $(am__DEPENDENCIES_2)
-src_stty_SOURCES = src/stty.c
-src_stty_OBJECTS = src/stty.$(OBJEXT)
-src_stty_DEPENDENCIES = $(am__DEPENDENCIES_2)
 src_sum_SOURCES = src/sum.c
 src_sum_OBJECTS = src/sum.$(OBJEXT)
 src_sum_DEPENDENCIES = $(am__DEPENDENCIES_2)
@@ -1905,10 +1800,6 @@ src_tee_DEPENDENCIES = $(am__DEPENDENCIES_2)
 src_test_SOURCES = src/test.c
 src_test_OBJECTS = src/test.$(OBJEXT)
 src_test_DEPENDENCIES = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1)
-am_src_timeout_OBJECTS = src/timeout.$(OBJEXT) \
-	src/operand2sig.$(OBJEXT)
-src_timeout_OBJECTS = $(am_src_timeout_OBJECTS)
-src_timeout_DEPENDENCIES = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1)
 src_touch_SOURCES = src/touch.c
 src_touch_OBJECTS = src/touch.$(OBJEXT)
 src_touch_DEPENDENCIES = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1)
@@ -2014,7 +1905,6 @@ SOURCES = $(lib_libcoreutils_a_SOURCES) \
 	$(src_libsinglebin_chgrp_a_SOURCES) \
 	$(src_libsinglebin_chmod_a_SOURCES) \
 	$(src_libsinglebin_chown_a_SOURCES) \
-	$(src_libsinglebin_chroot_a_SOURCES) \
 	$(src_libsinglebin_cksum_a_SOURCES) \
 	$(src_libsinglebin_comm_a_SOURCES) \
 	$(src_libsinglebin_cp_a_SOURCES) \
@@ -2053,15 +1943,12 @@ SOURCES = $(lib_libcoreutils_a_SOURCES) \
 	$(src_libsinglebin_mknod_a_SOURCES) \
 	$(src_libsinglebin_mktemp_a_SOURCES) \
 	$(src_libsinglebin_mv_a_SOURCES) \
-	$(src_libsinglebin_nice_a_SOURCES) \
 	$(src_libsinglebin_nl_a_SOURCES) \
-	$(src_libsinglebin_nohup_a_SOURCES) \
 	$(src_libsinglebin_nproc_a_SOURCES) \
 	$(src_libsinglebin_numfmt_a_SOURCES) \
 	$(src_libsinglebin_od_a_SOURCES) \
 	$(src_libsinglebin_paste_a_SOURCES) \
 	$(src_libsinglebin_pathchk_a_SOURCES) \
-	$(src_libsinglebin_pinky_a_SOURCES) \
 	$(src_libsinglebin_pr_a_SOURCES) \
 	$(src_libsinglebin_printenv_a_SOURCES) \
 	$(src_libsinglebin_printf_a_SOURCES) \
@@ -2085,14 +1972,12 @@ SOURCES = $(lib_libcoreutils_a_SOURCES) \
 	$(src_libsinglebin_split_a_SOURCES) \
 	$(src_libsinglebin_stat_a_SOURCES) \
 	$(src_libsinglebin_stdbuf_a_SOURCES) \
-	$(src_libsinglebin_stty_a_SOURCES) \
 	$(src_libsinglebin_sum_a_SOURCES) \
 	$(src_libsinglebin_sync_a_SOURCES) \
 	$(src_libsinglebin_tac_a_SOURCES) \
 	$(src_libsinglebin_tail_a_SOURCES) \
 	$(src_libsinglebin_tee_a_SOURCES) \
 	$(src_libsinglebin_test_a_SOURCES) \
-	$(src_libsinglebin_timeout_a_SOURCES) \
 	$(src_libsinglebin_touch_a_SOURCES) \
 	$(src_libsinglebin_tr_a_SOURCES) \
 	$(src_libsinglebin_true_a_SOURCES) \
@@ -2114,7 +1999,7 @@ SOURCES = $(lib_libcoreutils_a_SOURCES) \
 	$(src_arch_SOURCES) $(src_b2sum_SOURCES) $(src_base32_SOURCES) \
 	src/base64.c src/basename.c src/cat.c src/chcon.c \
 	$(src_chgrp_SOURCES) src/chmod.c $(src_chown_SOURCES) \
-	src/chroot.c src/cksum.c src/comm.c $(src_coreutils_SOURCES) \
+	src/cksum.c src/comm.c $(src_coreutils_SOURCES) \
 	$(nodist_src_coreutils_SOURCES) $(src_cp_SOURCES) src/csplit.c \
 	$(src_cut_SOURCES) src/date.c src/dd.c $(src_df_SOURCES) \
 	$(src_dir_SOURCES) src/dircolors.c src/dirname.c src/du.c \
@@ -2126,17 +2011,16 @@ SOURCES = $(lib_libcoreutils_a_SOURCES) \
 	$(src_ln_SOURCES) src/logname.c $(src_ls_SOURCES) \
 	src/make-prime-list.c src/md5sum.c $(src_mkdir_SOURCES) \
 	$(src_mkfifo_SOURCES) $(src_mknod_SOURCES) src/mktemp.c \
-	$(src_mv_SOURCES) src/nice.c src/nl.c src/nohup.c src/nproc.c \
-	$(src_numfmt_SOURCES) src/od.c src/paste.c src/pathchk.c \
-	src/pinky.c src/pr.c src/printenv.c src/printf.c src/ptx.c \
-	src/pwd.c src/readlink.c $(src_realpath_SOURCES) \
-	$(src_rm_SOURCES) $(src_rmdir_SOURCES) src/runcon.c src/seq.c \
-	$(src_sha1sum_SOURCES) $(src_sha224sum_SOURCES) \
-	$(src_sha256sum_SOURCES) $(src_sha384sum_SOURCES) \
-	$(src_sha512sum_SOURCES) src/shred.c src/shuf.c src/sleep.c \
-	src/sort.c src/split.c $(src_stat_SOURCES) src/stdbuf.c \
-	src/stty.c src/sum.c src/sync.c src/tac.c src/tail.c src/tee.c \
-	src/test.c $(src_timeout_SOURCES) src/touch.c src/tr.c \
+	$(src_mv_SOURCES) src/nl.c src/nproc.c $(src_numfmt_SOURCES) \
+	src/od.c src/paste.c src/pathchk.c src/pr.c src/printenv.c \
+	src/printf.c src/ptx.c src/pwd.c src/readlink.c \
+	$(src_realpath_SOURCES) $(src_rm_SOURCES) $(src_rmdir_SOURCES) \
+	src/runcon.c src/seq.c $(src_sha1sum_SOURCES) \
+	$(src_sha224sum_SOURCES) $(src_sha256sum_SOURCES) \
+	$(src_sha384sum_SOURCES) $(src_sha512sum_SOURCES) src/shred.c \
+	src/shuf.c src/sleep.c src/sort.c src/split.c \
+	$(src_stat_SOURCES) src/stdbuf.c src/sum.c src/sync.c \
+	src/tac.c src/tail.c src/tee.c src/test.c src/touch.c src/tr.c \
 	src/true.c src/truncate.c src/tsort.c src/tty.c \
 	$(src_uname_SOURCES) $(src_unexpand_SOURCES) src/uniq.c \
 	src/unlink.c src/uptime.c src/users.c $(src_vdir_SOURCES) \
@@ -2154,7 +2038,6 @@ DIST_SOURCES = $(am__lib_libcoreutils_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_chgrp_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_chmod_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_chown_a_SOURCES_DIST) \
-	$(am__src_libsinglebin_chroot_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_cksum_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_comm_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_cp_a_SOURCES_DIST) \
@@ -2193,15 +2076,12 @@ DIST_SOURCES = $(am__lib_libcoreutils_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_mknod_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_mktemp_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_mv_a_SOURCES_DIST) \
-	$(am__src_libsinglebin_nice_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_nl_a_SOURCES_DIST) \
-	$(am__src_libsinglebin_nohup_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_nproc_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_numfmt_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_od_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_paste_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_pathchk_a_SOURCES_DIST) \
-	$(am__src_libsinglebin_pinky_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_pr_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_printenv_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_printf_a_SOURCES_DIST) \
@@ -2225,14 +2105,12 @@ DIST_SOURCES = $(am__lib_libcoreutils_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_split_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_stat_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_stdbuf_a_SOURCES_DIST) \
-	$(am__src_libsinglebin_stty_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_sum_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_sync_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_tac_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_tail_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_tee_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_test_a_SOURCES_DIST) \
-	$(am__src_libsinglebin_timeout_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_touch_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_tr_a_SOURCES_DIST) \
 	$(am__src_libsinglebin_true_a_SOURCES_DIST) \
@@ -2253,7 +2131,7 @@ DIST_SOURCES = $(am__lib_libcoreutils_a_SOURCES_DIST) \
 	$(src_arch_SOURCES) $(src_b2sum_SOURCES) $(src_base32_SOURCES) \
 	src/base64.c src/basename.c src/cat.c src/chcon.c \
 	$(src_chgrp_SOURCES) src/chmod.c $(src_chown_SOURCES) \
-	src/chroot.c src/cksum.c src/comm.c $(src_coreutils_SOURCES) \
+	src/cksum.c src/comm.c $(src_coreutils_SOURCES) \
 	$(src_cp_SOURCES) src/csplit.c $(src_cut_SOURCES) src/date.c \
 	src/dd.c $(src_df_SOURCES) $(src_dir_SOURCES) src/dircolors.c \
 	src/dirname.c src/du.c src/echo.c src/env.c \
@@ -2264,63 +2142,20 @@ DIST_SOURCES = $(am__lib_libcoreutils_a_SOURCES_DIST) \
 	src/libstdbuf.c src/link.c $(src_ln_SOURCES) src/logname.c \
 	$(src_ls_SOURCES) src/make-prime-list.c src/md5sum.c \
 	$(src_mkdir_SOURCES) $(src_mkfifo_SOURCES) \
-	$(src_mknod_SOURCES) src/mktemp.c $(src_mv_SOURCES) src/nice.c \
-	src/nl.c src/nohup.c src/nproc.c $(src_numfmt_SOURCES) \
-	src/od.c src/paste.c src/pathchk.c src/pinky.c src/pr.c \
-	src/printenv.c src/printf.c src/ptx.c src/pwd.c src/readlink.c \
-	$(src_realpath_SOURCES) $(src_rm_SOURCES) $(src_rmdir_SOURCES) \
-	src/runcon.c src/seq.c $(src_sha1sum_SOURCES) \
-	$(src_sha224sum_SOURCES) $(src_sha256sum_SOURCES) \
-	$(src_sha384sum_SOURCES) $(src_sha512sum_SOURCES) src/shred.c \
-	src/shuf.c src/sleep.c src/sort.c src/split.c \
-	$(src_stat_SOURCES) src/stdbuf.c src/stty.c src/sum.c \
-	src/sync.c src/tac.c src/tail.c src/tee.c src/test.c \
-	$(src_timeout_SOURCES) src/touch.c src/tr.c src/true.c \
-	src/truncate.c src/tsort.c src/tty.c $(src_uname_SOURCES) \
-	$(src_unexpand_SOURCES) src/uniq.c src/unlink.c src/uptime.c \
-	src/users.c $(src_vdir_SOURCES) src/wc.c src/who.c \
-	src/whoami.c src/yes.c
-AM_V_DVIPS = $(am__v_DVIPS_@AM_V@)
-am__v_DVIPS_ = $(am__v_DVIPS_@AM_DEFAULT_V@)
-am__v_DVIPS_0 = @echo "  DVIPS   " $@;
-am__v_DVIPS_1 = 
-AM_V_MAKEINFO = $(am__v_MAKEINFO_@AM_V@)
-am__v_MAKEINFO_ = $(am__v_MAKEINFO_@AM_DEFAULT_V@)
-am__v_MAKEINFO_0 = @echo "  MAKEINFO" $@;
-am__v_MAKEINFO_1 = 
-AM_V_INFOHTML = $(am__v_INFOHTML_@AM_V@)
-am__v_INFOHTML_ = $(am__v_INFOHTML_@AM_DEFAULT_V@)
-am__v_INFOHTML_0 = @echo "  INFOHTML" $@;
-am__v_INFOHTML_1 = 
-AM_V_TEXI2DVI = $(am__v_TEXI2DVI_@AM_V@)
-am__v_TEXI2DVI_ = $(am__v_TEXI2DVI_@AM_DEFAULT_V@)
-am__v_TEXI2DVI_0 = @echo "  TEXI2DVI" $@;
-am__v_TEXI2DVI_1 = 
-AM_V_TEXI2PDF = $(am__v_TEXI2PDF_@AM_V@)
-am__v_TEXI2PDF_ = $(am__v_TEXI2PDF_@AM_DEFAULT_V@)
-am__v_TEXI2PDF_0 = @echo "  TEXI2PDF" $@;
-am__v_TEXI2PDF_1 = 
-AM_V_texinfo = $(am__v_texinfo_@AM_V@)
-am__v_texinfo_ = $(am__v_texinfo_@AM_DEFAULT_V@)
-am__v_texinfo_0 = -q
-am__v_texinfo_1 = 
-AM_V_texidevnull = $(am__v_texidevnull_@AM_V@)
-am__v_texidevnull_ = $(am__v_texidevnull_@AM_DEFAULT_V@)
-am__v_texidevnull_0 = > /dev/null
-am__v_texidevnull_1 = 
-INFO_DEPS = $(srcdir)/doc/coreutils.info
-TEXINFO_TEX = $(top_srcdir)/build-aux/texinfo.tex
-am__TEXINFO_TEX_DIR = $(top_srcdir)/build-aux
-DVIS = doc/coreutils.dvi
-PDFS = doc/coreutils.pdf
-PSS = doc/coreutils.ps
-HTMLS = doc/coreutils.html
-TEXINFOS = doc/coreutils.texi
-TEXI2DVI = texi2dvi
-TEXI2PDF = $(TEXI2DVI) --pdf --batch
-MAKEINFOHTML = $(MAKEINFO) --html
-AM_MAKEINFOHTMLFLAGS = $(AM_MAKEINFOFLAGS)
-DVIPS = dvips
+	$(src_mknod_SOURCES) src/mktemp.c $(src_mv_SOURCES) src/nl.c \
+	src/nproc.c $(src_numfmt_SOURCES) src/od.c src/paste.c \
+	src/pathchk.c src/pr.c src/printenv.c src/printf.c src/ptx.c \
+	src/pwd.c src/readlink.c $(src_realpath_SOURCES) \
+	$(src_rm_SOURCES) $(src_rmdir_SOURCES) src/runcon.c src/seq.c \
+	$(src_sha1sum_SOURCES) $(src_sha224sum_SOURCES) \
+	$(src_sha256sum_SOURCES) $(src_sha384sum_SOURCES) \
+	$(src_sha512sum_SOURCES) src/shred.c src/shuf.c src/sleep.c \
+	src/sort.c src/split.c $(src_stat_SOURCES) src/stdbuf.c \
+	src/sum.c src/sync.c src/tac.c src/tail.c src/tee.c src/test.c \
+	src/touch.c src/tr.c src/true.c src/truncate.c src/tsort.c \
+	src/tty.c $(src_uname_SOURCES) $(src_unexpand_SOURCES) \
+	src/uniq.c src/unlink.c src/uptime.c src/users.c \
+	$(src_vdir_SOURCES) src/wc.c src/who.c src/whoami.c src/yes.c
 RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
 	ctags-recursive dvi-recursive html-recursive info-recursive \
 	install-data-recursive install-dvi-recursive \
@@ -2334,36 +2169,6 @@ am__can_run_installinfo = \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
-am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
-am__vpath_adj = case $$p in \
-    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
-    *) f=$$p;; \
-  esac;
-am__strip_dir = f=`echo $$p | sed -e 's|^.*/||'`;
-am__install_max = 40
-am__nobase_strip_setup = \
-  srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*|]/\\\\&/g'`
-am__nobase_strip = \
-  for p in $$list; do echo "$$p"; done | sed -e "s|$$srcdirstrip/||"
-am__nobase_list = $(am__nobase_strip_setup); \
-  for p in $$list; do echo "$$p $$p"; done | \
-  sed "s| $$srcdirstrip/| |;"' / .*\//!s/ .*/ ./; s,\( .*\)/[^/]*$$,\1,' | \
-  $(AWK) 'BEGIN { files["."] = "" } { files[$$2] = files[$$2] " " $$1; \
-    if (++n[$$2] == $(am__install_max)) \
-      { print $$2, files[$$2]; n[$$2] = 0; files[$$2] = "" } } \
-    END { for (dir in files) print dir, files[dir] }'
-am__base_list = \
-  sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
-  sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__uninstall_files_from_dir = { \
-  test -z "$$files" \
-    || { test ! -d "$$dir" && test ! -f "$$dir" && test ! -r "$$dir"; } \
-    || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
-         $(am__cd) "$$dir" && rm -f $$files; }; \
-  }
-man1dir = $(mandir)/man1
-NROFF = nroff
-MANS = $(man1_MANS)
 HEADERS = $(noinst_HEADERS)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
@@ -2372,7 +2177,7 @@ am__recursive_targets = \
   $(RECURSIVE_CLEAN_TARGETS) \
   $(am__extra_recursive_targets)
 AM_RECURSIVE_TARGETS = $(am__recursive_targets:-recursive=) TAGS CTAGS \
-	cscope check recheck distdir dist dist-all distcheck
+	cscope distdir dist dist-all distcheck
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 # Read a list of newline-separated strings from the standard input,
 # and print each of them once, without duplicates.  Input order is
@@ -2393,202 +2198,19 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 CSCOPE = cscope
-am__tty_colors_dummy = \
-  mgn= red= grn= lgn= blu= brg= std=; \
-  am__color_tests=no
-am__tty_colors = { \
-  $(am__tty_colors_dummy); \
-  if test "X$(AM_COLOR_TESTS)" = Xno; then \
-    am__color_tests=no; \
-  elif test "X$(AM_COLOR_TESTS)" = Xalways; then \
-    am__color_tests=yes; \
-  elif test "X$$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then \
-    am__color_tests=yes; \
-  fi; \
-  if test $$am__color_tests = yes; then \
-    red='[0;31m'; \
-    grn='[0;32m'; \
-    lgn='[1;32m'; \
-    blu='[1;34m'; \
-    mgn='[0;35m'; \
-    brg='[1m'; \
-    std='[m'; \
-  fi; \
-}
-am__recheck_rx = ^[ 	]*:recheck:[ 	]*
-am__global_test_result_rx = ^[ 	]*:global-test-result:[ 	]*
-am__copy_in_global_log_rx = ^[ 	]*:copy-in-global-log:[ 	]*
-# A command that, given a newline-separated list of test names on the
-# standard input, print the name of the tests that are to be re-run
-# upon "make recheck".
-am__list_recheck_tests = $(AWK) '{ \
-  recheck = 1; \
-  while ((rc = (getline line < ($$0 ".trs"))) != 0) \
-    { \
-      if (rc < 0) \
-        { \
-          if ((getline line2 < ($$0 ".log")) < 0) \
-	    recheck = 0; \
-          break; \
-        } \
-      else if (line ~ /$(am__recheck_rx)[nN][Oo]/) \
-        { \
-          recheck = 0; \
-          break; \
-        } \
-      else if (line ~ /$(am__recheck_rx)[yY][eE][sS]/) \
-        { \
-          break; \
-        } \
-    }; \
-  if (recheck) \
-    print $$0; \
-  close ($$0 ".trs"); \
-  close ($$0 ".log"); \
-}'
-# A command that, given a newline-separated list of test names on the
-# standard input, create the global log from their .trs and .log files.
-am__create_global_log = $(AWK) ' \
-function fatal(msg) \
-{ \
-  print "fatal: making $@: " msg | "cat >&2"; \
-  exit 1; \
-} \
-function rst_section(header) \
-{ \
-  print header; \
-  len = length(header); \
-  for (i = 1; i <= len; i = i + 1) \
-    printf "="; \
-  printf "\n\n"; \
-} \
-{ \
-  copy_in_global_log = 1; \
-  global_test_result = "RUN"; \
-  while ((rc = (getline line < ($$0 ".trs"))) != 0) \
-    { \
-      if (rc < 0) \
-         fatal("failed to read from " $$0 ".trs"); \
-      if (line ~ /$(am__global_test_result_rx)/) \
-        { \
-          sub("$(am__global_test_result_rx)", "", line); \
-          sub("[ 	]*$$", "", line); \
-          global_test_result = line; \
-        } \
-      else if (line ~ /$(am__copy_in_global_log_rx)[nN][oO]/) \
-        copy_in_global_log = 0; \
-    }; \
-  if (copy_in_global_log) \
-    { \
-      rst_section(global_test_result ": " $$0); \
-      while ((rc = (getline line < ($$0 ".log"))) != 0) \
-      { \
-        if (rc < 0) \
-          fatal("failed to read from " $$0 ".log"); \
-        print line; \
-      }; \
-      printf "\n"; \
-    }; \
-  close ($$0 ".trs"); \
-  close ($$0 ".log"); \
-}'
-# Restructured Text title.
-am__rst_title = { sed 's/.*/   &   /;h;s/./=/g;p;x;s/ *$$//;p;g' && echo; }
-# Solaris 10 'make', and several other traditional 'make' implementations,
-# pass "-e" to $(SHELL), and POSIX 2008 even requires this.  Work around it
-# by disabling -e (using the XSI extension "set +e") if it's set.
-am__sh_e_setup = case $$- in *e*) set +e;; esac
-# Default flags passed to test drivers.
-am__common_driver_flags = \
-  --color-tests "$$am__color_tests" \
-  --enable-hard-errors "$$am__enable_hard_errors" \
-  --expect-failure "$$am__expect_failure"
-# To be inserted before the command running the test.  Creates the
-# directory for the log if needed.  Stores in $dir the directory
-# containing $f, in $tst the test, in $log the log.  Executes the
-# developer- defined test setup AM_TESTS_ENVIRONMENT (if any), and
-# passes TESTS_ENVIRONMENT.  Set up options for the wrapper that
-# will run the test scripts (or their associated LOG_COMPILER, if
-# thy have one).
-am__check_pre = \
-$(am__sh_e_setup);					\
-$(am__vpath_adj_setup) $(am__vpath_adj)			\
-$(am__tty_colors);					\
-srcdir=$(srcdir); export srcdir;			\
-case "$@" in						\
-  */*) am__odir=`echo "./$@" | sed 's|/[^/]*$$||'`;;	\
-    *) am__odir=.;; 					\
-esac;							\
-test "x$$am__odir" = x"." || test -d "$$am__odir" 	\
-  || $(MKDIR_P) "$$am__odir" || exit $$?;		\
-if test -f "./$$f"; then dir=./;			\
-elif test -f "$$f"; then dir=;				\
-else dir="$(srcdir)/"; fi;				\
-tst=$$dir$$f; log='$@'; 				\
-if test -n '$(DISABLE_HARD_ERRORS)'; then		\
-  am__enable_hard_errors=no; 				\
-else							\
-  am__enable_hard_errors=yes; 				\
-fi; 							\
-case " $(XFAIL_TESTS) " in				\
-  *[\ \	]$$f[\ \	]* | *[\ \	]$$dir$$f[\ \	]*) \
-    am__expect_failure=yes;;				\
-  *)							\
-    am__expect_failure=no;;				\
-esac; 							\
-$(AM_TESTS_ENVIRONMENT) $(TESTS_ENVIRONMENT)
-# A shell command to get the names of the tests scripts with any registered
-# extension removed (i.e., equivalently, the names of the test logs, with
-# the '.log' extension removed).  The result is saved in the shell variable
-# '$bases'.  This honors runtime overriding of TESTS and TEST_LOGS.  Sadly,
-# we cannot use something simpler, involving e.g., "$(TEST_LOGS:.log=)",
-# since that might cause problem with VPATH rewrites for suffix-less tests.
-# See also 'test-harness-vpath-rewrite.sh' and 'test-trs-basic.sh'.
-am__set_TESTS_bases = \
-  bases='$(TEST_LOGS)'; \
-  bases=`for i in $$bases; do echo $$i; done | sed 's/\.log$$//'`; \
-  bases=`echo $$bases`
-RECHECK_LOGS = $(TEST_LOGS)
-am__test_logs1 = $(TESTS:=.log)
-am__test_logs2 = $(am__test_logs1:@EXEEXT@.log=.log)
-am__test_logs3 = $(am__test_logs2:.sh.log=.log)
-SH_LOG_DRIVER = $(SHELL) $(top_srcdir)/build-aux/test-driver
-SH_LOG_COMPILE = $(SH_LOG_COMPILER) $(AM_SH_LOG_FLAGS) $(SH_LOG_FLAGS)
-am__set_b = \
-  case '$@' in \
-    */*) \
-      case '$*' in \
-        */*) b='$*';; \
-          *) b=`echo '$@' | sed 's/\.log$$//'`; \
-       esac;; \
-    *) \
-      b='$*';; \
-  esac
-am__test_logs4 = $(am__test_logs3:.pl.log=.log)
-PL_LOG_DRIVER = $(SHELL) $(top_srcdir)/build-aux/test-driver
-PL_LOG_COMPILE = $(PL_LOG_COMPILER) $(AM_PL_LOG_FLAGS) $(PL_LOG_FLAGS)
-TEST_LOGS = $(am__test_logs4:.xpl.log=.log)
-XPL_LOG_DRIVER = $(SHELL) $(top_srcdir)/build-aux/test-driver
-XPL_LOG_COMPILE = $(XPL_LOG_COMPILER) $(AM_XPL_LOG_FLAGS) \
-	$(XPL_LOG_FLAGS)
 DIST_SUBDIRS = $(SUBDIRS)
-am__DIST_COMMON = $(doc_coreutils_TEXINFOS) $(srcdir)/Makefile.in \
-	$(srcdir)/lib/gnulib.mk $(srcdir)/src/cu-progs.mk \
-	$(top_srcdir)/build-aux/ar-lib $(top_srcdir)/build-aux/compile \
+am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/lib/gnulib.mk \
+	$(srcdir)/src/cu-progs.mk $(top_srcdir)/build-aux/ar-lib \
+	$(top_srcdir)/build-aux/compile \
 	$(top_srcdir)/build-aux/config.guess \
 	$(top_srcdir)/build-aux/config.rpath \
 	$(top_srcdir)/build-aux/config.sub \
 	$(top_srcdir)/build-aux/depcomp \
 	$(top_srcdir)/build-aux/install-sh \
-	$(top_srcdir)/build-aux/mdate-sh \
-	$(top_srcdir)/build-aux/missing \
-	$(top_srcdir)/build-aux/test-driver \
-	$(top_srcdir)/build-aux/texinfo.tex \
-	$(top_srcdir)/build-aux/ylwrap $(top_srcdir)/doc/local.mk \
+	$(top_srcdir)/build-aux/missing $(top_srcdir)/build-aux/ylwrap \
 	$(top_srcdir)/lib/alloca.c $(top_srcdir)/lib/config.hin \
-	$(top_srcdir)/lib/local.mk $(top_srcdir)/man/local.mk \
-	$(top_srcdir)/src/local.mk $(top_srcdir)/src/single-binary.mk \
-	$(top_srcdir)/tests/local.mk ABOUT-NLS AUTHORS COPYING \
+	$(top_srcdir)/lib/local.mk $(top_srcdir)/src/local.mk \
+	$(top_srcdir)/src/single-binary.mk ABOUT-NLS AUTHORS COPYING \
 	ChangeLog INSTALL NEWS README THANKS TODO build-aux/ar-lib \
 	build-aux/compile build-aux/config.guess \
 	build-aux/config.rpath build-aux/config.sub build-aux/depcomp \
@@ -2687,7 +2309,6 @@ EOVERFLOW_HIDDEN = @EOVERFLOW_HIDDEN@
 EOVERFLOW_VALUE = @EOVERFLOW_VALUE@
 ERRNO_H = @ERRNO_H@
 EXEEXT = @EXEEXT@
-EXTRA_MANS = @EXTRA_MANS@
 FLOAT_H = @FLOAT_H@
 FNMATCH_H = @FNMATCH_H@
 GETADDRINFO_LIB = @GETADDRINFO_LIB@
@@ -3932,7 +3553,6 @@ libexecdir = @libexecdir@
 lispdir = @lispdir@
 localedir = @localedir@
 localstatedir = @localstatedir@
-man1_MANS = @man1_MANS@
 mandir = @mandir@
 mkdir_p = @mkdir_p@
 oldincludedir = @oldincludedir@
@@ -3954,7 +3574,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-ALL_RECURSIVE_TARGETS = distcheck-hook check-root
+ALL_RECURSIVE_TARGETS = distcheck-hook
 SUBDIRS = po . gnulib-tests
 changelog_etc = \
   build-aux/ChangeLog-2007		\
@@ -4124,20 +3744,13 @@ EXTRA_DIST = $(changelog_etc) .mailmap .prev-version .version \
 	lib/xdectoint.h lib/xgetcwd.h lib/xnanosleep.h lib/xreadlink.h \
 	lib/xstrtod.h lib/xstrtol.h lib/xstrtod.c lib/xstrtod.h \
 	lib/xalloc.h lib/yesno.h src/dcgen src/dircolors.hin \
-	src/primes.h src/tac-pipe.c src/extract-magic man/help2man \
-	man/dummy-man $(man1_MANS:.1=.x) $(EXTRA_MANS:.1=.x) \
-	$(all_tests) init.cfg tests/Coreutils.pm tests/CuSkip.pm \
-	tests/CuTmpdir.pm tests/d_type-check tests/envvar-check \
-	tests/factor/run.sh tests/factor/create-test.sh \
-	tests/filefrag-extent-compare tests/fiemap-capable \
-	tests/init.sh tests/lang-default tests/no-perl \
-	tests/other-fs-tmpdir tests/sample-test $(pr_data)
+	src/primes.h src/tac-pipe.c src/extract-magic
 gen_progs_lists = $(top_srcdir)/build-aux/gen-lists-of-programs.sh
 gen_single_binary = $(top_srcdir)/build-aux/gen-single-binary.sh
 ACLOCAL_AMFLAGS = -I m4
 
 # Just prior to distribution, ...
-# transform the automake-generated rule that runs 'rm -f rm > /dev/null 2>&1 || /bin/rm -f rm'.
+# transform the automake-generated rule that runs 'rm -f rm'.
 # On some systems, that command would fail with a diagnostic like
 # "rm: cannot unlink 'rm': Text file busy" when '.' appears so early
 # in the shell's search path that running 'rm' would run the 'rm'
@@ -4198,7 +3811,7 @@ DISTCLEANFILES = VERSION src/fs-latest-magic.h src/coreutils.h \
 MAINTAINERCLEANFILES = THANKS-to-translators lib/iconv_open-aix.h \
 	lib/iconv_open-hpux.h lib/iconv_open-irix.h \
 	lib/iconv_open-osf.h lib/iconv_open-solaris.h \
-	lib/parse-datetime.c $(BUILT_SOURCES) doc/constants.texi
+	lib/parse-datetime.c $(BUILT_SOURCES)
 
 # Sort in traditional ASCII order, regardless of the current locale;
 # otherwise we may get into trouble with distinct strings that the
@@ -4250,7 +3863,7 @@ CLEANFILES = lib/configmake.h lib/configmake.h-t lib/charset.alias \
 	lib/ref-add.sed lib/ref-del.sed $(SCRIPTS) \
 	$(no_install__progs) src/coreutils_symlinks \
 	src/coreutils_shebangs src/fs-def src/fs-magic \
-	src/fs-kernel-magic $(ALL_MANS) $(factor_tests)
+	src/fs-kernel-magic
 MOSTLYCLEANDIRS = lib/arpa lib/netinet lib/selinux lib/sys lib/sys \
 	lib/sys lib/sys lib/sys lib/sys lib/sys lib/sys
 AM_CPPFLAGS = -Ilib -I$(top_srcdir)/lib -Isrc -I$(top_srcdir)/src
@@ -4424,9 +4037,8 @@ WARN_ON_USE_H = lib/warn-on-use.h
 # FIXME: once lib/ and gnulib-tests/ are also converted, hoist to Makefile.am
 AM_CFLAGS = $(WERROR_CFLAGS)
 no_install__progs = src/arch src/coreutils src/hostname
-build_if_possible__progs = src/chroot src/df src/hostid \
-	src/libstdbuf.so src/nice src/pinky src/stdbuf src/stty \
-	src/timeout src/uptime src/users src/who
+build_if_possible__progs = src/df src/hostid src/libstdbuf.so \
+	src/stdbuf src/uptime src/users src/who
 default__progs = src/[ src/b2sum src/base64 src/base32 src/basename \
 	src/cat src/chcon src/chgrp src/chmod src/chown src/cksum \
 	src/comm src/cp src/csplit src/cut src/date src/dd src/dir \
@@ -4434,10 +4046,10 @@ default__progs = src/[ src/b2sum src/base64 src/base32 src/basename \
 	src/expr src/factor src/false src/fmt src/fold src/ginstall \
 	src/groups src/head src/id src/join src/kill src/link src/ln \
 	src/logname src/ls src/md5sum src/mkdir src/mkfifo src/mknod \
-	src/mktemp src/mv src/nl src/nproc src/nohup src/numfmt src/od \
-	src/paste src/pathchk src/pr src/printenv src/printf src/ptx \
-	src/pwd src/readlink src/realpath src/rm src/rmdir src/runcon \
-	src/seq src/sha1sum src/sha224sum src/sha256sum src/sha384sum \
+	src/mktemp src/mv src/nl src/nproc src/numfmt src/od src/paste \
+	src/pathchk src/pr src/printenv src/printf src/ptx src/pwd \
+	src/readlink src/realpath src/rm src/rmdir src/runcon src/seq \
+	src/sha1sum src/sha224sum src/sha256sum src/sha384sum \
 	src/sha512sum src/shred src/shuf src/sleep src/sort src/split \
 	src/stat src/sum src/sync src/tac src/tail src/tee src/test \
 	src/touch src/tr src/true src/truncate src/tsort src/tty \
@@ -4503,7 +4115,6 @@ src_chcon_LDADD = $(LDADD) $(LIB_SELINUX)
 src_chgrp_LDADD = $(LDADD)
 src_chmod_LDADD = $(LDADD)
 src_chown_LDADD = $(LDADD)
-src_chroot_LDADD = $(LDADD)
 src_cksum_LDADD = $(LDADD)
 src_comm_LDADD = $(LDADD)
 src_nproc_LDADD = $(LDADD)
@@ -4570,16 +4181,11 @@ src_mkfifo_LDADD = $(LDADD) $(LIB_SELINUX) $(LIB_SMACK)
 src_mknod_LDADD = $(LDADD) $(LIB_SELINUX) $(LIB_SMACK)
 src_mktemp_LDADD = $(LDADD)
 src_mv_LDADD = $(LDADD) $(copy_ldadd) $(remove_ldadd)
-src_nice_LDADD = $(LDADD)
 src_nl_LDADD = $(LDADD)
-src_nohup_LDADD = $(LDADD)
 src_numfmt_LDADD = $(LDADD)
 src_od_LDADD = $(LDADD)
 src_paste_LDADD = $(LDADD)
 src_pathchk_LDADD = $(LDADD)
-
-# for canon_host
-src_pinky_LDADD = $(LDADD) $(GETADDRINFO_LIB)
 src_pr_LDADD = $(LDADD) $(LIB_CLOCK_GETTIME)
 src_printenv_LDADD = $(LDADD)
 src_printf_LDADD = $(LDADD) $(LIBICONV)
@@ -4610,14 +4216,12 @@ src_split_LDADD = $(LDADD)
 # for nvlist_lookup_uint64_array
 src_stat_LDADD = $(LDADD) $(LIB_SELINUX) $(LIB_NVPAIR)
 src_stdbuf_LDADD = $(LDADD)
-src_stty_LDADD = $(LDADD)
 src_sum_LDADD = $(LDADD)
 src_sync_LDADD = $(LDADD) $(LIB_FDATASYNC)
 src_tac_LDADD = $(LDADD)
 src_tail_LDADD = $(LDADD) $(LIB_NANOSLEEP)
 src_tee_LDADD = $(LDADD)
 src_test_LDADD = $(LDADD) $(LIB_EACCESS)
-src_timeout_LDADD = $(LDADD) $(LIB_TIMER_TIME)
 src_touch_LDADD = $(LDADD) $(LIB_CLOCK_GETTIME)
 src_tr_LDADD = $(LDADD)
 src_true_LDADD = $(LDADD)
@@ -4634,6 +4238,8 @@ src_uptime_LDADD = $(LDADD) $(GETLOADAVG_LIBS)
 src_users_LDADD = $(LDADD)
 # See vdir_LDADD below
 src_wc_LDADD = $(LDADD)
+
+# for canon_host
 src_who_LDADD = $(LDADD) $(GETADDRINFO_LIB)
 src_whoami_LDADD = $(LDADD)
 src_yes_LDADD = $(LDADD)
@@ -4682,7 +4288,6 @@ src_chown_SOURCES = src/chown.c src/chown-core.c
 src_chgrp_SOURCES = src/chgrp.c src/chown-core.c
 src_kill_SOURCES = src/kill.c src/operand2sig.c
 src_realpath_SOURCES = src/realpath.c src/relpath.c src/relpath.h
-src_timeout_SOURCES = src/timeout.c src/operand2sig.c
 src_mv_SOURCES = src/mv.c src/remove.c $(copy_sources) $(selinux_sources)
 src_rm_SOURCES = src/rm.c src/remove.c
 src_mkdir_SOURCES = src/mkdir.c src/prog-fprintf.c $(selinux_sources)
@@ -4742,24 +4347,12 @@ src_libstdbuf_so_CFLAGS = -fPIC $(AM_CFLAGS)
 @SINGLE_BINARY_TRUE@src_libsinglebin_hostname_a_SOURCES = src/hostname.c
 @SINGLE_BINARY_TRUE@src_libsinglebin_hostname_a_ldadd = $(GETHOSTNAME_LIB)
 @SINGLE_BINARY_TRUE@src_libsinglebin_hostname_a_CFLAGS = "-Dmain=single_binary_main_hostname (int, char **);  int single_binary_main_hostname"  -Dusage=_usage_hostname $(src_coreutils_CFLAGS)
-@SINGLE_BINARY_TRUE@src_libsinglebin_chroot_a_SOURCES = src/chroot.c
-@SINGLE_BINARY_TRUE@src_libsinglebin_chroot_a_CFLAGS = "-Dmain=single_binary_main_chroot (int, char **);  int single_binary_main_chroot"  -Dusage=_usage_chroot $(src_coreutils_CFLAGS)
 @SINGLE_BINARY_TRUE@src_libsinglebin_df_a_SOURCES = src/df.c src/find-mount-point.c
 @SINGLE_BINARY_TRUE@src_libsinglebin_df_a_CFLAGS = "-Dmain=single_binary_main_df (int, char **);  int single_binary_main_df"  -Dusage=_usage_df $(src_coreutils_CFLAGS)
 @SINGLE_BINARY_TRUE@src_libsinglebin_hostid_a_SOURCES = src/hostid.c
 @SINGLE_BINARY_TRUE@src_libsinglebin_hostid_a_CFLAGS = "-Dmain=single_binary_main_hostid (int, char **);  int single_binary_main_hostid"  -Dusage=_usage_hostid $(src_coreutils_CFLAGS)
-@SINGLE_BINARY_TRUE@src_libsinglebin_nice_a_SOURCES = src/nice.c
-@SINGLE_BINARY_TRUE@src_libsinglebin_nice_a_CFLAGS = "-Dmain=single_binary_main_nice (int, char **);  int single_binary_main_nice"  -Dusage=_usage_nice $(src_coreutils_CFLAGS)
-@SINGLE_BINARY_TRUE@src_libsinglebin_pinky_a_SOURCES = src/pinky.c
-@SINGLE_BINARY_TRUE@src_libsinglebin_pinky_a_ldadd = $(GETADDRINFO_LIB)
-@SINGLE_BINARY_TRUE@src_libsinglebin_pinky_a_CFLAGS = "-Dmain=single_binary_main_pinky (int, char **);  int single_binary_main_pinky"  -Dusage=_usage_pinky $(src_coreutils_CFLAGS)
 @SINGLE_BINARY_TRUE@src_libsinglebin_stdbuf_a_SOURCES = src/stdbuf.c
 @SINGLE_BINARY_TRUE@src_libsinglebin_stdbuf_a_CFLAGS = "-Dmain=single_binary_main_stdbuf (int, char **);  int single_binary_main_stdbuf"  -Dusage=_usage_stdbuf $(src_coreutils_CFLAGS)
-@SINGLE_BINARY_TRUE@src_libsinglebin_stty_a_SOURCES = src/stty.c
-@SINGLE_BINARY_TRUE@src_libsinglebin_stty_a_CFLAGS = "-Dmain=single_binary_main_stty (int, char **);  int single_binary_main_stty"  -Dusage=_usage_stty $(src_coreutils_CFLAGS)
-@SINGLE_BINARY_TRUE@src_libsinglebin_timeout_a_SOURCES = src/timeout.c src/operand2sig.c
-@SINGLE_BINARY_TRUE@src_libsinglebin_timeout_a_ldadd = $(LIB_TIMER_TIME)
-@SINGLE_BINARY_TRUE@src_libsinglebin_timeout_a_CFLAGS = "-Dmain=single_binary_main_timeout (int, char **);  int single_binary_main_timeout"  -Dusage=_usage_timeout $(src_coreutils_CFLAGS)
 @SINGLE_BINARY_TRUE@src_libsinglebin_uptime_a_SOURCES = src/uptime.c
 @SINGLE_BINARY_TRUE@src_libsinglebin_uptime_a_ldadd = $(GETLOADAVG_LIBS)
 @SINGLE_BINARY_TRUE@src_libsinglebin_uptime_a_CFLAGS = "-Dmain=single_binary_main_uptime (int, char **);  int single_binary_main_uptime"  -Dusage=_usage_uptime $(src_coreutils_CFLAGS)
@@ -4884,8 +4477,6 @@ src_libstdbuf_so_CFLAGS = -fPIC $(AM_CFLAGS)
 @SINGLE_BINARY_TRUE@src_libsinglebin_nl_a_CFLAGS = "-Dmain=single_binary_main_nl (int, char **);  int single_binary_main_nl"  -Dusage=_usage_nl $(src_coreutils_CFLAGS)
 @SINGLE_BINARY_TRUE@src_libsinglebin_nproc_a_SOURCES = src/nproc.c
 @SINGLE_BINARY_TRUE@src_libsinglebin_nproc_a_CFLAGS = "-Dmain=single_binary_main_nproc (int, char **);  int single_binary_main_nproc"  -Dusage=_usage_nproc $(src_coreutils_CFLAGS)
-@SINGLE_BINARY_TRUE@src_libsinglebin_nohup_a_SOURCES = src/nohup.c
-@SINGLE_BINARY_TRUE@src_libsinglebin_nohup_a_CFLAGS = "-Dmain=single_binary_main_nohup (int, char **);  int single_binary_main_nohup"  -Dusage=_usage_nohup $(src_coreutils_CFLAGS)
 @SINGLE_BINARY_TRUE@src_libsinglebin_numfmt_a_SOURCES = src/numfmt.c src/set-fields.c
 @SINGLE_BINARY_TRUE@src_libsinglebin_numfmt_a_CFLAGS = "-Dmain=single_binary_main_numfmt (int, char **);  int single_binary_main_numfmt"  -Dusage=_usage_numfmt $(src_coreutils_CFLAGS)
 @SINGLE_BINARY_TRUE@src_libsinglebin_od_a_SOURCES = src/od.c
@@ -5046,886 +4637,14 @@ pr = progs-readme
 
 # Use the just-built 'ginstall', when not cross-compiling.
 @CROSS_COMPILING_TRUE@cu_install_program = @INSTALL@
-info_TEXINFOS = doc/coreutils.texi
-doc_coreutils_TEXINFOS = \
-  doc/perm.texi \
-  doc/parse-datetime.texi \
-  doc/constants.texi \
-  doc/fdl.texi
-
-
-# The following is necessary if the package name is 8 characters or longer.
-# If the info documentation would be split into 10 or more separate files,
-# then this is necessary even if the package name is 7 characters long.
-#
-# Tell makeinfo to put everything in a single info file: <package>.info.
-# Otherwise, it would also generate files with names like <package>.info-[123],
-# and those names all map to one 14-byte name (<package>.info-) on some crufty
-# old systems.
-AM_MAKEINFOFLAGS = --no-split
-
-# Extended regular expressions to match word starts and ends.
-_W = (^|[^A-Za-z0-9_])
-W_ = ([^A-Za-z0-9_]|$$)
-syntax_checks = \
-  sc-avoid-builtin	\
-  sc-avoid-io		\
-  sc-avoid-non-zero	\
-  sc-avoid-path		\
-  sc-avoid-timezone	\
-  sc-avoid-zeroes	\
-  sc-exponent-grouping	\
-  sc-lower-case-var
-
-texi_files = $(srcdir)/doc/*.texi
-
-# The quantity inside @var{...} should not contain upper case letters.
-# The leading backslash exemption is to permit in-macro uses like
-# @var{\varName\} where the upper case letter is part of a parameter name.
-find_upper_case_var = \
-  '/\@var\{/ or next;		\
-   while (/\@var\{(.+?)}/g)	\
-     {				\
-       $$v = $$1;		\
-       $$v =~ /[A-Z]/ && $$v !~ /^\\/ and (print "$$ARGV:$$.:$$_"), $$m = 1 \
-     }				\
-   END {$$m and (warn "$@: do not use upper case in \@var{...}\n"), exit 1}'
-
-@HAVE_PERL_FALSE@run_help2man = $(SHELL) $(srcdir)/man/dummy-man
-@HAVE_PERL_TRUE@run_help2man = $(PERL) -- $(srcdir)/man/help2man
-ALL_MANS = $(man1_MANS) $(EXTRA_MANS)
-
-# Dependencies common to all man pages.  Updated below.
-
-# Depend on this to get version number changes.
-
-# This is required so that changes to e.g., emit_bug_reporting_address
-# provoke regeneration of all the manpages.
-mandeps = .version $(top_srcdir)/src/system.h $(am__append_5)
-
-# Indirections required so that we'll still be able to know the
-# complete list of our tests even if the user overrides TESTS
-# from the command line (as permitted by the test harness API).
-TESTS = $(all_tests) $(factor_tests)
-root_tests = $(all_root_tests)
-TEST_EXTENSIONS = .sh .pl .xpl
-@HAVE_PERL_FALSE@TESTSUITE_PERL = $(SHELL) $(srcdir)/no-perl
-@HAVE_PERL_TRUE@TESTSUITE_PERL = $(PERL)
-
-# Options passed to the perl invocations running the perl test scripts.
-# '$f' is set by the Automake-generated test harness to the path of the
-# current test script stripped of VPATH components, and is used by the
-# CuTmpdir module to determine the name of the temporary files to be
-# used.  Note that $f is a shell variable, not a make macro, so the use
-# of '$$f' below is correct, and not a typo.
-TESTSUITE_PERL_OPTIONS = -w -I$(srcdir)/tests -MCuSkip -MCoreutils \
-	-M"CuTmpdir qw($$f)"
-SH_LOG_COMPILER = $(SHELL)
-PL_LOG_COMPILER = $(TESTSUITE_PERL) $(TESTSUITE_PERL_OPTIONS)
-# Perl scripts that must be run in tainted mode.
-XPL_LOG_COMPILER = $(TESTSUITE_PERL) -T $(TESTSUITE_PERL_OPTIONS)
-
-# We don't want this to go in the top-level directory.
-TEST_SUITE_LOG = tests/test-suite.log
-
-# Note that the first lines are statements.  They ensure that environment
-# variables that can perturb tests are unset or set to expected values.
-# The rest are envvar settings that propagate build-related Makefile
-# variables to test scripts.
-TESTS_ENVIRONMENT = \
-  . $(srcdir)/tests/lang-default;		\
-  tmp__=$${TMPDIR-/tmp};			\
-  test -d "$$tmp__" && test -w "$$tmp__" || tmp__=.;	\
-  . $(srcdir)/tests/envvar-check;		\
-  TMPDIR=$$tmp__; export TMPDIR;		\
-  export					\
-  VERSION='$(VERSION)'				\
-  LOCALE_FR='$(LOCALE_FR)'			\
-  LOCALE_FR_UTF8='$(LOCALE_FR_UTF8)'		\
-  abs_top_builddir='$(abs_top_builddir)'	\
-  abs_top_srcdir='$(abs_top_srcdir)'		\
-  abs_srcdir='$(abs_srcdir)'			\
-  built_programs='$(built_programs) $(single_binary_progs)' \
-  host_os=$(host_os)				\
-  host_triplet='$(host_triplet)'		\
-  srcdir='$(srcdir)'				\
-  top_srcdir='$(top_srcdir)'			\
-  CONFIG_HEADER='$(abs_top_builddir)/$(CONFIG_INCLUDE)' \
-  CU_TEST_NAME=`basename '$(abs_srcdir)'`,`echo $$tst|sed 's,^\./,,;s,/,-,g'` \
-  CC='$(CC)'					\
-  AWK='$(AWK)'					\
-  EGREP='$(EGREP)'				\
-  EXEEXT='$(EXEEXT)'				\
-  MAKE=$(MAKE)					\
-  PACKAGE_VERSION=$(PACKAGE_VERSION)		\
-  PERL='$(PERL)'				\
-  SHELL='$(PREFERABLY_POSIX_SHELL)'		\
-  ; test -d /usr/xpg4/bin && PATH='/usr/xpg4/bin$(PATH_SEPARATOR)'"$$PATH"; \
-  PATH='$(abs_top_builddir)/src$(PATH_SEPARATOR)'"$$PATH" \
-  ; 9>&2
-
-
-# On failure, display the global testsuite log on stdout.
-VERBOSE = yes
-all_root_tests = \
-  tests/chown/basic.sh				\
-  tests/cp/cp-a-selinux.sh			\
-  tests/cp/preserve-gid.sh			\
-  tests/cp/special-bits.sh			\
-  tests/cp/cp-mv-enotsup-xattr.sh		\
-  tests/cp/capability.sh			\
-  tests/cp/sparse-fiemap.sh			\
-  tests/dd/skip-seek-past-dev.sh		\
-  tests/df/problematic-chars.sh			\
-  tests/df/over-mount-device.sh			\
-  tests/du/bind-mount-dir-cycle.sh		\
-  tests/du/bind-mount-dir-cycle-v2.sh		\
-  tests/id/setgid.sh				\
-  tests/install/install-C-root.sh		\
-  tests/ls/capability.sh			\
-  tests/ls/nameless-uid.sh			\
-  tests/misc/chcon.sh				\
-  tests/misc/chroot-credentials.sh		\
-  tests/misc/selinux.sh				\
-  tests/misc/truncate-owned-by-other.sh		\
-  tests/mkdir/writable-under-readonly.sh	\
-  tests/mkdir/smack-root.sh			\
-  tests/mv/hardlink-case.sh			\
-  tests/mv/sticky-to-xpart.sh			\
-  tests/rm/fail-2eperm.sh			\
-  tests/rm/no-give-up.sh			\
-  tests/rm/one-file-system.sh			\
-  tests/rm/read-only.sh				\
-  tests/tail-2/append-only.sh			\
-  tests/touch/now-owned-by-other.sh
-
-
-# Do not choose a name that is a shell keyword like 'if', or a
-# commonly-used utility like 'cat' or 'test', as the name of a test.
-# Otherwise, VPATH builds will fail on hosts like Solaris, since they
-# will expand 'if test ...' to 'if .../test ...', and the '.../test'
-# will execute the test script rather than the standard utility.
-
-# Notes on the ordering of these tests:
-# Place early in the list tests of the tools that
-# are most commonly used in test scripts themselves.
-# E.g., nearly every test script uses rm and chmod.
-# help-version comes early because it's a basic sanity test.
-# Put seq early, since lots of other tests use it.
-# Put tests that sleep early, but not all together, so in parallel builds
-# they share time with tests that burn CPU, not with others that sleep.
-# Put head-elide-tail early, because it's long-running.
-all_tests = \
-  tests/misc/help-version.sh			\
-  tests/tail-2/inotify-race.sh			\
-  tests/tail-2/inotify-race2.sh			\
-  tests/misc/invalid-opt.pl			\
-  tests/rm/ext3-perf.sh				\
-  tests/rm/cycle.sh				\
-  tests/cp/link-heap.sh				\
-  tests/cp/no-ctx.sh				\
-  tests/misc/tty-eof.pl				\
-  tests/tail-2/inotify-hash-abuse.sh		\
-  tests/tail-2/inotify-hash-abuse2.sh		\
-  tests/tail-2/F-vs-missing.sh			\
-  tests/tail-2/F-vs-rename.sh			\
-  tests/tail-2/F-headers.sh			\
-  tests/tail-2/descriptor-vs-rename.sh		\
-  tests/tail-2/inotify-rotate.sh		\
-  tests/tail-2/inotify-rotate-resources.sh	\
-  tests/chmod/no-x.sh				\
-  tests/chgrp/basic.sh				\
-  tests/rm/dangling-symlink.sh			\
-  tests/misc/ls-time.sh				\
-  tests/rm/d-1.sh				\
-  tests/rm/d-2.sh				\
-  tests/rm/d-3.sh				\
-  tests/rm/deep-1.sh				\
-  tests/rm/deep-2.sh				\
-  tests/rm/dir-no-w.sh				\
-  tests/rm/dir-nonrecur.sh			\
-  tests/rm/dot-rel.sh				\
-  tests/rm/isatty.sh				\
-  tests/rm/empty-inacc.sh			\
-  tests/rm/empty-name.pl			\
-  tests/rm/f-1.sh				\
-  tests/rm/fail-eacces.sh			\
-  tests/rm/fail-eperm.xpl			\
-  tests/tail-2/assert.sh			\
-  tests/rm/hash.sh				\
-  tests/rm/i-1.sh				\
-  tests/rm/i-never.sh				\
-  tests/rm/i-no-r.sh				\
-  tests/rm/ignorable.sh				\
-  tests/rm/inaccessible.sh			\
-  tests/rm/interactive-always.sh		\
-  tests/rm/interactive-once.sh			\
-  tests/rm/ir-1.sh				\
-  tests/rm/one-file-system2.sh			\
-  tests/rm/r-1.sh				\
-  tests/rm/r-2.sh				\
-  tests/rm/r-3.sh				\
-  tests/rm/r-4.sh				\
-  tests/rm/r-root.sh				\
-  tests/rm/readdir-bug.sh			\
-  tests/rm/rm1.sh				\
-  tests/touch/empty-file.sh			\
-  tests/rm/rm2.sh				\
-  tests/rm/rm3.sh				\
-  tests/rm/rm4.sh				\
-  tests/rm/rm5.sh				\
-  tests/rm/sunos-1.sh				\
-  tests/rm/unread2.sh				\
-  tests/rm/unread3.sh				\
-  tests/rm/unreadable.pl			\
-  tests/rm/v-slash.sh				\
-  tests/rm/many-dir-entries-vs-OOM.sh		\
-  tests/rm/rm-readdir-fail.sh			\
-  tests/chgrp/default-no-deref.sh		\
-  tests/chgrp/deref.sh				\
-  tests/chgrp/no-x.sh				\
-  tests/chgrp/posix-H.sh			\
-  tests/chgrp/recurse.sh			\
-  tests/fmt/base.pl				\
-  tests/fmt/long-line.sh			\
-  tests/fmt/goal-option.sh			\
-  tests/misc/env.sh				\
-  tests/misc/ptx.pl				\
-  tests/misc/test.pl				\
-  tests/misc/seq.pl				\
-  tests/misc/seq-epipe.sh			\
-  tests/misc/seq-io-errors.sh			\
-  tests/misc/seq-long-double.sh			\
-  tests/misc/seq-precision.sh			\
-  tests/misc/head.pl				\
-  tests/misc/head-elide-tail.pl			\
-  tests/tail-2/tail-n0f.sh			\
-  tests/misc/ls-misc.pl				\
-  tests/misc/date.pl				\
-  tests/misc/date-next-dow.pl			\
-  tests/misc/ptx-overrun.sh			\
-  tests/misc/xstrtol.pl				\
-  tests/tail-2/overlay-headers.sh		\
-  tests/tail-2/pid.sh				\
-  tests/misc/od.pl				\
-  tests/misc/od-endian.sh			\
-  tests/misc/od-float.sh			\
-  tests/misc/mktemp.pl				\
-  tests/misc/arch.sh				\
-  tests/misc/join.pl				\
-  tests/pr/pr-tests.pl				\
-  tests/misc/pwd-option.sh			\
-  tests/misc/chcon-fail.sh			\
-  tests/misc/coreutils.sh			\
-  tests/misc/cut.pl				\
-  tests/misc/cut-huge-range.sh			\
-  tests/misc/wc.pl				\
-  tests/misc/wc-files0-from.pl			\
-  tests/misc/wc-files0.sh			\
-  tests/misc/wc-parallel.sh			\
-  tests/misc/wc-proc.sh				\
-  tests/misc/cat-proc.sh			\
-  tests/misc/cat-buf.sh				\
-  tests/misc/cat-self.sh			\
-  tests/misc/base64.pl				\
-  tests/misc/basename.pl			\
-  tests/misc/close-stdout.sh			\
-  tests/misc/chroot-fail.sh			\
-  tests/misc/comm.pl				\
-  tests/misc/csplit.sh				\
-  tests/misc/csplit-1000.sh			\
-  tests/misc/csplit-heap.sh			\
-  tests/misc/csplit-io-err.sh			\
-  tests/misc/csplit-suppress-matched.pl		\
-  tests/misc/date-debug.sh			\
-  tests/misc/date-sec.sh			\
-  tests/misc/dircolors.pl			\
-  tests/misc/dirname.pl				\
-  tests/misc/env-null.sh			\
-  tests/misc/expand.pl				\
-  tests/misc/expr.pl				\
-  tests/misc/factor.pl				\
-  tests/misc/factor-parallel.sh			\
-  tests/misc/false-status.sh			\
-  tests/misc/fold.pl				\
-  tests/misc/groups-dash.sh			\
-  tests/misc/groups-version.sh			\
-  tests/misc/head-c.sh				\
-  tests/misc/head-pos.sh			\
-  tests/misc/head-write-error.sh		\
-  tests/misc/kill.sh				\
-  tests/misc/b2sum.sh				\
-  tests/misc/md5sum.pl				\
-  tests/misc/md5sum-bsd.sh			\
-  tests/misc/md5sum-newline.pl			\
-  tests/misc/md5sum-parallel.sh			\
-  tests/misc/mknod.sh				\
-  tests/misc/nice.sh				\
-  tests/misc/nice-fail.sh			\
-  tests/misc/nl.sh				\
-  tests/misc/nohup.sh				\
-  tests/misc/nproc-avail.sh			\
-  tests/misc/nproc-positive.sh			\
-  tests/misc/nproc-override.sh			\
-  tests/misc/numfmt.pl				\
-  tests/misc/od-N.sh				\
-  tests/misc/od-j.sh				\
-  tests/misc/od-multiple-t.sh			\
-  tests/misc/od-x8.sh				\
-  tests/misc/paste.pl				\
-  tests/misc/pathchk1.sh			\
-  tests/misc/printenv.sh			\
-  tests/misc/printf.sh				\
-  tests/misc/printf-cov.pl			\
-  tests/misc/printf-hex.sh			\
-  tests/misc/printf-surprise.sh			\
-  tests/misc/printf-quote.sh			\
-  tests/misc/pwd-long.sh			\
-  tests/misc/readlink-fp-loop.sh		\
-  tests/misc/readlink-root.sh			\
-  tests/misc/realpath.sh			\
-  tests/misc/runcon-no-reorder.sh		\
-  tests/misc/sha1sum.pl				\
-  tests/misc/sha1sum-vec.pl			\
-  tests/misc/sha224sum.pl			\
-  tests/misc/sha256sum.pl			\
-  tests/misc/sha384sum.pl			\
-  tests/misc/sha512sum.pl			\
-  tests/misc/shred-exact.sh			\
-  tests/misc/shred-passes.sh			\
-  tests/misc/shred-remove.sh			\
-  tests/misc/shred-size.sh			\
-  tests/misc/shuf.sh				\
-  tests/misc/shuf-reservoir.sh			\
-  tests/misc/sleep.sh				\
-  tests/misc/sort.pl				\
-  tests/misc/sort-benchmark-random.sh		\
-  tests/misc/sort-compress.sh			\
-  tests/misc/sort-compress-hang.sh		\
-  tests/misc/sort-compress-proc.sh		\
-  tests/misc/sort-continue.sh			\
-  tests/misc/sort-debug-keys.sh			\
-  tests/misc/sort-debug-warn.sh			\
-  tests/misc/sort-discrim.sh			\
-  tests/misc/sort-files0-from.pl		\
-  tests/misc/sort-float.sh			\
-  tests/misc/sort-h-thousands-sep.sh		\
-  tests/misc/sort-merge.pl			\
-  tests/misc/sort-merge-fdlimit.sh		\
-  tests/misc/sort-month.sh			\
-  tests/misc/sort-exit-early.sh			\
-  tests/misc/sort-rand.sh			\
-  tests/misc/sort-spinlock-abuse.sh		\
-  tests/misc/sort-stale-thread-mem.sh		\
-  tests/misc/sort-unique.sh			\
-  tests/misc/sort-unique-segv.sh		\
-  tests/misc/sort-version.sh			\
-  tests/misc/sort-NaN-infloop.sh		\
-  tests/misc/sort-u-FMR.sh			\
-  tests/split/filter.sh				\
-  tests/split/suffix-auto-length.sh		\
-  tests/split/suffix-length.sh			\
-  tests/split/additional-suffix.sh		\
-  tests/split/b-chunk.sh			\
-  tests/split/fail.sh				\
-  tests/split/lines.sh				\
-  tests/split/line-bytes.sh			\
-  tests/split/l-chunk.sh			\
-  tests/split/r-chunk.sh			\
-  tests/split/record-sep.sh			\
-  tests/split/numeric.sh			\
-  tests/split/guard-input.sh			\
-  tests/misc/stat-birthtime.sh			\
-  tests/misc/stat-fmt.sh			\
-  tests/misc/stat-hyphen.sh			\
-  tests/misc/stat-mount.sh			\
-  tests/misc/stat-nanoseconds.sh		\
-  tests/misc/stat-printf.pl			\
-  tests/misc/stat-slash.sh			\
-  tests/misc/stdbuf.sh				\
-  tests/misc/stty.sh				\
-  tests/misc/stty-invalid.sh			\
-  tests/misc/stty-pairs.sh			\
-  tests/misc/stty-row-col.sh			\
-  tests/misc/sum.pl				\
-  tests/misc/sum-sysv.sh			\
-  tests/misc/sync.sh				\
-  tests/misc/tac.pl				\
-  tests/misc/tac-continue.sh			\
-  tests/misc/tac-2-nonseekable.sh		\
-  tests/misc/tail.pl				\
-  tests/misc/tee.sh				\
-  tests/misc/test-diag.pl			\
-  tests/misc/time-style.sh			\
-  tests/misc/timeout.sh				\
-  tests/misc/timeout-blocked.pl			\
-  tests/misc/timeout-group.sh			\
-  tests/misc/timeout-parameters.sh		\
-  tests/misc/tr.pl				\
-  tests/misc/tr-case-class.sh			\
-  tests/misc/truncate-dangling-symlink.sh	\
-  tests/misc/truncate-dir-fail.sh		\
-  tests/misc/truncate-fail-diag.sh		\
-  tests/misc/truncate-fifo.sh			\
-  tests/misc/truncate-no-create-missing.sh	\
-  tests/misc/truncate-overflow.sh		\
-  tests/misc/truncate-parameters.sh		\
-  tests/misc/truncate-relative.sh		\
-  tests/misc/tsort.pl				\
-  tests/misc/unexpand.pl			\
-  tests/misc/uniq.pl				\
-  tests/misc/uniq-perf.sh			\
-  tests/misc/xattr.sh				\
-  tests/misc/yes.sh				\
-  tests/tail-2/wait.sh				\
-  tests/tail-2/retry.sh				\
-  tests/tail-2/symlink.sh			\
-  tests/tail-2/tail-c.sh			\
-  tests/tail-2/truncate.sh			\
-  tests/chmod/c-option.sh			\
-  tests/chmod/equal-x.sh			\
-  tests/chmod/equals.sh				\
-  tests/chmod/inaccessible.sh			\
-  tests/chmod/octal.sh				\
-  tests/chmod/setgid.sh				\
-  tests/chmod/silent.sh				\
-  tests/chmod/thru-dangling.sh			\
-  tests/chmod/umask-x.sh			\
-  tests/chmod/usage.sh				\
-  tests/chown/deref.sh				\
-  tests/chown/preserve-root.sh			\
-  tests/chown/separator.sh			\
-  tests/cp/abuse.sh				\
-  tests/cp/acl.sh				\
-  tests/cp/attr-existing.sh			\
-  tests/cp/backup-1.sh				\
-  tests/cp/backup-dir.sh			\
-  tests/cp/backup-is-src.sh			\
-  tests/cp/cp-HL.sh				\
-  tests/cp/cp-deref.sh				\
-  tests/cp/cp-i.sh				\
-  tests/cp/cp-mv-backup.sh			\
-  tests/cp/cp-parents.sh			\
-  tests/cp/deref-slink.sh			\
-  tests/cp/dir-rm-dest.sh			\
-  tests/cp/dir-slash.sh				\
-  tests/cp/dir-vs-file.sh			\
-  tests/cp/existing-perm-dir.sh			\
-  tests/cp/existing-perm-race.sh		\
-  tests/cp/fail-perm.sh				\
-  tests/cp/fiemap-extents.sh			\
-  tests/cp/fiemap-FMR.sh			\
-  tests/cp/fiemap-perf.sh			\
-  tests/cp/fiemap-2.sh				\
-  tests/cp/file-perm-race.sh			\
-  tests/cp/into-self.sh				\
-  tests/cp/link.sh				\
-  tests/cp/link-deref.sh			\
-  tests/cp/link-no-deref.sh			\
-  tests/cp/link-preserve.sh			\
-  tests/cp/link-symlink.sh			\
-  tests/cp/nfs-removal-race.sh			\
-  tests/cp/no-deref-link1.sh			\
-  tests/cp/no-deref-link2.sh			\
-  tests/cp/no-deref-link3.sh			\
-  tests/cp/parent-perm.sh			\
-  tests/cp/parent-perm-race.sh			\
-  tests/cp/perm.sh				\
-  tests/cp/preserve-2.sh			\
-  tests/cp/preserve-link.sh			\
-  tests/cp/preserve-mode.sh			\
-  tests/cp/preserve-slink-time.sh		\
-  tests/cp/proc-short-read.sh			\
-  tests/cp/proc-zero-len.sh			\
-  tests/cp/r-vs-symlink.sh			\
-  tests/cp/reflink-auto.sh			\
-  tests/cp/reflink-perm.sh			\
-  tests/cp/same-file.sh				\
-  tests/cp/slink-2-slink.sh			\
-  tests/cp/sparse.sh				\
-  tests/cp/sparse-to-pipe.sh			\
-  tests/cp/special-f.sh				\
-  tests/cp/src-base-dot.sh			\
-  tests/cp/symlink-slash.sh			\
-  tests/cp/thru-dangling.sh			\
-  tests/df/header.sh				\
-  tests/df/df-P.sh				\
-  tests/df/df-output.sh				\
-  tests/df/df-symlink.sh			\
-  tests/df/unreadable.sh			\
-  tests/df/total-unprocessed.sh			\
-  tests/df/no-mtab-status.sh			\
-  tests/df/skip-duplicates.sh			\
-  tests/df/skip-rootfs.sh			\
-  tests/dd/ascii.sh				\
-  tests/dd/direct.sh				\
-  tests/dd/misc.sh				\
-  tests/dd/no-allocate.sh			\
-  tests/dd/nocache.sh				\
-  tests/dd/not-rewound.sh			\
-  tests/dd/reblock.sh				\
-  tests/dd/skip-seek.pl				\
-  tests/dd/skip-seek2.sh			\
-  tests/dd/bytes.sh				\
-  tests/dd/skip-seek-past-file.sh		\
-  tests/dd/sparse.sh				\
-  tests/dd/stderr.sh				\
-  tests/dd/unblock.pl				\
-  tests/dd/unblock-sync.sh			\
-  tests/dd/stats.sh				\
-  tests/df/total-verify.sh			\
-  tests/du/2g.sh				\
-  tests/du/8gb.sh				\
-  tests/du/basic.sh				\
-  tests/du/bigtime.sh				\
-  tests/du/deref.sh				\
-  tests/du/deref-args.sh			\
-  tests/du/exclude.sh				\
-  tests/du/fd-leak.sh				\
-  tests/du/files0-from.pl			\
-  tests/du/files0-from-dir.sh			\
-  tests/du/hard-link.sh				\
-  tests/du/inacc-dest.sh			\
-  tests/du/inacc-dir.sh				\
-  tests/du/inaccessible-cwd.sh			\
-  tests/du/inodes.sh				\
-  tests/du/long-from-unreadable.sh		\
-  tests/du/long-sloop.sh			\
-  tests/du/max-depth.sh				\
-  tests/du/move-dir-while-traversing.sh		\
-  tests/du/no-deref.sh				\
-  tests/du/no-x.sh				\
-  tests/du/one-file-system.sh			\
-  tests/du/restore-wd.sh			\
-  tests/du/slash.sh				\
-  tests/du/threshold.sh				\
-  tests/du/trailing-slash.sh			\
-  tests/du/two-args.sh				\
-  tests/id/gnu-zero-uids.sh			\
-  tests/id/no-context.sh			\
-  tests/id/context.sh				\
-  tests/id/uid.sh				\
-  tests/id/zero.sh				\
-  tests/id/smack.sh				\
-  tests/install/basic-1.sh			\
-  tests/install/create-leading.sh		\
-  tests/install/d-slashdot.sh			\
-  tests/install/install-C.sh			\
-  tests/install/install-C-selinux.sh		\
-  tests/install/install-Z-selinux.sh		\
-  tests/install/strip-program.sh		\
-  tests/install/trap.sh				\
-  tests/ln/backup-1.sh				\
-  tests/ln/hard-backup.sh			\
-  tests/ln/hard-to-sym.sh			\
-  tests/ln/misc.sh				\
-  tests/ln/relative.sh				\
-  tests/ln/sf-1.sh				\
-  tests/ln/slash-decorated-nonexistent-dest.sh	\
-  tests/ln/target-1.sh				\
-  tests/ls/abmon-align.sh			\
-  tests/ls/block-size.sh			\
-  tests/ls/color-clear-to-eol.sh		\
-  tests/ls/color-dtype-dir.sh			\
-  tests/ls/color-norm.sh			\
-  tests/ls/color-term.sh			\
-  tests/ls/dangle.sh				\
-  tests/ls/dired.sh				\
-  tests/ls/file-type.sh				\
-  tests/ls/follow-slink.sh			\
-  tests/ls/getxattr-speedup.sh			\
-  tests/ls/hex-option.sh			\
-  tests/ls/infloop.sh				\
-  tests/ls/inode.sh				\
-  tests/ls/m-option.sh				\
-  tests/ls/w-option.sh				\
-  tests/ls/multihardlink.sh			\
-  tests/ls/no-arg.sh				\
-  tests/ls/no-cap.sh				\
-  tests/ls/proc-selinux-segfault.sh		\
-  tests/ls/quote-align.sh			\
-  tests/ls/readdir-mountpoint-inode.sh		\
-  tests/ls/recursive.sh				\
-  tests/ls/root-rel-symlink-color.sh		\
-  tests/ls/rt-1.sh				\
-  tests/ls/slink-acl.sh				\
-  tests/ls/stat-dtype.sh			\
-  tests/ls/stat-failed.sh			\
-  tests/ls/stat-free-color.sh			\
-  tests/ls/stat-free-symlinks.sh		\
-  tests/ls/stat-vs-dirent.sh			\
-  tests/ls/symlink-slash.sh			\
-  tests/ls/time-style-diag.sh			\
-  tests/ls/x-option.sh				\
-  tests/mkdir/p-1.sh				\
-  tests/mkdir/p-2.sh				\
-  tests/mkdir/p-3.sh				\
-  tests/mkdir/p-acl.sh				\
-  tests/mkdir/p-slashdot.sh			\
-  tests/mkdir/p-thru-slink.sh			\
-  tests/mkdir/p-v.sh				\
-  tests/mkdir/parents.sh			\
-  tests/mkdir/perm.sh				\
-  tests/mkdir/selinux.sh			\
-  tests/mkdir/restorecon.sh			\
-  tests/mkdir/special-1.sh			\
-  tests/mkdir/t-slash.sh			\
-  tests/mkdir/smack-no-root.sh			\
-  tests/mv/acl.sh				\
-  tests/mv/atomic.sh				\
-  tests/mv/atomic2.sh				\
-  tests/mv/backup-dir.sh			\
-  tests/mv/backup-is-src.sh			\
-  tests/mv/childproof.sh			\
-  tests/mv/diag.sh				\
-  tests/mv/dir-file.sh				\
-  tests/mv/dir2dir.sh				\
-  tests/mv/dup-source.sh			\
-  tests/mv/force.sh				\
-  tests/mv/hard-2.sh				\
-  tests/mv/hard-3.sh				\
-  tests/mv/hard-4.sh				\
-  tests/mv/hard-link-1.sh			\
-  tests/mv/i-1.pl				\
-  tests/mv/i-2.sh				\
-  tests/mv/i-3.sh				\
-  tests/mv/i-4.sh				\
-  tests/mv/i-5.sh				\
-  tests/mv/i-link-no.sh				\
-  tests/mv/into-self.sh				\
-  tests/mv/into-self-2.sh			\
-  tests/mv/into-self-3.sh			\
-  tests/mv/into-self-4.sh			\
-  tests/mv/leak-fd.sh				\
-  tests/mv/mv-n.sh				\
-  tests/mv/mv-special-1.sh			\
-  tests/mv/no-target-dir.sh			\
-  tests/mv/part-fail.sh				\
-  tests/mv/part-hardlink.sh			\
-  tests/mv/part-rename.sh			\
-  tests/mv/part-symlink.sh			\
-  tests/mv/partition-perm.sh			\
-  tests/mv/perm-1.sh				\
-  tests/mv/symlink-onto-hardlink.sh		\
-  tests/mv/symlink-onto-hardlink-to-self.sh	\
-  tests/mv/to-symlink.sh			\
-  tests/mv/trailing-slash.sh			\
-  tests/mv/update.sh				\
-  tests/readlink/can-e.sh			\
-  tests/readlink/can-f.sh			\
-  tests/readlink/can-m.sh			\
-  tests/readlink/multi.sh			\
-  tests/readlink/rl-1.sh			\
-  tests/rmdir/fail-perm.sh			\
-  tests/rmdir/ignore.sh				\
-  tests/rmdir/t-slash.sh			\
-  tests/tail-2/assert-2.sh			\
-  tests/tail-2/big-4gb.sh			\
-  tests/tail-2/flush-initial.sh			\
-  tests/tail-2/follow-name.sh			\
-  tests/tail-2/follow-stdin.sh			\
-  tests/tail-2/pipe-f.sh			\
-  tests/tail-2/pipe-f2.sh			\
-  tests/tail-2/proc-ksyms.sh			\
-  tests/tail-2/start-middle.sh			\
-  tests/touch/60-seconds.sh			\
-  tests/touch/dangling-symlink.sh		\
-  tests/touch/dir-1.sh				\
-  tests/touch/fail-diag.sh			\
-  tests/touch/fifo.sh				\
-  tests/touch/no-create-missing.sh		\
-  tests/touch/no-dereference.sh			\
-  tests/touch/no-rights.sh			\
-  tests/touch/not-owner.sh			\
-  tests/touch/obsolescent.sh			\
-  tests/touch/read-only.sh			\
-  tests/touch/relative.sh			\
-  tests/touch/trailing-slash.sh			\
-  $(all_root_tests)
-
-
-# See tests/factor/create-test.sh.
-tf = tests/factor
-factor_tests = \
-  $(tf)/t00.sh $(tf)/t01.sh $(tf)/t02.sh $(tf)/t03.sh $(tf)/t04.sh \
-  $(tf)/t05.sh $(tf)/t06.sh $(tf)/t07.sh $(tf)/t08.sh $(tf)/t09.sh \
-  $(tf)/t10.sh $(tf)/t11.sh $(tf)/t12.sh $(tf)/t13.sh $(tf)/t14.sh \
-  $(tf)/t15.sh $(tf)/t16.sh $(tf)/t17.sh $(tf)/t18.sh $(tf)/t19.sh \
-  $(tf)/t20.sh $(tf)/t21.sh $(tf)/t22.sh $(tf)/t23.sh $(tf)/t24.sh \
-  $(tf)/t25.sh $(tf)/t26.sh $(tf)/t27.sh $(tf)/t28.sh $(tf)/t29.sh \
-  $(tf)/t30.sh $(tf)/t31.sh $(tf)/t32.sh $(tf)/t33.sh $(tf)/t34.sh \
-  $(tf)/t35.sh $(tf)/t36.sh
-
-pr_data = \
-  tests/pr/0F					\
-  tests/pr/0FF					\
-  tests/pr/0FFnt				\
-  tests/pr/0FFt					\
-  tests/pr/0FnFnt				\
-  tests/pr/0FnFt				\
-  tests/pr/0Fnt					\
-  tests/pr/0Ft					\
-  tests/pr/2-S_f-t_notab			\
-  tests/pr/2-Sf-t_notab				\
-  tests/pr/2f-t_notab				\
-  tests/pr/2s_f-t_notab				\
-  tests/pr/2s_w60f-t_nota			\
-  tests/pr/2sf-t_notab				\
-  tests/pr/2sw60f-t_notab			\
-  tests/pr/2w60f-t_notab			\
-  tests/pr/3-0F					\
-  tests/pr/3-5l24f-t				\
-  tests/pr/3-FF					\
-  tests/pr/3a2l17-FF				\
-  tests/pr/3a3f-0F				\
-  tests/pr/3a3l15-t				\
-  tests/pr/3a3l15f-t				\
-  tests/pr/3b2l17-FF				\
-  tests/pr/3b3f-0F				\
-  tests/pr/3b3f-0FF				\
-  tests/pr/3b3f-FF				\
-  tests/pr/3b3l15-t				\
-  tests/pr/3b3l15f-t				\
-  tests/pr/3f-0F				\
-  tests/pr/3f-FF				\
-  tests/pr/3l24-t				\
-  tests/pr/3l24f-t				\
-  tests/pr/3ml24-FF				\
-  tests/pr/3ml24-t				\
-  tests/pr/3ml24-t-FF				\
-  tests/pr/3ml24f-t				\
-  tests/pr/4-7l24-FF				\
-  tests/pr/4l24-FF				\
-  tests/pr/FF					\
-  tests/pr/FFn					\
-  tests/pr/FFtn					\
-  tests/pr/FnFn					\
-  tests/pr/Ja3l24f-lm				\
-  tests/pr/Jb3l24f-lm				\
-  tests/pr/Jml24f-lm-lo				\
-  tests/pr/W-72l24f-ll				\
-  tests/pr/W20l24f-ll				\
-  tests/pr/W26l24f-ll				\
-  tests/pr/W27l24f-ll				\
-  tests/pr/W28l24f-ll				\
-  tests/pr/W35Ja3l24f-lm			\
-  tests/pr/W35Jb3l24f-lm			\
-  tests/pr/W35Jml24f-lmlo			\
-  tests/pr/W35a3l24f-lm				\
-  tests/pr/W35b3l24f-lm				\
-  tests/pr/W35ml24f-lm-lo			\
-  tests/pr/W72Jl24f-ll				\
-  tests/pr/a2l15-FF				\
-  tests/pr/a2l17-FF				\
-  tests/pr/a3-0F				\
-  tests/pr/a3f-0F				\
-  tests/pr/a3f-0FF				\
-  tests/pr/a3f-FF				\
-  tests/pr/a3l15-t				\
-  tests/pr/a3l15f-t				\
-  tests/pr/a3l24f-lm				\
-  tests/pr/b2l15-FF				\
-  tests/pr/b2l17-FF				\
-  tests/pr/b3-0F				\
-  tests/pr/b3f-0F				\
-  tests/pr/b3f-0FF				\
-  tests/pr/b3f-FF				\
-  tests/pr/b3l15-t				\
-  tests/pr/b3l15f-t				\
-  tests/pr/b3l24f-lm				\
-  tests/pr/l24-FF				\
-  tests/pr/l24-t				\
-  tests/pr/l24f-t				\
-  tests/pr/loli					\
-  tests/pr/ml20-FF-t				\
-  tests/pr/ml24-FF				\
-  tests/pr/ml24-t				\
-  tests/pr/ml24-t-FF				\
-  tests/pr/ml24f-0F				\
-  tests/pr/ml24f-lm-lo				\
-  tests/pr/ml24f-t				\
-  tests/pr/ml24f-t-0F				\
-  tests/pr/n+2-5l24f-0FF			\
-  tests/pr/n+2l24f-0FF				\
-  tests/pr/n+2l24f-bl				\
-  tests/pr/n+3-7l24-FF				\
-  tests/pr/n+3l24f-0FF				\
-  tests/pr/n+3l24f-bl				\
-  tests/pr/n+3ml20f-bl-FF			\
-  tests/pr/n+3ml24f-bl-tn			\
-  tests/pr/n+3ml24f-tn-bl			\
-  tests/pr/n+4-8a2l17-FF			\
-  tests/pr/n+4b2l17f-0FF			\
-  tests/pr/n+5-8b3l17f-FF			\
-  tests/pr/n+5a3l13f-0FF			\
-  tests/pr/n+6a2l17-FF				\
-  tests/pr/n+6b3l13f-FF				\
-  tests/pr/n+7l24-FF				\
-  tests/pr/n+8l20-FF				\
-  tests/pr/nJml24f-lmlmlo			\
-  tests/pr/nJml24f-lmlolm			\
-  tests/pr/nN1+3l24f-bl				\
-  tests/pr/nN15l24f-bl				\
-  tests/pr/nSml20-bl-FF				\
-  tests/pr/nSml20-t-t-FF			\
-  tests/pr/nSml20-t-tFFFF			\
-  tests/pr/nSml24-bl-FF				\
-  tests/pr/nSml24-t-t-FF			\
-  tests/pr/nSml24-t-tFFFF			\
-  tests/pr/nl24f-bl				\
-  tests/pr/o3Jml24f-lm-lo			\
-  tests/pr/o3a3Sl24f-tn				\
-  tests/pr/o3a3Snl24f-tn			\
-  tests/pr/o3a3l24f-tn				\
-  tests/pr/o3b3Sl24f-tn				\
-  tests/pr/o3b3Snl24f-tn			\
-  tests/pr/o3b3l24f-tn				\
-  tests/pr/o3mSl24f-bl-tn			\
-  tests/pr/o3mSnl24fbltn			\
-  tests/pr/o3ml24f-bl-tn			\
-  tests/pr/t-0FF				\
-  tests/pr/t-FF					\
-  tests/pr/t-bl					\
-  tests/pr/t-t					\
-  tests/pr/tFFn					\
-  tests/pr/tFFt					\
-  tests/pr/tFFt-bl				\
-  tests/pr/tFFt-ll				\
-  tests/pr/tFFt-lm				\
-  tests/pr/tFnFt				\
-  tests/pr/t_notab				\
-  tests/pr/t_tab				\
-  tests/pr/t_tab_				\
-  tests/pr/ta3-0FF				\
-  tests/pr/ta3-FF				\
-  tests/pr/tb3-0FF				\
-  tests/pr/tb3-FF				\
-  tests/pr/tn					\
-  tests/pr/tn2e5o3-t_tab			\
-  tests/pr/tn2e8-t_tab				\
-  tests/pr/tn2e8o3-t_tab			\
-  tests/pr/tn_2e8-t_tab				\
-  tests/pr/tn_2e8S-t_tab			\
-  tests/pr/tne8-t_tab				\
-  tests/pr/tne8o3-t_tab				\
-  tests/pr/tt-0FF				\
-  tests/pr/tt-FF				\
-  tests/pr/tt-bl				\
-  tests/pr/tt-t					\
-  tests/pr/tta3-0FF				\
-  tests/pr/tta3-FF				\
-  tests/pr/ttb3-0FF				\
-  tests/pr/ttb3-FF				\
-  tests/pr/w72l24f-ll
-
 all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
 .SUFFIXES:
-.SUFFIXES: .1 .c .dvi .log .o .obj .pl .pl$(EXEEXT) .ps .sed .sh .sh$(EXEEXT) .sin .trs .x .xpl .xpl$(EXEEXT) .y
+.SUFFIXES: .c .o .obj .sed .sin .y
 am--refresh: Makefile
 	@:
-$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(top_srcdir)/lib/local.mk $(srcdir)/lib/gnulib.mk $(top_srcdir)/src/local.mk $(srcdir)/src/cu-progs.mk $(top_srcdir)/src/single-binary.mk $(top_srcdir)/doc/local.mk $(top_srcdir)/man/local.mk $(top_srcdir)/tests/local.mk $(am__configure_deps)
+$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(top_srcdir)/lib/local.mk $(srcdir)/lib/gnulib.mk $(top_srcdir)/src/local.mk $(srcdir)/src/cu-progs.mk $(top_srcdir)/src/single-binary.mk $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -5947,7 +4666,7 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	    echo ' cd $(top_builddir) && $(SHELL) ./config.status $@ $(am__depfiles_maybe)'; \
 	    cd $(top_builddir) && $(SHELL) ./config.status $@ $(am__depfiles_maybe);; \
 	esac;
-$(top_srcdir)/lib/local.mk $(srcdir)/lib/gnulib.mk $(top_srcdir)/src/local.mk $(srcdir)/src/cu-progs.mk $(top_srcdir)/src/single-binary.mk $(top_srcdir)/doc/local.mk $(top_srcdir)/man/local.mk $(top_srcdir)/tests/local.mk $(am__empty):
+$(top_srcdir)/lib/local.mk $(srcdir)/lib/gnulib.mk $(top_srcdir)/src/local.mk $(srcdir)/src/cu-progs.mk $(top_srcdir)/src/single-binary.mk $(am__empty):
 
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	$(SHELL) ./config.status --recheck
@@ -6848,13 +5567,6 @@ src/libsinglebin_chown.a: $(src_libsinglebin_chown_a_OBJECTS) $(src_libsinglebin
 	$(AM_V_at)-rm -f src/libsinglebin_chown.a
 	$(AM_V_AR)$(src_libsinglebin_chown_a_AR) src/libsinglebin_chown.a $(src_libsinglebin_chown_a_OBJECTS) $(src_libsinglebin_chown_a_LIBADD)
 	$(AM_V_at)$(RANLIB) src/libsinglebin_chown.a
-src/src_libsinglebin_chroot_a-chroot.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-
-src/libsinglebin_chroot.a: $(src_libsinglebin_chroot_a_OBJECTS) $(src_libsinglebin_chroot_a_DEPENDENCIES) $(EXTRA_src_libsinglebin_chroot_a_DEPENDENCIES) src/$(am__dirstamp)
-	$(AM_V_at)-rm -f src/libsinglebin_chroot.a
-	$(AM_V_AR)$(src_libsinglebin_chroot_a_AR) src/libsinglebin_chroot.a $(src_libsinglebin_chroot_a_OBJECTS) $(src_libsinglebin_chroot_a_LIBADD)
-	$(AM_V_at)$(RANLIB) src/libsinglebin_chroot.a
 src/src_libsinglebin_cksum_a-cksum.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 
@@ -7181,13 +5893,6 @@ src/libsinglebin_mv.a: $(src_libsinglebin_mv_a_OBJECTS) $(src_libsinglebin_mv_a_
 	$(AM_V_at)-rm -f src/libsinglebin_mv.a
 	$(AM_V_AR)$(src_libsinglebin_mv_a_AR) src/libsinglebin_mv.a $(src_libsinglebin_mv_a_OBJECTS) $(src_libsinglebin_mv_a_LIBADD)
 	$(AM_V_at)$(RANLIB) src/libsinglebin_mv.a
-src/src_libsinglebin_nice_a-nice.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-
-src/libsinglebin_nice.a: $(src_libsinglebin_nice_a_OBJECTS) $(src_libsinglebin_nice_a_DEPENDENCIES) $(EXTRA_src_libsinglebin_nice_a_DEPENDENCIES) src/$(am__dirstamp)
-	$(AM_V_at)-rm -f src/libsinglebin_nice.a
-	$(AM_V_AR)$(src_libsinglebin_nice_a_AR) src/libsinglebin_nice.a $(src_libsinglebin_nice_a_OBJECTS) $(src_libsinglebin_nice_a_LIBADD)
-	$(AM_V_at)$(RANLIB) src/libsinglebin_nice.a
 src/src_libsinglebin_nl_a-nl.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 
@@ -7195,13 +5900,6 @@ src/libsinglebin_nl.a: $(src_libsinglebin_nl_a_OBJECTS) $(src_libsinglebin_nl_a_
 	$(AM_V_at)-rm -f src/libsinglebin_nl.a
 	$(AM_V_AR)$(src_libsinglebin_nl_a_AR) src/libsinglebin_nl.a $(src_libsinglebin_nl_a_OBJECTS) $(src_libsinglebin_nl_a_LIBADD)
 	$(AM_V_at)$(RANLIB) src/libsinglebin_nl.a
-src/src_libsinglebin_nohup_a-nohup.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-
-src/libsinglebin_nohup.a: $(src_libsinglebin_nohup_a_OBJECTS) $(src_libsinglebin_nohup_a_DEPENDENCIES) $(EXTRA_src_libsinglebin_nohup_a_DEPENDENCIES) src/$(am__dirstamp)
-	$(AM_V_at)-rm -f src/libsinglebin_nohup.a
-	$(AM_V_AR)$(src_libsinglebin_nohup_a_AR) src/libsinglebin_nohup.a $(src_libsinglebin_nohup_a_OBJECTS) $(src_libsinglebin_nohup_a_LIBADD)
-	$(AM_V_at)$(RANLIB) src/libsinglebin_nohup.a
 src/src_libsinglebin_nproc_a-nproc.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 
@@ -7239,13 +5937,6 @@ src/libsinglebin_pathchk.a: $(src_libsinglebin_pathchk_a_OBJECTS) $(src_libsingl
 	$(AM_V_at)-rm -f src/libsinglebin_pathchk.a
 	$(AM_V_AR)$(src_libsinglebin_pathchk_a_AR) src/libsinglebin_pathchk.a $(src_libsinglebin_pathchk_a_OBJECTS) $(src_libsinglebin_pathchk_a_LIBADD)
 	$(AM_V_at)$(RANLIB) src/libsinglebin_pathchk.a
-src/src_libsinglebin_pinky_a-pinky.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-
-src/libsinglebin_pinky.a: $(src_libsinglebin_pinky_a_OBJECTS) $(src_libsinglebin_pinky_a_DEPENDENCIES) $(EXTRA_src_libsinglebin_pinky_a_DEPENDENCIES) src/$(am__dirstamp)
-	$(AM_V_at)-rm -f src/libsinglebin_pinky.a
-	$(AM_V_AR)$(src_libsinglebin_pinky_a_AR) src/libsinglebin_pinky.a $(src_libsinglebin_pinky_a_OBJECTS) $(src_libsinglebin_pinky_a_LIBADD)
-	$(AM_V_at)$(RANLIB) src/libsinglebin_pinky.a
 src/src_libsinglebin_pr_a-pr.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 
@@ -7415,13 +6106,6 @@ src/libsinglebin_stdbuf.a: $(src_libsinglebin_stdbuf_a_OBJECTS) $(src_libsingleb
 	$(AM_V_at)-rm -f src/libsinglebin_stdbuf.a
 	$(AM_V_AR)$(src_libsinglebin_stdbuf_a_AR) src/libsinglebin_stdbuf.a $(src_libsinglebin_stdbuf_a_OBJECTS) $(src_libsinglebin_stdbuf_a_LIBADD)
 	$(AM_V_at)$(RANLIB) src/libsinglebin_stdbuf.a
-src/src_libsinglebin_stty_a-stty.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-
-src/libsinglebin_stty.a: $(src_libsinglebin_stty_a_OBJECTS) $(src_libsinglebin_stty_a_DEPENDENCIES) $(EXTRA_src_libsinglebin_stty_a_DEPENDENCIES) src/$(am__dirstamp)
-	$(AM_V_at)-rm -f src/libsinglebin_stty.a
-	$(AM_V_AR)$(src_libsinglebin_stty_a_AR) src/libsinglebin_stty.a $(src_libsinglebin_stty_a_OBJECTS) $(src_libsinglebin_stty_a_LIBADD)
-	$(AM_V_at)$(RANLIB) src/libsinglebin_stty.a
 src/src_libsinglebin_sum_a-sum.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 
@@ -7464,15 +6148,6 @@ src/libsinglebin_test.a: $(src_libsinglebin_test_a_OBJECTS) $(src_libsinglebin_t
 	$(AM_V_at)-rm -f src/libsinglebin_test.a
 	$(AM_V_AR)$(src_libsinglebin_test_a_AR) src/libsinglebin_test.a $(src_libsinglebin_test_a_OBJECTS) $(src_libsinglebin_test_a_LIBADD)
 	$(AM_V_at)$(RANLIB) src/libsinglebin_test.a
-src/src_libsinglebin_timeout_a-timeout.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-src/src_libsinglebin_timeout_a-operand2sig.$(OBJEXT):  \
-	src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
-
-src/libsinglebin_timeout.a: $(src_libsinglebin_timeout_a_OBJECTS) $(src_libsinglebin_timeout_a_DEPENDENCIES) $(EXTRA_src_libsinglebin_timeout_a_DEPENDENCIES) src/$(am__dirstamp)
-	$(AM_V_at)-rm -f src/libsinglebin_timeout.a
-	$(AM_V_AR)$(src_libsinglebin_timeout_a_AR) src/libsinglebin_timeout.a $(src_libsinglebin_timeout_a_OBJECTS) $(src_libsinglebin_timeout_a_LIBADD)
-	$(AM_V_at)$(RANLIB) src/libsinglebin_timeout.a
 src/src_libsinglebin_touch_a-touch.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 
@@ -7644,7 +6319,7 @@ uninstall-binPROGRAMS:
 	cd "$(DESTDIR)$(bindir)" && rm -f $$files
 
 clean-binPROGRAMS:
-	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS) > /dev/null 2>&1 || /bin/rm -f $(bin_PROGRAMS)
+	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
 
 clean-noinstPROGRAMS:
 	-test -z "$(noinst_PROGRAMS)" || rm -f $(noinst_PROGRAMS)
@@ -7759,12 +6434,6 @@ src/chown.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 src/chown$(EXEEXT): $(src_chown_OBJECTS) $(src_chown_DEPENDENCIES) $(EXTRA_src_chown_DEPENDENCIES) src/$(am__dirstamp)
 	@rm -f src/chown$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(src_chown_OBJECTS) $(src_chown_LDADD) $(LIBS)
-src/chroot.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-
-src/chroot$(EXEEXT): $(src_chroot_OBJECTS) $(src_chroot_DEPENDENCIES) $(EXTRA_src_chroot_DEPENDENCIES) src/$(am__dirstamp)
-	@rm -f src/chroot$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(src_chroot_OBJECTS) $(src_chroot_LDADD) $(LIBS)
 src/cksum.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 
 src/cksum$(EXEEXT): $(src_cksum_OBJECTS) $(src_cksum_DEPENDENCIES) $(EXTRA_src_cksum_DEPENDENCIES) src/$(am__dirstamp)
@@ -8031,21 +6700,11 @@ src/remove.$(OBJEXT): src/$(am__dirstamp) \
 src/mv$(EXEEXT): $(src_mv_OBJECTS) $(src_mv_DEPENDENCIES) $(EXTRA_src_mv_DEPENDENCIES) src/$(am__dirstamp)
 	@rm -f src/mv$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(src_mv_OBJECTS) $(src_mv_LDADD) $(LIBS)
-src/nice.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
-
-src/nice$(EXEEXT): $(src_nice_OBJECTS) $(src_nice_DEPENDENCIES) $(EXTRA_src_nice_DEPENDENCIES) src/$(am__dirstamp)
-	@rm -f src/nice$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(src_nice_OBJECTS) $(src_nice_LDADD) $(LIBS)
 src/nl.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 
 src/nl$(EXEEXT): $(src_nl_OBJECTS) $(src_nl_DEPENDENCIES) $(EXTRA_src_nl_DEPENDENCIES) src/$(am__dirstamp)
 	@rm -f src/nl$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(src_nl_OBJECTS) $(src_nl_LDADD) $(LIBS)
-src/nohup.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
-
-src/nohup$(EXEEXT): $(src_nohup_OBJECTS) $(src_nohup_DEPENDENCIES) $(EXTRA_src_nohup_DEPENDENCIES) src/$(am__dirstamp)
-	@rm -f src/nohup$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(src_nohup_OBJECTS) $(src_nohup_LDADD) $(LIBS)
 src/nproc.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 
 src/nproc$(EXEEXT): $(src_nproc_OBJECTS) $(src_nproc_DEPENDENCIES) $(EXTRA_src_nproc_DEPENDENCIES) src/$(am__dirstamp)
@@ -8073,11 +6732,6 @@ src/pathchk.$(OBJEXT): src/$(am__dirstamp) \
 src/pathchk$(EXEEXT): $(src_pathchk_OBJECTS) $(src_pathchk_DEPENDENCIES) $(EXTRA_src_pathchk_DEPENDENCIES) src/$(am__dirstamp)
 	@rm -f src/pathchk$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(src_pathchk_OBJECTS) $(src_pathchk_LDADD) $(LIBS)
-src/pinky.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
-
-src/pinky$(EXEEXT): $(src_pinky_OBJECTS) $(src_pinky_DEPENDENCIES) $(EXTRA_src_pinky_DEPENDENCIES) src/$(am__dirstamp)
-	@rm -f src/pinky$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(src_pinky_OBJECTS) $(src_pinky_LDADD) $(LIBS)
 src/pr.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 
 src/pr$(EXEEXT): $(src_pr_OBJECTS) $(src_pr_DEPENDENCIES) $(EXTRA_src_pr_DEPENDENCIES) src/$(am__dirstamp)
@@ -8204,11 +6858,6 @@ src/stdbuf.$(OBJEXT): src/$(am__dirstamp) \
 src/stdbuf$(EXEEXT): $(src_stdbuf_OBJECTS) $(src_stdbuf_DEPENDENCIES) $(EXTRA_src_stdbuf_DEPENDENCIES) src/$(am__dirstamp)
 	@rm -f src/stdbuf$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(src_stdbuf_OBJECTS) $(src_stdbuf_LDADD) $(LIBS)
-src/stty.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
-
-src/stty$(EXEEXT): $(src_stty_OBJECTS) $(src_stty_DEPENDENCIES) $(EXTRA_src_stty_DEPENDENCIES) src/$(am__dirstamp)
-	@rm -f src/stty$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(src_stty_OBJECTS) $(src_stty_LDADD) $(LIBS)
 src/sum.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 
 src/sum$(EXEEXT): $(src_sum_OBJECTS) $(src_sum_DEPENDENCIES) $(EXTRA_src_sum_DEPENDENCIES) src/$(am__dirstamp)
@@ -8239,12 +6888,6 @@ src/test.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 src/test$(EXEEXT): $(src_test_OBJECTS) $(src_test_DEPENDENCIES) $(EXTRA_src_test_DEPENDENCIES) src/$(am__dirstamp)
 	@rm -f src/test$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(src_test_OBJECTS) $(src_test_LDADD) $(LIBS)
-src/timeout.$(OBJEXT): src/$(am__dirstamp) \
-	src/$(DEPDIR)/$(am__dirstamp)
-
-src/timeout$(EXEEXT): $(src_timeout_OBJECTS) $(src_timeout_DEPENDENCIES) $(EXTRA_src_timeout_DEPENDENCIES) src/$(am__dirstamp)
-	@rm -f src/timeout$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(src_timeout_OBJECTS) $(src_timeout_LDADD) $(LIBS)
 src/touch.$(OBJEXT): src/$(am__dirstamp) src/$(DEPDIR)/$(am__dirstamp)
 
 src/touch$(EXEEXT): $(src_touch_OBJECTS) $(src_touch_DEPENDENCIES) $(EXTRA_src_touch_DEPENDENCIES) src/$(am__dirstamp)
@@ -8753,7 +7396,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/chmod.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/chown-core.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/chown.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/chroot.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/cksum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/comm.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/copy.Po@am__quote@
@@ -8802,16 +7444,13 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mknod.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mktemp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/mv.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/nice.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/nl.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/nohup.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/nproc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/numfmt.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/od.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/operand2sig.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/paste.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pathchk.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pinky.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/pr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/printenv.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/printf.Po@am__quote@
@@ -8857,7 +7496,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_chmod_a-chmod.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_chown_a-chown-core.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_chown_a-chown.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_chroot_a-chroot.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_cksum_a-cksum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_comm_a-comm.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_cp_a-copy.Po@am__quote@
@@ -8926,16 +7564,13 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_mv_a-mv.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_mv_a-remove.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_mv_a-selinux.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_nice_a-nice.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_nl_a-nl.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_nohup_a-nohup.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_nproc_a-nproc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_numfmt_a-numfmt.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_numfmt_a-set-fields.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_od_a-od.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_paste_a-paste.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_pathchk_a-pathchk.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_pinky_a-pinky.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_pr_a-pr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_printenv_a-printenv.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_printf_a-printf.Po@am__quote@
@@ -8963,15 +7598,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_stat_a-find-mount-point.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_stat_a-stat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_stdbuf_a-stdbuf.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_stty_a-stty.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_sum_a-sum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_sync_a-sync.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_tac_a-tac.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_tail_a-tail.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_tee_a-tee.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_test_a-test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_timeout_a-operand2sig.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_timeout_a-timeout.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_touch_a-touch.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_tr_a-tr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_libsinglebin_true_a-true.Po@am__quote@
@@ -9000,14 +7632,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/src_sha512sum-md5sum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/stat.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/stdbuf.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/stty.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/sum.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/sync.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/tac.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/tail.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/tee.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/timeout.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/touch.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/tr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/true.Po@am__quote@
@@ -9257,20 +7887,6 @@ src/src_libsinglebin_chown_a-chown-core.obj: src/chown-core.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/chown-core.c' object='src/src_libsinglebin_chown_a-chown-core.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_chown_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_chown_a-chown-core.obj `if test -f 'src/chown-core.c'; then $(CYGPATH_W) 'src/chown-core.c'; else $(CYGPATH_W) '$(srcdir)/src/chown-core.c'; fi`
-
-src/src_libsinglebin_chroot_a-chroot.o: src/chroot.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_chroot_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_chroot_a-chroot.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_chroot_a-chroot.Tpo -c -o src/src_libsinglebin_chroot_a-chroot.o `test -f 'src/chroot.c' || echo '$(srcdir)/'`src/chroot.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_chroot_a-chroot.Tpo src/$(DEPDIR)/src_libsinglebin_chroot_a-chroot.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/chroot.c' object='src/src_libsinglebin_chroot_a-chroot.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_chroot_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_chroot_a-chroot.o `test -f 'src/chroot.c' || echo '$(srcdir)/'`src/chroot.c
-
-src/src_libsinglebin_chroot_a-chroot.obj: src/chroot.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_chroot_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_chroot_a-chroot.obj -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_chroot_a-chroot.Tpo -c -o src/src_libsinglebin_chroot_a-chroot.obj `if test -f 'src/chroot.c'; then $(CYGPATH_W) 'src/chroot.c'; else $(CYGPATH_W) '$(srcdir)/src/chroot.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_chroot_a-chroot.Tpo src/$(DEPDIR)/src_libsinglebin_chroot_a-chroot.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/chroot.c' object='src/src_libsinglebin_chroot_a-chroot.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_chroot_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_chroot_a-chroot.obj `if test -f 'src/chroot.c'; then $(CYGPATH_W) 'src/chroot.c'; else $(CYGPATH_W) '$(srcdir)/src/chroot.c'; fi`
 
 src/src_libsinglebin_cksum_a-cksum.o: src/cksum.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_cksum_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_cksum_a-cksum.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_cksum_a-cksum.Tpo -c -o src/src_libsinglebin_cksum_a-cksum.o `test -f 'src/cksum.c' || echo '$(srcdir)/'`src/cksum.c
@@ -10224,20 +8840,6 @@ src/src_libsinglebin_mv_a-selinux.obj: src/selinux.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_mv_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_mv_a-selinux.obj `if test -f 'src/selinux.c'; then $(CYGPATH_W) 'src/selinux.c'; else $(CYGPATH_W) '$(srcdir)/src/selinux.c'; fi`
 
-src/src_libsinglebin_nice_a-nice.o: src/nice.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_nice_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_nice_a-nice.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_nice_a-nice.Tpo -c -o src/src_libsinglebin_nice_a-nice.o `test -f 'src/nice.c' || echo '$(srcdir)/'`src/nice.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_nice_a-nice.Tpo src/$(DEPDIR)/src_libsinglebin_nice_a-nice.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/nice.c' object='src/src_libsinglebin_nice_a-nice.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_nice_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_nice_a-nice.o `test -f 'src/nice.c' || echo '$(srcdir)/'`src/nice.c
-
-src/src_libsinglebin_nice_a-nice.obj: src/nice.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_nice_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_nice_a-nice.obj -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_nice_a-nice.Tpo -c -o src/src_libsinglebin_nice_a-nice.obj `if test -f 'src/nice.c'; then $(CYGPATH_W) 'src/nice.c'; else $(CYGPATH_W) '$(srcdir)/src/nice.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_nice_a-nice.Tpo src/$(DEPDIR)/src_libsinglebin_nice_a-nice.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/nice.c' object='src/src_libsinglebin_nice_a-nice.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_nice_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_nice_a-nice.obj `if test -f 'src/nice.c'; then $(CYGPATH_W) 'src/nice.c'; else $(CYGPATH_W) '$(srcdir)/src/nice.c'; fi`
-
 src/src_libsinglebin_nl_a-nl.o: src/nl.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_nl_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_nl_a-nl.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_nl_a-nl.Tpo -c -o src/src_libsinglebin_nl_a-nl.o `test -f 'src/nl.c' || echo '$(srcdir)/'`src/nl.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_nl_a-nl.Tpo src/$(DEPDIR)/src_libsinglebin_nl_a-nl.Po
@@ -10251,20 +8853,6 @@ src/src_libsinglebin_nl_a-nl.obj: src/nl.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/nl.c' object='src/src_libsinglebin_nl_a-nl.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_nl_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_nl_a-nl.obj `if test -f 'src/nl.c'; then $(CYGPATH_W) 'src/nl.c'; else $(CYGPATH_W) '$(srcdir)/src/nl.c'; fi`
-
-src/src_libsinglebin_nohup_a-nohup.o: src/nohup.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_nohup_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_nohup_a-nohup.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_nohup_a-nohup.Tpo -c -o src/src_libsinglebin_nohup_a-nohup.o `test -f 'src/nohup.c' || echo '$(srcdir)/'`src/nohup.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_nohup_a-nohup.Tpo src/$(DEPDIR)/src_libsinglebin_nohup_a-nohup.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/nohup.c' object='src/src_libsinglebin_nohup_a-nohup.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_nohup_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_nohup_a-nohup.o `test -f 'src/nohup.c' || echo '$(srcdir)/'`src/nohup.c
-
-src/src_libsinglebin_nohup_a-nohup.obj: src/nohup.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_nohup_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_nohup_a-nohup.obj -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_nohup_a-nohup.Tpo -c -o src/src_libsinglebin_nohup_a-nohup.obj `if test -f 'src/nohup.c'; then $(CYGPATH_W) 'src/nohup.c'; else $(CYGPATH_W) '$(srcdir)/src/nohup.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_nohup_a-nohup.Tpo src/$(DEPDIR)/src_libsinglebin_nohup_a-nohup.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/nohup.c' object='src/src_libsinglebin_nohup_a-nohup.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_nohup_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_nohup_a-nohup.obj `if test -f 'src/nohup.c'; then $(CYGPATH_W) 'src/nohup.c'; else $(CYGPATH_W) '$(srcdir)/src/nohup.c'; fi`
 
 src/src_libsinglebin_nproc_a-nproc.o: src/nproc.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_nproc_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_nproc_a-nproc.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_nproc_a-nproc.Tpo -c -o src/src_libsinglebin_nproc_a-nproc.o `test -f 'src/nproc.c' || echo '$(srcdir)/'`src/nproc.c
@@ -10349,20 +8937,6 @@ src/src_libsinglebin_pathchk_a-pathchk.obj: src/pathchk.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pathchk.c' object='src/src_libsinglebin_pathchk_a-pathchk.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_pathchk_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_pathchk_a-pathchk.obj `if test -f 'src/pathchk.c'; then $(CYGPATH_W) 'src/pathchk.c'; else $(CYGPATH_W) '$(srcdir)/src/pathchk.c'; fi`
-
-src/src_libsinglebin_pinky_a-pinky.o: src/pinky.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_pinky_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_pinky_a-pinky.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_pinky_a-pinky.Tpo -c -o src/src_libsinglebin_pinky_a-pinky.o `test -f 'src/pinky.c' || echo '$(srcdir)/'`src/pinky.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_pinky_a-pinky.Tpo src/$(DEPDIR)/src_libsinglebin_pinky_a-pinky.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pinky.c' object='src/src_libsinglebin_pinky_a-pinky.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_pinky_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_pinky_a-pinky.o `test -f 'src/pinky.c' || echo '$(srcdir)/'`src/pinky.c
-
-src/src_libsinglebin_pinky_a-pinky.obj: src/pinky.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_pinky_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_pinky_a-pinky.obj -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_pinky_a-pinky.Tpo -c -o src/src_libsinglebin_pinky_a-pinky.obj `if test -f 'src/pinky.c'; then $(CYGPATH_W) 'src/pinky.c'; else $(CYGPATH_W) '$(srcdir)/src/pinky.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_pinky_a-pinky.Tpo src/$(DEPDIR)/src_libsinglebin_pinky_a-pinky.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/pinky.c' object='src/src_libsinglebin_pinky_a-pinky.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_pinky_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_pinky_a-pinky.obj `if test -f 'src/pinky.c'; then $(CYGPATH_W) 'src/pinky.c'; else $(CYGPATH_W) '$(srcdir)/src/pinky.c'; fi`
 
 src/src_libsinglebin_pr_a-pr.o: src/pr.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_pr_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_pr_a-pr.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_pr_a-pr.Tpo -c -o src/src_libsinglebin_pr_a-pr.o `test -f 'src/pr.c' || echo '$(srcdir)/'`src/pr.c
@@ -10742,20 +9316,6 @@ src/src_libsinglebin_stdbuf_a-stdbuf.obj: src/stdbuf.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_stdbuf_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_stdbuf_a-stdbuf.obj `if test -f 'src/stdbuf.c'; then $(CYGPATH_W) 'src/stdbuf.c'; else $(CYGPATH_W) '$(srcdir)/src/stdbuf.c'; fi`
 
-src/src_libsinglebin_stty_a-stty.o: src/stty.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_stty_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_stty_a-stty.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_stty_a-stty.Tpo -c -o src/src_libsinglebin_stty_a-stty.o `test -f 'src/stty.c' || echo '$(srcdir)/'`src/stty.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_stty_a-stty.Tpo src/$(DEPDIR)/src_libsinglebin_stty_a-stty.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/stty.c' object='src/src_libsinglebin_stty_a-stty.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_stty_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_stty_a-stty.o `test -f 'src/stty.c' || echo '$(srcdir)/'`src/stty.c
-
-src/src_libsinglebin_stty_a-stty.obj: src/stty.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_stty_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_stty_a-stty.obj -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_stty_a-stty.Tpo -c -o src/src_libsinglebin_stty_a-stty.obj `if test -f 'src/stty.c'; then $(CYGPATH_W) 'src/stty.c'; else $(CYGPATH_W) '$(srcdir)/src/stty.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_stty_a-stty.Tpo src/$(DEPDIR)/src_libsinglebin_stty_a-stty.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/stty.c' object='src/src_libsinglebin_stty_a-stty.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_stty_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_stty_a-stty.obj `if test -f 'src/stty.c'; then $(CYGPATH_W) 'src/stty.c'; else $(CYGPATH_W) '$(srcdir)/src/stty.c'; fi`
-
 src/src_libsinglebin_sum_a-sum.o: src/sum.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_sum_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_sum_a-sum.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_sum_a-sum.Tpo -c -o src/src_libsinglebin_sum_a-sum.o `test -f 'src/sum.c' || echo '$(srcdir)/'`src/sum.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_sum_a-sum.Tpo src/$(DEPDIR)/src_libsinglebin_sum_a-sum.Po
@@ -10839,34 +9399,6 @@ src/src_libsinglebin_test_a-test.obj: src/test.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/test.c' object='src/src_libsinglebin_test_a-test.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_test_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_test_a-test.obj `if test -f 'src/test.c'; then $(CYGPATH_W) 'src/test.c'; else $(CYGPATH_W) '$(srcdir)/src/test.c'; fi`
-
-src/src_libsinglebin_timeout_a-timeout.o: src/timeout.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_timeout_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_timeout_a-timeout.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_timeout_a-timeout.Tpo -c -o src/src_libsinglebin_timeout_a-timeout.o `test -f 'src/timeout.c' || echo '$(srcdir)/'`src/timeout.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_timeout_a-timeout.Tpo src/$(DEPDIR)/src_libsinglebin_timeout_a-timeout.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/timeout.c' object='src/src_libsinglebin_timeout_a-timeout.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_timeout_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_timeout_a-timeout.o `test -f 'src/timeout.c' || echo '$(srcdir)/'`src/timeout.c
-
-src/src_libsinglebin_timeout_a-timeout.obj: src/timeout.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_timeout_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_timeout_a-timeout.obj -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_timeout_a-timeout.Tpo -c -o src/src_libsinglebin_timeout_a-timeout.obj `if test -f 'src/timeout.c'; then $(CYGPATH_W) 'src/timeout.c'; else $(CYGPATH_W) '$(srcdir)/src/timeout.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_timeout_a-timeout.Tpo src/$(DEPDIR)/src_libsinglebin_timeout_a-timeout.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/timeout.c' object='src/src_libsinglebin_timeout_a-timeout.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_timeout_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_timeout_a-timeout.obj `if test -f 'src/timeout.c'; then $(CYGPATH_W) 'src/timeout.c'; else $(CYGPATH_W) '$(srcdir)/src/timeout.c'; fi`
-
-src/src_libsinglebin_timeout_a-operand2sig.o: src/operand2sig.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_timeout_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_timeout_a-operand2sig.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_timeout_a-operand2sig.Tpo -c -o src/src_libsinglebin_timeout_a-operand2sig.o `test -f 'src/operand2sig.c' || echo '$(srcdir)/'`src/operand2sig.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_timeout_a-operand2sig.Tpo src/$(DEPDIR)/src_libsinglebin_timeout_a-operand2sig.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/operand2sig.c' object='src/src_libsinglebin_timeout_a-operand2sig.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_timeout_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_timeout_a-operand2sig.o `test -f 'src/operand2sig.c' || echo '$(srcdir)/'`src/operand2sig.c
-
-src/src_libsinglebin_timeout_a-operand2sig.obj: src/operand2sig.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_timeout_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_timeout_a-operand2sig.obj -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_timeout_a-operand2sig.Tpo -c -o src/src_libsinglebin_timeout_a-operand2sig.obj `if test -f 'src/operand2sig.c'; then $(CYGPATH_W) 'src/operand2sig.c'; else $(CYGPATH_W) '$(srcdir)/src/operand2sig.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/$(DEPDIR)/src_libsinglebin_timeout_a-operand2sig.Tpo src/$(DEPDIR)/src_libsinglebin_timeout_a-operand2sig.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/operand2sig.c' object='src/src_libsinglebin_timeout_a-operand2sig.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_timeout_a_CFLAGS) $(CFLAGS) -c -o src/src_libsinglebin_timeout_a-operand2sig.obj `if test -f 'src/operand2sig.c'; then $(CYGPATH_W) 'src/operand2sig.c'; else $(CYGPATH_W) '$(srcdir)/src/operand2sig.c'; fi`
 
 src/src_libsinglebin_touch_a-touch.o: src/touch.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(src_libsinglebin_touch_a_CFLAGS) $(CFLAGS) -MT src/src_libsinglebin_touch_a-touch.o -MD -MP -MF src/$(DEPDIR)/src_libsinglebin_touch_a-touch.Tpo -c -o src/src_libsinglebin_touch_a-touch.o `test -f 'src/touch.c' || echo '$(srcdir)/'`src/touch.c
@@ -11416,210 +9948,6 @@ src/src_sha512sum-md5sum.obj: src/md5sum.c
 
 .y.c:
 	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
-doc/$(am__dirstamp):
-	@$(MKDIR_P) doc
-	@: > doc/$(am__dirstamp)
-
-$(srcdir)/doc/coreutils.info: doc/coreutils.texi $(srcdir)/doc/version.texi $(doc_coreutils_TEXINFOS)
-	$(AM_V_MAKEINFO)restore=: && backupdir="$(am__leading_dot)am$$$$" && \
-	am__cwd=`pwd` && $(am__cd) $(srcdir) && \
-	rm -rf $$backupdir && mkdir $$backupdir && \
-	if ($(MAKEINFO) --version) >/dev/null 2>&1; then \
-	  for f in $@ $@-[0-9] $@-[0-9][0-9] $(@:.info=).i[0-9] $(@:.info=).i[0-9][0-9]; do \
-	    if test -f $$f; then mv $$f $$backupdir; restore=mv; else :; fi; \
-	  done; \
-	else :; fi && \
-	cd "$$am__cwd"; \
-	if $(MAKEINFO) $(AM_MAKEINFOFLAGS) $(MAKEINFOFLAGS) -I doc -I $(srcdir)/doc \
-	 -o $@ $(srcdir)/doc/coreutils.texi; \
-	then \
-	  rc=0; \
-	  $(am__cd) $(srcdir); \
-	else \
-	  rc=$$?; \
-	  $(am__cd) $(srcdir) && \
-	  $$restore $$backupdir/* `echo "./$@" | sed 's|[^/]*$$||'`; \
-	fi; \
-	rm -rf $$backupdir; exit $$rc
-
-doc/coreutils.dvi: doc/coreutils.texi $(srcdir)/doc/version.texi $(doc_coreutils_TEXINFOS) doc/$(am__dirstamp)
-	$(AM_V_TEXI2DVI)TEXINPUTS="$(am__TEXINFO_TEX_DIR)$(PATH_SEPARATOR)$$TEXINPUTS" \
-	MAKEINFO='$(MAKEINFO) $(AM_MAKEINFOFLAGS) $(MAKEINFOFLAGS) -I doc -I $(srcdir)/doc' \
-	$(TEXI2DVI) $(AM_V_texinfo) --build-dir=$(@:.dvi=.t2d) -o $@ $(AM_V_texidevnull) \
-	`test -f 'doc/coreutils.texi' || echo '$(srcdir)/'`doc/coreutils.texi
-
-doc/coreutils.pdf: doc/coreutils.texi $(srcdir)/doc/version.texi $(doc_coreutils_TEXINFOS) doc/$(am__dirstamp)
-	$(AM_V_TEXI2PDF)TEXINPUTS="$(am__TEXINFO_TEX_DIR)$(PATH_SEPARATOR)$$TEXINPUTS" \
-	MAKEINFO='$(MAKEINFO) $(AM_MAKEINFOFLAGS) $(MAKEINFOFLAGS) -I doc -I $(srcdir)/doc' \
-	$(TEXI2PDF) $(AM_V_texinfo) --build-dir=$(@:.pdf=.t2p) -o $@ $(AM_V_texidevnull) \
-	`test -f 'doc/coreutils.texi' || echo '$(srcdir)/'`doc/coreutils.texi
-
-doc/coreutils.html: doc/coreutils.texi $(srcdir)/doc/version.texi $(doc_coreutils_TEXINFOS) doc/$(am__dirstamp)
-	$(AM_V_MAKEINFO)rm -rf $(@:.html=.htp)
-	$(AM_V_at)if $(MAKEINFOHTML) $(AM_MAKEINFOHTMLFLAGS) $(MAKEINFOFLAGS) -I doc -I $(srcdir)/doc \
-	 -o $(@:.html=.htp) `test -f 'doc/coreutils.texi' || echo '$(srcdir)/'`doc/coreutils.texi; \
-	then \
-	  rm -rf $@ && mv $(@:.html=.htp) $@; \
-	else \
-	  rm -rf $(@:.html=.htp); exit 1; \
-	fi
-$(srcdir)/doc/version.texi:  $(srcdir)/doc/stamp-vti
-$(srcdir)/doc/stamp-vti: doc/coreutils.texi $(top_srcdir)/configure
-	@test -f doc/$(am__dirstamp) || $(MAKE) $(AM_MAKEFLAGS) doc/$(am__dirstamp)
-	@(dir=.; test -f ./doc/coreutils.texi || dir=$(srcdir); \
-	set `$(SHELL) $(top_srcdir)/build-aux/mdate-sh $$dir/doc/coreutils.texi`; \
-	echo "@set UPDATED $$1 $$2 $$3"; \
-	echo "@set UPDATED-MONTH $$2 $$3"; \
-	echo "@set EDITION $(VERSION)"; \
-	echo "@set VERSION $(VERSION)") > vti.tmp$$$$ && \
-	(cmp -s vti.tmp$$$$ $(srcdir)/doc/version.texi \
-	  || (echo "Updating $(srcdir)/doc/version.texi" && \
-	      cp vti.tmp$$$$ $(srcdir)/doc/version.texi.tmp$$$$ && \
-	      mv $(srcdir)/doc/version.texi.tmp$$$$ $(srcdir)/doc/version.texi)) && \
-	rm -f vti.tmp$$$$ $(srcdir)/doc/version.texi.$$$$
-	@cp $(srcdir)/doc/version.texi $@
-
-mostlyclean-vti:
-	-rm -f vti.tmp* $(srcdir)/doc/version.texi.tmp*
-
-maintainer-clean-vti:
-	-rm -f $(srcdir)/doc/stamp-vti $(srcdir)/doc/version.texi
-.dvi.ps:
-	$(AM_V_DVIPS)TEXINPUTS="$(am__TEXINFO_TEX_DIR)$(PATH_SEPARATOR)$$TEXINPUTS" \
-	$(DVIPS) $(AM_V_texinfo) -o $@ $<
-
-uninstall-dvi-am:
-	@$(NORMAL_UNINSTALL)
-	@list='$(DVIS)'; test -n "$(dvidir)" || list=; \
-	for p in $$list; do \
-	  $(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(dvidir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(dvidir)/$$f"; \
-	done
-
-uninstall-html-am:
-	@$(NORMAL_UNINSTALL)
-	@list='$(HTMLS)'; test -n "$(htmldir)" || list=; \
-	for p in $$list; do \
-	  $(am__strip_dir) \
-	  echo " rm -rf '$(DESTDIR)$(htmldir)/$$f'"; \
-	  rm -rf "$(DESTDIR)$(htmldir)/$$f"; \
-	done
-
-uninstall-info-am:
-	@$(PRE_UNINSTALL)
-	@if test -d '$(DESTDIR)$(infodir)' && $(am__can_run_installinfo); then \
-	  list='$(INFO_DEPS)'; \
-	  for file in $$list; do \
-	    relfile=`echo "$$file" | sed 's|^.*/||'`; \
-	    echo " install-info --info-dir='$(DESTDIR)$(infodir)' --remove '$(DESTDIR)$(infodir)/$$relfile'"; \
-	    if install-info --info-dir="$(DESTDIR)$(infodir)" --remove "$(DESTDIR)$(infodir)/$$relfile"; \
-	    then :; else test ! -f "$(DESTDIR)$(infodir)/$$relfile" || exit 1; fi; \
-	  done; \
-	else :; fi
-	@$(NORMAL_UNINSTALL)
-	@list='$(INFO_DEPS)'; \
-	for file in $$list; do \
-	  relfile=`echo "$$file" | sed 's|^.*/||'`; \
-	  relfile_i=`echo "$$relfile" | sed 's|\.info$$||;s|$$|.i|'`; \
-	  (if test -d "$(DESTDIR)$(infodir)" && cd "$(DESTDIR)$(infodir)"; then \
-	     echo " cd '$(DESTDIR)$(infodir)' && rm -f $$relfile $$relfile-[0-9] $$relfile-[0-9][0-9] $$relfile_i[0-9] $$relfile_i[0-9][0-9]"; \
-	     rm -f $$relfile $$relfile-[0-9] $$relfile-[0-9][0-9] $$relfile_i[0-9] $$relfile_i[0-9][0-9]; \
-	   else :; fi); \
-	done
-
-uninstall-pdf-am:
-	@$(NORMAL_UNINSTALL)
-	@list='$(PDFS)'; test -n "$(pdfdir)" || list=; \
-	for p in $$list; do \
-	  $(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(pdfdir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(pdfdir)/$$f"; \
-	done
-
-uninstall-ps-am:
-	@$(NORMAL_UNINSTALL)
-	@list='$(PSS)'; test -n "$(psdir)" || list=; \
-	for p in $$list; do \
-	  $(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(psdir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(psdir)/$$f"; \
-	done
-
-dist-info: $(INFO_DEPS)
-	@srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`; \
-	list='$(INFO_DEPS)'; \
-	for base in $$list; do \
-	  case $$base in \
-	    $(srcdir)/*) base=`echo "$$base" | sed "s|^$$srcdirstrip/||"`;; \
-	  esac; \
-	  if test -f $$base; then d=.; else d=$(srcdir); fi; \
-	  base_i=`echo "$$base" | sed 's|\.info$$||;s|$$|.i|'`; \
-	  for file in $$d/$$base $$d/$$base-[0-9] $$d/$$base-[0-9][0-9] $$d/$$base_i[0-9] $$d/$$base_i[0-9][0-9]; do \
-	    if test -f $$file; then \
-	      relfile=`expr "$$file" : "$$d/\(.*\)"`; \
-	      test -f "$(distdir)/$$relfile" || \
-		cp -p $$file "$(distdir)/$$relfile"; \
-	    else :; fi; \
-	  done; \
-	done
-
-mostlyclean-aminfo:
-	-rm -rf doc/coreutils.t2d doc/coreutils.t2p
-
-clean-aminfo:
-	-test -z "doc/coreutils.dvi doc/coreutils.pdf doc/coreutils.ps \
-	  doc/coreutils.html" \
-	|| rm -rf doc/coreutils.dvi doc/coreutils.pdf doc/coreutils.ps \
-	  doc/coreutils.html
-
-maintainer-clean-aminfo:
-	@list='$(INFO_DEPS)'; for i in $$list; do \
-	  i_i=`echo "$$i" | sed 's|\.info$$||;s|$$|.i|'`; \
-	  echo " rm -f $$i $$i-[0-9] $$i-[0-9][0-9] $$i_i[0-9] $$i_i[0-9][0-9]"; \
-	  rm -f $$i $$i-[0-9] $$i-[0-9][0-9] $$i_i[0-9] $$i_i[0-9][0-9]; \
-	done
-install-man1: $(man1_MANS)
-	@$(NORMAL_INSTALL)
-	@list1='$(man1_MANS)'; \
-	list2=''; \
-	test -n "$(man1dir)" \
-	  && test -n "`echo $$list1$$list2`" \
-	  || exit 0; \
-	echo " $(MKDIR_P) '$(DESTDIR)$(man1dir)'"; \
-	$(MKDIR_P) "$(DESTDIR)$(man1dir)" || exit 1; \
-	{ for i in $$list1; do echo "$$i"; done;  \
-	if test -n "$$list2"; then \
-	  for i in $$list2; do echo "$$i"; done \
-	    | sed -n '/\.1[a-z]*$$/p'; \
-	fi; \
-	} | while read p; do \
-	  if test -f $$p; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; echo "$$p"; \
-	done | \
-	sed -e 'n;s,.*/,,;p;h;s,.*\.,,;s,^[^1][0-9a-z]*$$,1,;x' \
-	      -e 's,\.[0-9a-z]*$$,,;$(transform);G;s,\n,.,' | \
-	sed 'N;N;s,\n, ,g' | { \
-	list=; while read file base inst; do \
-	  if test "$$base" = "$$inst"; then list="$$list $$file"; else \
-	    echo " $(INSTALL_DATA) '$$file' '$(DESTDIR)$(man1dir)/$$inst'"; \
-	    $(INSTALL_DATA) "$$file" "$(DESTDIR)$(man1dir)/$$inst" || exit $$?; \
-	  fi; \
-	done; \
-	for i in $$list; do echo "$$i"; done | $(am__base_list) | \
-	while read files; do \
-	  test -z "$$files" || { \
-	    echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(man1dir)'"; \
-	    $(INSTALL_DATA) $$files "$(DESTDIR)$(man1dir)" || exit $$?; }; \
-	done; }
-
-uninstall-man1:
-	@$(NORMAL_UNINSTALL)
-	@list='$(man1_MANS)'; test -n "$(man1dir)" || exit 0; \
-	files=`{ for i in $$list; do echo "$$i"; done; \
-	} | sed -e 's,.*/,,;h;s,.*\.,,;s,^[^1][0-9a-z]*$$,1,;x' \
-	      -e 's,\.[0-9a-z]*$$,,;$(transform);G;s,\n,.,'`; \
-	dir='$(DESTDIR)$(man1dir)'; $(am__uninstall_files_from_dir)
 
 # This directory's subdirectories are mostly independent; you can cd
 # into them and run 'make' without going through this Makefile.
@@ -11727,190 +10055,6 @@ distclean-tags:
 	-rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
 	-rm -f cscope.out cscope.in.out cscope.po.out cscope.files
 
-# Recover from deleted '.trs' file; this should ensure that
-# "rm -f foo.log; make foo.trs" re-run 'foo.test', and re-create
-# both 'foo.log' and 'foo.trs'.  Break the recipe in two subshells
-# to avoid problems with "make -n".
-.log.trs:
-	rm -f $< $@
-	$(MAKE) $(AM_MAKEFLAGS) $<
-
-# Leading 'am--fnord' is there to ensure the list of targets does not
-# expand to empty, as could happen e.g. with make check TESTS=''.
-am--fnord $(TEST_LOGS) $(TEST_LOGS:.log=.trs): $(am__force_recheck)
-am--force-recheck:
-	@:
-
-$(TEST_SUITE_LOG): $(TEST_LOGS)
-	@$(am__set_TESTS_bases); \
-	am__f_ok () { test -f "$$1" && test -r "$$1"; }; \
-	redo_bases=`for i in $$bases; do \
-	              am__f_ok $$i.trs && am__f_ok $$i.log || echo $$i; \
-	            done`; \
-	if test -n "$$redo_bases"; then \
-	  redo_logs=`for i in $$redo_bases; do echo $$i.log; done`; \
-	  redo_results=`for i in $$redo_bases; do echo $$i.trs; done`; \
-	  if $(am__make_dryrun); then :; else \
-	    rm -f $$redo_logs && rm -f $$redo_results || exit 1; \
-	  fi; \
-	fi; \
-	if test -n "$$am__remaking_logs"; then \
-	  echo "fatal: making $(TEST_SUITE_LOG): possible infinite" \
-	       "recursion detected" >&2; \
-	elif test -n "$$redo_logs"; then \
-	  am__remaking_logs=yes $(MAKE) $(AM_MAKEFLAGS) $$redo_logs; \
-	fi; \
-	if $(am__make_dryrun); then :; else \
-	  st=0;  \
-	  errmsg="fatal: making $(TEST_SUITE_LOG): failed to create"; \
-	  for i in $$redo_bases; do \
-	    test -f $$i.trs && test -r $$i.trs \
-	      || { echo "$$errmsg $$i.trs" >&2; st=1; }; \
-	    test -f $$i.log && test -r $$i.log \
-	      || { echo "$$errmsg $$i.log" >&2; st=1; }; \
-	  done; \
-	  test $$st -eq 0 || exit 1; \
-	fi
-	@$(am__sh_e_setup); $(am__tty_colors); $(am__set_TESTS_bases); \
-	ws='[ 	]'; \
-	results=`for b in $$bases; do echo $$b.trs; done`; \
-	test -n "$$results" || results=/dev/null; \
-	all=`  grep "^$$ws*:test-result:"           $$results | wc -l`; \
-	pass=` grep "^$$ws*:test-result:$$ws*PASS"  $$results | wc -l`; \
-	fail=` grep "^$$ws*:test-result:$$ws*FAIL"  $$results | wc -l`; \
-	skip=` grep "^$$ws*:test-result:$$ws*SKIP"  $$results | wc -l`; \
-	xfail=`grep "^$$ws*:test-result:$$ws*XFAIL" $$results | wc -l`; \
-	xpass=`grep "^$$ws*:test-result:$$ws*XPASS" $$results | wc -l`; \
-	error=`grep "^$$ws*:test-result:$$ws*ERROR" $$results | wc -l`; \
-	if test `expr $$fail + $$xpass + $$error` -eq 0; then \
-	  success=true; \
-	else \
-	  success=false; \
-	fi; \
-	br='==================='; br=$$br$$br$$br$$br; \
-	result_count () \
-	{ \
-	    if test x"$$1" = x"--maybe-color"; then \
-	      maybe_colorize=yes; \
-	    elif test x"$$1" = x"--no-color"; then \
-	      maybe_colorize=no; \
-	    else \
-	      echo "$@: invalid 'result_count' usage" >&2; exit 4; \
-	    fi; \
-	    shift; \
-	    desc=$$1 count=$$2; \
-	    if test $$maybe_colorize = yes && test $$count -gt 0; then \
-	      color_start=$$3 color_end=$$std; \
-	    else \
-	      color_start= color_end=; \
-	    fi; \
-	    echo "$${color_start}# $$desc $$count$${color_end}"; \
-	}; \
-	create_testsuite_report () \
-	{ \
-	  result_count $$1 "TOTAL:" $$all   "$$brg"; \
-	  result_count $$1 "PASS: " $$pass  "$$grn"; \
-	  result_count $$1 "SKIP: " $$skip  "$$blu"; \
-	  result_count $$1 "XFAIL:" $$xfail "$$lgn"; \
-	  result_count $$1 "FAIL: " $$fail  "$$red"; \
-	  result_count $$1 "XPASS:" $$xpass "$$red"; \
-	  result_count $$1 "ERROR:" $$error "$$mgn"; \
-	}; \
-	{								\
-	  echo "$(PACKAGE_STRING): $(subdir)/$(TEST_SUITE_LOG)" |	\
-	    $(am__rst_title);						\
-	  create_testsuite_report --no-color;				\
-	  echo;								\
-	  echo ".. contents:: :depth: 2";				\
-	  echo;								\
-	  for b in $$bases; do echo $$b; done				\
-	    | $(am__create_global_log);					\
-	} >$(TEST_SUITE_LOG).tmp || exit 1;				\
-	mv $(TEST_SUITE_LOG).tmp $(TEST_SUITE_LOG);			\
-	if $$success; then						\
-	  col="$$grn";							\
-	 else								\
-	  col="$$red";							\
-	  test x"$$VERBOSE" = x || cat $(TEST_SUITE_LOG);		\
-	fi;								\
-	echo "$${col}$$br$${std}"; 					\
-	echo "$${col}Testsuite summary for $(PACKAGE_STRING)$${std}";	\
-	echo "$${col}$$br$${std}"; 					\
-	create_testsuite_report --maybe-color;				\
-	echo "$$col$$br$$std";						\
-	if $$success; then :; else					\
-	  echo "$${col}See $(subdir)/$(TEST_SUITE_LOG)$${std}";		\
-	  if test -n "$(PACKAGE_BUGREPORT)"; then			\
-	    echo "$${col}Please report to $(PACKAGE_BUGREPORT)$${std}";	\
-	  fi;								\
-	  echo "$$col$$br$$std";					\
-	fi;								\
-	$$success || exit 1
-
-check-TESTS:
-	@list='$(RECHECK_LOGS)';           test -z "$$list" || rm -f $$list
-	@list='$(RECHECK_LOGS:.log=.trs)'; test -z "$$list" || rm -f $$list
-	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
-	@set +e; $(am__set_TESTS_bases); \
-	log_list=`for i in $$bases; do echo $$i.log; done`; \
-	trs_list=`for i in $$bases; do echo $$i.trs; done`; \
-	log_list=`echo $$log_list`; trs_list=`echo $$trs_list`; \
-	$(MAKE) $(AM_MAKEFLAGS) $(TEST_SUITE_LOG) TEST_LOGS="$$log_list"; \
-	exit $$?;
-recheck: all 
-	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
-	@set +e; $(am__set_TESTS_bases); \
-	bases=`for i in $$bases; do echo $$i; done \
-	         | $(am__list_recheck_tests)` || exit 1; \
-	log_list=`for i in $$bases; do echo $$i.log; done`; \
-	log_list=`echo $$log_list`; \
-	$(MAKE) $(AM_MAKEFLAGS) $(TEST_SUITE_LOG) \
-	        am__force_recheck=am--force-recheck \
-	        TEST_LOGS="$$log_list"; \
-	exit $$?
-.sh.log:
-	@p='$<'; \
-	$(am__set_b); \
-	$(am__check_pre) $(SH_LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_SH_LOG_DRIVER_FLAGS) $(SH_LOG_DRIVER_FLAGS) -- $(SH_LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-@am__EXEEXT_TRUE@.sh$(EXEEXT).log:
-@am__EXEEXT_TRUE@	@p='$<'; \
-@am__EXEEXT_TRUE@	$(am__set_b); \
-@am__EXEEXT_TRUE@	$(am__check_pre) $(SH_LOG_DRIVER) --test-name "$$f" \
-@am__EXEEXT_TRUE@	--log-file $$b.log --trs-file $$b.trs \
-@am__EXEEXT_TRUE@	$(am__common_driver_flags) $(AM_SH_LOG_DRIVER_FLAGS) $(SH_LOG_DRIVER_FLAGS) -- $(SH_LOG_COMPILE) \
-@am__EXEEXT_TRUE@	"$$tst" $(AM_TESTS_FD_REDIRECT)
-.pl.log:
-	@p='$<'; \
-	$(am__set_b); \
-	$(am__check_pre) $(PL_LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_PL_LOG_DRIVER_FLAGS) $(PL_LOG_DRIVER_FLAGS) -- $(PL_LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-@am__EXEEXT_TRUE@.pl$(EXEEXT).log:
-@am__EXEEXT_TRUE@	@p='$<'; \
-@am__EXEEXT_TRUE@	$(am__set_b); \
-@am__EXEEXT_TRUE@	$(am__check_pre) $(PL_LOG_DRIVER) --test-name "$$f" \
-@am__EXEEXT_TRUE@	--log-file $$b.log --trs-file $$b.trs \
-@am__EXEEXT_TRUE@	$(am__common_driver_flags) $(AM_PL_LOG_DRIVER_FLAGS) $(PL_LOG_DRIVER_FLAGS) -- $(PL_LOG_COMPILE) \
-@am__EXEEXT_TRUE@	"$$tst" $(AM_TESTS_FD_REDIRECT)
-.xpl.log:
-	@p='$<'; \
-	$(am__set_b); \
-	$(am__check_pre) $(XPL_LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_XPL_LOG_DRIVER_FLAGS) $(XPL_LOG_DRIVER_FLAGS) -- $(XPL_LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
-@am__EXEEXT_TRUE@.xpl$(EXEEXT).log:
-@am__EXEEXT_TRUE@	@p='$<'; \
-@am__EXEEXT_TRUE@	$(am__set_b); \
-@am__EXEEXT_TRUE@	$(am__check_pre) $(XPL_LOG_DRIVER) --test-name "$$f" \
-@am__EXEEXT_TRUE@	--log-file $$b.log --trs-file $$b.trs \
-@am__EXEEXT_TRUE@	$(am__common_driver_flags) $(AM_XPL_LOG_DRIVER_FLAGS) $(XPL_LOG_DRIVER_FLAGS) -- $(XPL_LOG_COMPILE) \
-@am__EXEEXT_TRUE@	"$$tst" $(AM_TESTS_FD_REDIRECT)
-
 distdir: $(DISTFILES)
 	$(am__remove_distdir)
 	test -d "$(distdir)" || mkdir "$(distdir)"
@@ -11970,7 +10114,7 @@ distdir: $(DISTFILES)
 	done
 	$(MAKE) $(AM_MAKEFLAGS) \
 	  top_distdir="$(top_distdir)" distdir="$(distdir)" \
-	  dist-info dist-hook
+	  dist-hook
 	-test -n "$(am__skip_mode_fix)" \
 	|| find "$(distdir)" -type d ! -perm -755 \
 		-exec chmod u+rwx,go+rx {} \; -o \
@@ -11979,7 +10123,7 @@ distdir: $(DISTFILES)
 	  ! -type d ! -perm -444 -exec $(install_sh) -c -m a+r {} {} \; \
 	|| chmod -R a+r "$(distdir)"
 dist-gzip: distdir
-	tardir=$(distdir) && $(am__tar) | eval GZIP= gzip $(GZIP_ENV) -c >$(distdir).tar.gz
+	tardir=$(distdir) && $(am__tar) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).tar.gz
 	$(am__post_remove_distdir)
 
 dist-bzip2: distdir
@@ -12004,7 +10148,7 @@ dist-shar: distdir
 	@echo WARNING: "Support for shar distribution archives is" \
 	               "deprecated." >&2
 	@echo WARNING: "It will be removed altogether in Automake 2.0" >&2
-	shar $(distdir) | eval GZIP= gzip $(GZIP_ENV) -c >$(distdir).shar.gz
+	shar $(distdir) | GZIP=$(GZIP_ENV) gzip -c >$(distdir).shar.gz
 	$(am__post_remove_distdir)
 
 dist-zip: distdir
@@ -12022,7 +10166,7 @@ dist dist-all:
 distcheck: dist
 	case '$(DIST_ARCHIVES)' in \
 	*.tar.gz*) \
-	  eval GZIP= gzip $(GZIP_ENV) -dc $(distdir).tar.gz | $(am__untar) ;;\
+	  GZIP=$(GZIP_ENV) gzip -dc $(distdir).tar.gz | $(am__untar) ;;\
 	*.tar.bz2*) \
 	  bzip2 -dc $(distdir).tar.bz2 | $(am__untar) ;;\
 	*.tar.lz*) \
@@ -12032,7 +10176,7 @@ distcheck: dist
 	*.tar.Z*) \
 	  uncompress -c $(distdir).tar.Z | $(am__untar) ;;\
 	*.shar.gz*) \
-	  eval GZIP= gzip $(GZIP_ENV) -dc $(distdir).shar.gz | unshar ;;\
+	  GZIP=$(GZIP_ENV) gzip -dc $(distdir).shar.gz | unshar ;;\
 	*.zip*) \
 	  unzip $(distdir).zip ;;\
 	esac
@@ -12103,14 +10247,13 @@ distcleancheck: distclean
 	       $(distcleancheck_listfiles) ; \
 	       exit 1; } >&2
 check-am: all-am
-	$(MAKE) $(AM_MAKEFLAGS) check-TESTS check-local
+	$(MAKE) $(AM_MAKEFLAGS) check-local
 check: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) check-recursive
-all-am: Makefile $(INFO_DEPS) $(LIBRARIES) $(PROGRAMS) $(MANS) \
-		$(HEADERS) all-local
+all-am: Makefile $(LIBRARIES) $(PROGRAMS) $(HEADERS) all-local
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibexecdir)" "$(DESTDIR)$(infodir)" "$(DESTDIR)$(man1dir)"; do \
+	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkglibexecdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: $(BUILT_SOURCES)
@@ -12136,9 +10279,6 @@ install-strip:
 mostlyclean-generic:
 	-test -z "$(ALLOCA)" || rm -f $(ALLOCA)
 	-test -z "$(MOSTLYCLEANFILES)" || rm -f $(MOSTLYCLEANFILES)
-	-test -z "$(TEST_LOGS)" || rm -f $(TEST_LOGS)
-	-test -z "$(TEST_LOGS:.log=.trs)" || rm -f $(TEST_LOGS:.log=.trs)
-	-test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
 
 clean-generic:
 	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
@@ -12146,7 +10286,6 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
-	-rm -f doc/$(am__dirstamp)
 	-rm -f lib/$(DEPDIR)/$(am__dirstamp)
 	-rm -f lib/$(am__dirstamp)
 	-rm -f lib/glthread/$(DEPDIR)/$(am__dirstamp)
@@ -12169,7 +10308,7 @@ maintainer-clean-generic:
 	-test -z "$(MAINTAINERCLEANFILES)" || rm -f $(MAINTAINERCLEANFILES)
 clean: clean-recursive
 
-clean-am: clean-aminfo clean-binPROGRAMS clean-generic clean-local \
+clean-am: clean-binPROGRAMS clean-generic clean-local \
 	clean-noinstLIBRARIES clean-noinstPROGRAMS \
 	clean-pkglibexecPROGRAMS mostlyclean-am
 
@@ -12182,135 +10321,44 @@ distclean-am: clean-am distclean-compile distclean-generic \
 
 dvi: dvi-recursive
 
-dvi-am: $(DVIS)
+dvi-am:
 
 html: html-recursive
 
-html-am: $(HTMLS)
+html-am:
 
 info: info-recursive
 
-info-am: $(INFO_DEPS)
+info-am:
 
-install-data-am: install-info-am install-man
+install-data-am:
 
 install-dvi: install-dvi-recursive
 
-install-dvi-am: $(DVIS)
-	@$(NORMAL_INSTALL)
-	@list='$(DVIS)'; test -n "$(dvidir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(dvidir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(dvidir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(dvidir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(dvidir)" || exit $$?; \
-	done
+install-dvi-am:
+
 install-exec-am: install-binPROGRAMS install-exec-local \
 	install-pkglibexecPROGRAMS
 	@$(NORMAL_INSTALL)
 	$(MAKE) $(AM_MAKEFLAGS) install-exec-hook
 install-html: install-html-recursive
 
-install-html-am: $(HTMLS)
-	@$(NORMAL_INSTALL)
-	@list='$(HTMLS)'; list2=; test -n "$(htmldir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(htmldir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(htmldir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p" || test -d "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  $(am__strip_dir) \
-	  d2=$$d$$p; \
-	  if test -d "$$d2"; then \
-	    echo " $(MKDIR_P) '$(DESTDIR)$(htmldir)/$$f'"; \
-	    $(MKDIR_P) "$(DESTDIR)$(htmldir)/$$f" || exit 1; \
-	    echo " $(INSTALL_DATA) '$$d2'/* '$(DESTDIR)$(htmldir)/$$f'"; \
-	    $(INSTALL_DATA) "$$d2"/* "$(DESTDIR)$(htmldir)/$$f" || exit $$?; \
-	  else \
-	    list2="$$list2 $$d2"; \
-	  fi; \
-	done; \
-	test -z "$$list2" || { echo "$$list2" | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(htmldir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(htmldir)" || exit $$?; \
-	done; }
+install-html-am:
+
 install-info: install-info-recursive
 
-install-info-am: $(INFO_DEPS)
-	@$(NORMAL_INSTALL)
-	@srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`; \
-	list='$(INFO_DEPS)'; test -n "$(infodir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(infodir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(infodir)" || exit 1; \
-	fi; \
-	for file in $$list; do \
-	  case $$file in \
-	    $(srcdir)/*) file=`echo "$$file" | sed "s|^$$srcdirstrip/||"`;; \
-	  esac; \
-	  if test -f $$file; then d=.; else d=$(srcdir); fi; \
-	  file_i=`echo "$$file" | sed 's|\.info$$||;s|$$|.i|'`; \
-	  for ifile in $$d/$$file $$d/$$file-[0-9] $$d/$$file-[0-9][0-9] \
-	               $$d/$$file_i[0-9] $$d/$$file_i[0-9][0-9] ; do \
-	    if test -f $$ifile; then \
-	      echo "$$ifile"; \
-	    else : ; fi; \
-	  done; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(infodir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(infodir)" || exit $$?; done
-	@$(POST_INSTALL)
-	@if $(am__can_run_installinfo); then \
-	  list='$(INFO_DEPS)'; test -n "$(infodir)" || list=; \
-	  for file in $$list; do \
-	    relfile=`echo "$$file" | sed 's|^.*/||'`; \
-	    echo " install-info --info-dir='$(DESTDIR)$(infodir)' '$(DESTDIR)$(infodir)/$$relfile'";\
-	    install-info --info-dir="$(DESTDIR)$(infodir)" "$(DESTDIR)$(infodir)/$$relfile" || :;\
-	  done; \
-	else : ; fi
-install-man: install-man1
+install-info-am:
+
+install-man:
 
 install-pdf: install-pdf-recursive
 
-install-pdf-am: $(PDFS)
-	@$(NORMAL_INSTALL)
-	@list='$(PDFS)'; test -n "$(pdfdir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(pdfdir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(pdfdir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(pdfdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(pdfdir)" || exit $$?; done
+install-pdf-am:
+
 install-ps: install-ps-recursive
 
-install-ps-am: $(PSS)
-	@$(NORMAL_INSTALL)
-	@list='$(PSS)'; test -n "$(psdir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(psdir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(psdir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(psdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(psdir)" || exit $$?; done
+install-ps-am:
+
 installcheck-am:
 
 maintainer-clean: maintainer-clean-recursive
@@ -12318,56 +10366,48 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -rf $(top_srcdir)/autom4te.cache
 	-rm -rf lib/$(DEPDIR) lib/glthread/$(DEPDIR) lib/unistr/$(DEPDIR) lib/uniwidth/$(DEPDIR) src/$(DEPDIR) src/blake2/$(DEPDIR)
 	-rm -f Makefile
-maintainer-clean-am: distclean-am maintainer-clean-aminfo \
-	maintainer-clean-generic maintainer-clean-vti
+maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-recursive
 
-mostlyclean-am: mostlyclean-aminfo mostlyclean-compile \
-	mostlyclean-generic mostlyclean-local mostlyclean-vti
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-local
 
 pdf: pdf-recursive
 
-pdf-am: $(PDFS)
+pdf-am:
 
 ps: ps-recursive
 
-ps-am: $(PSS)
+ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-dvi-am uninstall-html-am \
-	uninstall-info-am uninstall-local uninstall-man \
-	uninstall-pdf-am uninstall-pkglibexecPROGRAMS uninstall-ps-am
-
-uninstall-man: uninstall-man1
+uninstall-am: uninstall-binPROGRAMS uninstall-local \
+	uninstall-pkglibexecPROGRAMS
 
 .MAKE: $(am__recursive_targets) all check check-am install install-am \
 	install-exec-am install-strip
 
 .PHONY: $(am__recursive_targets) CTAGS GTAGS TAGS all all-am all-local \
-	am--refresh check check-TESTS check-am check-local clean \
-	clean-aminfo clean-binPROGRAMS clean-cscope clean-generic \
-	clean-local clean-noinstLIBRARIES clean-noinstPROGRAMS \
-	clean-pkglibexecPROGRAMS cscope cscopelist-am ctags ctags-am \
-	dist dist-all dist-bzip2 dist-gzip dist-hook dist-info \
-	dist-lzip dist-shar dist-tarZ dist-xz dist-zip distcheck \
-	distclean distclean-compile distclean-generic distclean-hdr \
-	distclean-local distclean-tags distcleancheck distdir \
-	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-binPROGRAMS install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-exec-hook install-exec-local \
-	install-html install-html-am install-info install-info-am \
-	install-man install-man1 install-pdf install-pdf-am \
+	am--refresh check check-am check-local clean clean-binPROGRAMS \
+	clean-cscope clean-generic clean-local clean-noinstLIBRARIES \
+	clean-noinstPROGRAMS clean-pkglibexecPROGRAMS cscope \
+	cscopelist-am ctags ctags-am dist dist-all dist-bzip2 \
+	dist-gzip dist-hook dist-lzip dist-shar dist-tarZ dist-xz \
+	dist-zip distcheck distclean distclean-compile \
+	distclean-generic distclean-hdr distclean-local distclean-tags \
+	distcleancheck distdir distuninstallcheck dvi dvi-am html \
+	html-am info info-am install install-am install-binPROGRAMS \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-exec-hook \
+	install-exec-local install-html install-html-am install-info \
+	install-info-am install-man install-pdf install-pdf-am \
 	install-pkglibexecPROGRAMS install-ps install-ps-am \
 	install-strip installcheck installcheck-am installdirs \
-	installdirs-am maintainer-clean maintainer-clean-aminfo \
-	maintainer-clean-generic maintainer-clean-vti mostlyclean \
-	mostlyclean-aminfo mostlyclean-compile mostlyclean-generic \
-	mostlyclean-local mostlyclean-vti pdf pdf-am ps ps-am recheck \
-	tags tags-am uninstall uninstall-am uninstall-binPROGRAMS \
-	uninstall-dvi-am uninstall-html-am uninstall-info-am \
-	uninstall-local uninstall-man uninstall-man1 uninstall-pdf-am \
-	uninstall-pkglibexecPROGRAMS uninstall-ps-am
+	installdirs-am maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-local pdf pdf-am ps ps-am tags tags-am uninstall \
+	uninstall-am uninstall-binPROGRAMS uninstall-local \
+	uninstall-pkglibexecPROGRAMS
 
 .PRECIOUS: Makefile
 
@@ -14579,224 +12619,6 @@ check-README:
 .PHONY: check-duplicate-no-install
 check-duplicate-no-install:
 	$(AM_V_GEN)test -z "`echo '$(EXTRA_PROGRAMS)' | tr ' ' '\n' | uniq -d`"
-
-doc/constants.texi: $(top_srcdir)/src/tail.c $(top_srcdir)/src/shred.c
-	$(AM_V_GEN)LC_ALL=C; export LC_ALL; \
-	$(MKDIR_P) doc && \
-	{ sed -n -e 's/^#define \(DEFAULT_MAX[_A-Z]*\) \(.*\)/@set \1 \2/p' \
-	    $(top_srcdir)/src/tail.c && \
-	  sed -n -e \
-	      's/.*\(DEFAULT_PASSES\)[ =]* \([0-9]*\).*/@set SHRED_\1 \2/p'\
-	    $(top_srcdir)/src/shred.c; } > $@-t \
-	  && { cmp $@-t $@ >/dev/null 2>&1 || mv $@-t $@; rm -f $@-t; }
-
-.PHONY: $(syntax_checks) check-texinfo
-
-# List words/regexps here that should not appear in the texinfo documentation.
-check-texinfo: $(syntax_checks)
-	$(AM_V_GEN)fail=0;						\
-	grep '@url{' $(texi_files) && fail=1;				\
-	grep '\$$@"' $(texi_files) && fail=1;				\
-	grep -n '[^[:punct:]]@footnote' $(texi_files) && fail=1;	\
-	grep -n filename $(texi_files)					\
-	    | $(EGREP) -v 'setfilename|[{]filename[}]'			\
-	  && fail=1;							\
-	exit $$fail
-
-sc-avoid-builtin:
-	$(AM_V_GEN)$(EGREP) -i '$(_W)builtins?$(W_)' $(texi_files)	\
-	  && exit 1 || :
-
-sc-avoid-path:
-	$(AM_V_GEN)fail=0;						\
-	$(EGREP) -i '$(_W)path(name)?s?$(W_)' $(texi_files)		\
-	  | $(EGREP) -v							\
-	  'PATH=|path search|search path|@vindex PATH$$|@env[{]PATH[}]'	\
-	  && fail=1;							\
-	exit $$fail
-
-# Use "time zone", not "timezone".
-sc-avoid-timezone:
-	$(AM_V_GEN)$(EGREP) timezone $(texi_files) && exit 1 || :
-
-# Check for insufficient exponent grouping, e.g.,
-# @math{2^64} should be @math{2^{64}}.
-sc-exponent-grouping:
-	$(AM_V_GEN)$(EGREP) '\{.*\^[0-9][0-9]' $(texi_files) && exit 1 || :
-
-# Say I/O, not IO.
-sc-avoid-io:
-	$(AM_V_GEN)$(EGREP) '$(_W)IO$(W_)' $(texi_files) && exit 1 || :
-
-# I prefer nonzero over non-zero.
-sc-avoid-non-zero:
-	$(AM_V_GEN)$(EGREP) non-zero $(texi_files) && exit 1 || :
-
-# Use "zeros", not "zeroes" (nothing wrong with "zeroes"; just be consistent).
-sc-avoid-zeroes:
-	$(AM_V_GEN)$(EGREP) -i '$(_W)zeroes$(W_)' $(texi_files)	\
-	  && exit 1 || :
-sc-lower-case-var:
-	$(AM_V_GEN)$(PERL) -e 1 || { echo $@: skipping test; exit 0; }; \
-	  $(PERL) -lne $(find_upper_case_var) $(texi_files)
-
-check-local: check-texinfo
-
-# This is a kludge to remove generated 'man/*.1' from a non-srcdir build.
-# Without this, "make distcheck" might fail.
-distclean-local:
-	test x$(srcdir) = x$(builddir) || rm -f $(ALL_MANS)
-
-$(ALL_MANS): $(mandeps)
-# Most prog.1 man pages depend on src/prog.  List the exceptions:
-@SINGLE_BINARY_FALSE@man/install.1:   src/ginstall$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/test.1:      src/[$(EXEEXT)
-
-@SINGLE_BINARY_FALSE@man/arch.1:      src/arch$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/b2sum.1:     src/b2sum$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/base32.1:    src/base32$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/base64.1:    src/base64$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/basename.1:  src/basename$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/cat.1:       src/cat$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/chcon.1:     src/chcon$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/chgrp.1:     src/chgrp$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/chmod.1:     src/chmod$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/chown.1:     src/chown$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/chroot.1:    src/chroot$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/cksum.1:     src/cksum$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/comm.1:      src/comm$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/coreutils.1: src/coreutils$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/cp.1:        src/cp$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/csplit.1:    src/csplit$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/cut.1:       src/cut$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/date.1:      src/date$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/dd.1:        src/dd$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/df.1:        src/df$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/dir.1:       src/dir$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/dircolors.1: src/dircolors$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/dirname.1:   src/dirname$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/du.1:        src/du$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/echo.1:      src/echo$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/env.1:       src/env$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/expand.1:    src/expand$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/expr.1:      src/expr$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/factor.1:    src/factor$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/false.1:     src/false$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/fmt.1:       src/fmt$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/fold.1:      src/fold$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/groups.1:    src/groups$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/head.1:      src/head$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/hostid.1:    src/hostid$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/hostname.1:  src/hostname$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/id.1:        src/id$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/join.1:      src/join$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/kill.1:      src/kill$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/link.1:      src/link$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/ln.1:        src/ln$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/logname.1:   src/logname$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/ls.1:        src/ls$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/md5sum.1:    src/md5sum$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/mkdir.1:     src/mkdir$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/mkfifo.1:    src/mkfifo$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/mknod.1:     src/mknod$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/mktemp.1:    src/mktemp$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/mv.1:        src/mv$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/nice.1:      src/nice$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/nl.1:        src/nl$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/nohup.1:     src/nohup$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/nproc.1:     src/nproc$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/numfmt.1:    src/numfmt$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/od.1:        src/od$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/paste.1:     src/paste$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/pathchk.1:   src/pathchk$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/pinky.1:     src/pinky$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/pr.1:        src/pr$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/printenv.1:  src/printenv$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/printf.1:    src/printf$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/ptx.1:       src/ptx$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/pwd.1:       src/pwd$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/readlink.1:  src/readlink$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/realpath.1:  src/realpath$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/rm.1:        src/rm$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/rmdir.1:     src/rmdir$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/runcon.1:    src/runcon$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/seq.1:       src/seq$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/sha1sum.1:   src/sha1sum$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/sha224sum.1: src/sha224sum$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/sha256sum.1: src/sha256sum$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/sha384sum.1: src/sha384sum$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/sha512sum.1: src/sha512sum$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/shred.1:     src/shred$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/shuf.1:      src/shuf$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/sleep.1:     src/sleep$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/sort.1:      src/sort$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/split.1:     src/split$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/stat.1:      src/stat$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/stdbuf.1:    src/stdbuf$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/stty.1:      src/stty$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/sum.1:       src/sum$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/sync.1:      src/sync$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/tac.1:       src/tac$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/tail.1:      src/tail$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/tee.1:       src/tee$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/timeout.1:   src/timeout$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/touch.1:     src/touch$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/tr.1:        src/tr$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/true.1:      src/true$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/truncate.1:  src/truncate$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/tsort.1:     src/tsort$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/tty.1:       src/tty$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/uname.1:     src/uname$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/unexpand.1:  src/unexpand$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/uniq.1:      src/uniq$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/unlink.1:    src/unlink$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/uptime.1:    src/uptime$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/users.1:     src/users$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/vdir.1:      src/vdir$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/wc.1:        src/wc$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/who.1:       src/who$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/whoami.1:    src/whoami$(EXEEXT)
-@SINGLE_BINARY_FALSE@man/yes.1:       src/yes$(EXEEXT)
-
-.x.1:
-	$(AM_V_GEN)name=`echo $@ | sed 's|.*/||; s|\.1$$||'` || exit 1;	\
-	case $$name in							\
-	  install) prog='ginstall'; argv=$$name;;			\
-	     test) prog='['; argv='[';;					\
-		*) prog=$$name; argv=$$prog;;				\
-	esac;								\
-	rm -f $@ $@-t							\
-	  && t=$*.td							\
-	  && rm -rf $$t							\
-	  && $(MKDIR_P) $$t						\
-	  && (cd $$t && $(LN_S) '$(abs_top_builddir)/src/'$$prog$(EXEEXT) \
-				$$argv$(EXEEXT))			\
-	&& : $${SOURCE_DATE_EPOCH=`cat $(srcdir)/.timestamp 2>/dev/null || :`} \
-	&& export SOURCE_DATE_EPOCH && $(run_help2man)			\
-		     --source='$(PACKAGE_STRING)'			\
-		     --include=$(srcdir)/man/$$name.x			\
-		     --output=$$t/$$name.1				\
-		     --info-page='\(aq(coreutils) '$$name' invocation\(aq' \
-		     $$t/$$argv$(EXEEXT)				\
-	  && sed \
-	       -e 's|$*\.td/||g' \
-	       -e '/For complete documentation/d' \
-	       $$t/$$name.1 > $@-t			\
-	  && rm -rf $$t							\
-	  && chmod a-w $@-t						\
-	  && mv $@-t $@
-.PHONY: check-root
-check-root:
-	$(MAKE) check TESTS='$(root_tests)' SUBDIRS=.
-
-$(factor_tests): $(tf)/run.sh $(tf)/create-test.sh
-	$(AM_V_GEN)$(MKDIR_P) $(tf)
-	$(AM_V_at)$(SHELL) $(srcdir)/$(tf)/create-test.sh $@ \
-	  $(srcdir)/$(tf)/run.sh > $@-t
-	$(AM_V_at)chmod a+x $@-t
-	$(AM_V_at)mv -f $@-t $@
-
-$(TEST_LOGS): $(PROGRAMS)
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

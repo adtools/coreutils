@@ -12,10 +12,6 @@ noinst_LIBRARIES += src/libsinglebin_hostname.a
 src_libsinglebin_hostname_a_SOURCES = src/hostname.c
 src_libsinglebin_hostname_a_ldadd =   $(GETHOSTNAME_LIB)
 src_libsinglebin_hostname_a_CFLAGS = "-Dmain=single_binary_main_hostname (int, char **);  int single_binary_main_hostname"  -Dusage=_usage_hostname $(src_coreutils_CFLAGS)
-# Command chroot
-noinst_LIBRARIES += src/libsinglebin_chroot.a
-src_libsinglebin_chroot_a_SOURCES = src/chroot.c
-src_libsinglebin_chroot_a_CFLAGS = "-Dmain=single_binary_main_chroot (int, char **);  int single_binary_main_chroot"  -Dusage=_usage_chroot $(src_coreutils_CFLAGS)
 # Command df
 noinst_LIBRARIES += src/libsinglebin_df.a
 src_libsinglebin_df_a_SOURCES =   src/df.c src/find-mount-point.c
@@ -24,28 +20,10 @@ src_libsinglebin_df_a_CFLAGS = "-Dmain=single_binary_main_df (int, char **);  in
 noinst_LIBRARIES += src/libsinglebin_hostid.a
 src_libsinglebin_hostid_a_SOURCES = src/hostid.c
 src_libsinglebin_hostid_a_CFLAGS = "-Dmain=single_binary_main_hostid (int, char **);  int single_binary_main_hostid"  -Dusage=_usage_hostid $(src_coreutils_CFLAGS)
-# Command nice
-noinst_LIBRARIES += src/libsinglebin_nice.a
-src_libsinglebin_nice_a_SOURCES = src/nice.c
-src_libsinglebin_nice_a_CFLAGS = "-Dmain=single_binary_main_nice (int, char **);  int single_binary_main_nice"  -Dusage=_usage_nice $(src_coreutils_CFLAGS)
-# Command pinky
-noinst_LIBRARIES += src/libsinglebin_pinky.a
-src_libsinglebin_pinky_a_SOURCES = src/pinky.c
-src_libsinglebin_pinky_a_ldadd =   $(GETADDRINFO_LIB)
-src_libsinglebin_pinky_a_CFLAGS = "-Dmain=single_binary_main_pinky (int, char **);  int single_binary_main_pinky"  -Dusage=_usage_pinky $(src_coreutils_CFLAGS)
 # Command stdbuf
 noinst_LIBRARIES += src/libsinglebin_stdbuf.a
 src_libsinglebin_stdbuf_a_SOURCES = src/stdbuf.c
 src_libsinglebin_stdbuf_a_CFLAGS = "-Dmain=single_binary_main_stdbuf (int, char **);  int single_binary_main_stdbuf"  -Dusage=_usage_stdbuf $(src_coreutils_CFLAGS)
-# Command stty
-noinst_LIBRARIES += src/libsinglebin_stty.a
-src_libsinglebin_stty_a_SOURCES = src/stty.c
-src_libsinglebin_stty_a_CFLAGS = "-Dmain=single_binary_main_stty (int, char **);  int single_binary_main_stty"  -Dusage=_usage_stty $(src_coreutils_CFLAGS)
-# Command timeout
-noinst_LIBRARIES += src/libsinglebin_timeout.a
-src_libsinglebin_timeout_a_SOURCES =   src/timeout.c src/operand2sig.c
-src_libsinglebin_timeout_a_ldadd =   $(LIB_TIMER_TIME)
-src_libsinglebin_timeout_a_CFLAGS = "-Dmain=single_binary_main_timeout (int, char **);  int single_binary_main_timeout"  -Dusage=_usage_timeout $(src_coreutils_CFLAGS)
 # Command uptime
 noinst_LIBRARIES += src/libsinglebin_uptime.a
 src_libsinglebin_uptime_a_SOURCES = src/uptime.c
@@ -270,10 +248,6 @@ src_libsinglebin_nl_a_CFLAGS = "-Dmain=single_binary_main_nl (int, char **);  in
 noinst_LIBRARIES += src/libsinglebin_nproc.a
 src_libsinglebin_nproc_a_SOURCES = src/nproc.c
 src_libsinglebin_nproc_a_CFLAGS = "-Dmain=single_binary_main_nproc (int, char **);  int single_binary_main_nproc"  -Dusage=_usage_nproc $(src_coreutils_CFLAGS)
-# Command nohup
-noinst_LIBRARIES += src/libsinglebin_nohup.a
-src_libsinglebin_nohup_a_SOURCES = src/nohup.c
-src_libsinglebin_nohup_a_CFLAGS = "-Dmain=single_binary_main_nohup (int, char **);  int single_binary_main_nohup"  -Dusage=_usage_nohup $(src_coreutils_CFLAGS)
 # Command numfmt
 noinst_LIBRARIES += src/libsinglebin_numfmt.a
 src_libsinglebin_numfmt_a_SOURCES =   src/numfmt.c src/set-fields.c

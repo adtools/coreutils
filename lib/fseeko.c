@@ -24,6 +24,8 @@
 
 #include "stdio-impl.h"
 
+/* The clib2 version of fseeko is POSIX compliant */
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 int
 fseeko (FILE *fp, off_t offset, int whence)
 #undef fseeko
@@ -106,7 +108,6 @@ fseeko (FILE *fp, off_t offset, int whence)
      If this assumption is incorrect, please report the bug to
      bug-gnulib.  */
   if (0)
-#else
   #error "Please port gnulib fseeko.c to your platform! Look at the code in fseeko.c, then report this to bug-gnulib."
 #endif
     {
@@ -160,3 +161,4 @@ fseeko (FILE *fp, off_t offset, int whence)
     }
   return fseeko (fp, offset, whence);
 }
+#endif /* !AmigaOS using clib2 */

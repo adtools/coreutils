@@ -53,9 +53,9 @@ enum size_spec
   {
     NO_SIZE,
     CHAR,
-    SHORT,
+    od_SHORT,
     INT,
-    LONG,
+    od_LONG,
     LONG_LONG,
     /* FIXME: add INTMAX support, too */
     FLOAT_SINGLE,
@@ -619,7 +619,7 @@ simple_strtoul (const char *s, const char **p, unsigned long int *val)
    "d4afL" *NEXT would be set to "afL" and *TSPEC would be
      {
        fmt = SIGNED_DECIMAL;
-       size = INT or LONG; (whichever integral_type_size[4] resolves to)
+       size = INT or od_LONG; (whichever integral_type_size[4] resolves to)
        print_function = print_int; (assuming size == INT)
        field_width = 11;
        fmt_string = "%*d";
@@ -703,7 +703,7 @@ decode_one_format (const char *s_orig, const char *s, const char **next,
 
 #define ISPEC_TO_FORMAT(Spec, Min_format, Long_format, Max_format)	\
   ((Spec) == LONG_LONG ? (Max_format)					\
-   : ((Spec) == LONG ? (Long_format)					\
+   : ((Spec) == od_LONG ? (Long_format)					\
       : (Min_format)))							\
 
       size_spec = integral_type_size[size];
@@ -752,7 +752,7 @@ decode_one_format (const char *s_orig, const char *s, const char **next,
                             : print_char);
           break;
 
-        case SHORT:
+        case od_SHORT:
           print_function = (fmt == SIGNED_DECIMAL
                             ? print_s_short
                             : print_short);
@@ -762,7 +762,7 @@ decode_one_format (const char *s_orig, const char *s, const char **next,
           print_function = print_int;
           break;
 
-        case LONG:
+        case od_LONG:
           print_function = print_long;
           break;
 
@@ -1591,9 +1591,9 @@ main (int argc, char **argv)
     integral_type_size[i] = NO_SIZE;
 
   integral_type_size[sizeof (char)] = CHAR;
-  integral_type_size[sizeof (short int)] = SHORT;
+  integral_type_size[sizeof (short int)] = od_SHORT;
   integral_type_size[sizeof (int)] = INT;
-  integral_type_size[sizeof (long int)] = LONG;
+  integral_type_size[sizeof (long int)] = od_LONG;
 #if HAVE_UNSIGNED_LONG_LONG_INT
   /* If 'long int' and 'long long int' have the same size, it's fine
      to overwrite the entry for 'long' with this one.  */

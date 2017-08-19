@@ -38,6 +38,10 @@
 # define PACKAGE PACKAGE_TARNAME
 #endif
 
+#ifdef __amigaos__
+const char *amiversion __attribute__((used)) = "$VER: coreutils 54.8 (19.08.17)";
+#endif
+
 enum { COPYRIGHT_YEAR = 2017 };
 
 /* The three functions below display the --version information the

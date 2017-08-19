@@ -76,8 +76,10 @@
 # include "c-ctype.h"
 #endif
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 #ifdef STATIC
 STATIC
+#endif
 #endif
 int
 PRINTF_PARSE (const CHAR_T *format, DIRECTIVES *d, arguments *a)

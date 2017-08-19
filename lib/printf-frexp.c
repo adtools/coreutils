@@ -37,7 +37,7 @@
 
 #ifdef USE_LONG_DOUBLE
 # define FUNC printf_frexpl
-# define DOUBLE long double
+# define printf_DOUBLE long double
 # define MIN_EXP LDBL_MIN_EXP
 # if HAVE_FREXPL_IN_LIBC && HAVE_LDEXPL_IN_LIBC
 #  define USE_FREXP_LDEXP
@@ -50,7 +50,7 @@
 # define L_(literal) literal##L
 #else
 # define FUNC printf_frexp
-# define DOUBLE double
+# define printf_DOUBLE double
 # define MIN_EXP DBL_MIN_EXP
 # if HAVE_FREXP_IN_LIBC && HAVE_LDEXP_IN_LIBC
 #  define USE_FREXP_LDEXP
@@ -63,8 +63,8 @@
 # define L_(literal) literal
 #endif
 
-DOUBLE
-FUNC (DOUBLE x, int *expptr)
+printf_DOUBLE
+FUNC (printf_DOUBLE x, int *expptr)
 {
   int exponent;
   DECL_ROUNDING
@@ -87,8 +87,8 @@ FUNC (DOUBLE x, int *expptr)
   {
     /* Since the exponent is an 'int', it fits in 64 bits.  Therefore the
        loops are executed no more than 64 times.  */
-    DOUBLE pow2[64]; /* pow2[i] = 2^2^i */
-    DOUBLE powh[64]; /* powh[i] = 2^-2^i */
+    printf_DOUBLE pow2[64]; /* pow2[i] = 2^2^i */
+    printf_DOUBLE powh[64]; /* powh[i] = 2^-2^i */
     int i;
 
     exponent = 0;
@@ -96,8 +96,8 @@ FUNC (DOUBLE x, int *expptr)
       {
         /* A nonnegative exponent.  */
         {
-          DOUBLE pow2_i; /* = pow2[i] */
-          DOUBLE powh_i; /* = powh[i] */
+          printf_DOUBLE pow2_i; /* = pow2[i] */
+          printf_DOUBLE powh_i; /* = powh[i] */
 
           /* Invariants: pow2_i = 2^2^i, powh_i = 2^-2^i,
              x * 2^exponent = argument, x >= 1.0.  */
@@ -123,8 +123,8 @@ FUNC (DOUBLE x, int *expptr)
       {
         /* A negative exponent.  */
         {
-          DOUBLE pow2_i; /* = pow2[i] */
-          DOUBLE powh_i; /* = powh[i] */
+          printf_DOUBLE pow2_i; /* = pow2[i] */
+          printf_DOUBLE powh_i; /* = powh[i] */
 
           /* Invariants: pow2_i = 2^2^i, powh_i = 2^-2^i,
              x * 2^exponent = argument, x < 1.0, exponent >= MIN_EXP - 1.  */

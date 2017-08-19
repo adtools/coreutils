@@ -220,6 +220,9 @@ static size_t decimal_point_len;
 static char const * ATTRIBUTE_WARN_UNUSED_RESULT
 human_fstype (STRUCT_STATVFS const *statfsbuf)
 {
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+  return statfsbuf->f_fstypename;
+#else
 #ifdef STATXFS_FILE_SYSTEM_TYPE_MEMBER_NAME
   return statfsbuf->STATXFS_FILE_SYSTEM_TYPE_MEMBER_NAME;
 #else
@@ -563,6 +566,7 @@ human_fstype (STRUCT_STATVFS const *statfsbuf)
         return buf;
       }
     }
+#endif
 #endif
 }
 

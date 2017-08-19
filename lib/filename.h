@@ -38,6 +38,11 @@ extern "C" {
 # define IS_PATH_WITH_DIR(P) \
     (strchr (P, '/') != NULL || strchr (P, '\\') != NULL || HAS_DEVICE (P))
 # define FILE_SYSTEM_PREFIX_LEN(P) (HAS_DEVICE (P) ? 2 : 0)
+#elif defined __amigaos__ /* AmigaOS */
+# define ISSLASH(C) ((C) == '/' || (C) == ':')
+# define IS_ABSOLUTE_PATH(P) ((ISSLASH ((P)[0])) || ((P)[1] == ':'))
+# define IS_PATH_WITH_DIR(P) (strchr (P, '/') != NULL)
+# define FILE_SYSTEM_PREFIX_LEN(P) 0
 #else
   /* Unix */
 # define ISSLASH(C) ((C) == '/')

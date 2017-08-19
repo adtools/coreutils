@@ -897,9 +897,6 @@
 /* Define to 1 if you have the `chown' function. */
 #undef HAVE_CHOWN
 
-/* Define to 1 if you have the `chroot' function. */
-#undef HAVE_CHROOT
-
 /* Define to 1 if you have the `chsize' function. */
 #undef HAVE_CHSIZE
 
@@ -1788,9 +1785,6 @@
 /* Define to 1 if you have the <nfs/vfs.h> header file. */
 #undef HAVE_NFS_VFS_H
 
-/* Define to 1 if you have the `nice' function. */
-#undef HAVE_NICE
-
 /* Define to 1 if you have the <nlist.h> header file. */
 #undef HAVE_NLIST_H
 
@@ -1994,9 +1988,6 @@
 
 /* Define to 1 if the system has the type `sigset_t'. */
 #undef HAVE_SIGSET_T
-
-/* Define to 1 if you have the `sigsuspend' function. */
-#undef HAVE_SIGSUSPEND
 
 /* Define to 1 if you have the `sleep' function. */
 #undef HAVE_SLEEP

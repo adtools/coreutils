@@ -103,7 +103,6 @@ src_chcon_LDADD = $(LDADD)
 src_chgrp_LDADD = $(LDADD)
 src_chmod_LDADD = $(LDADD)
 src_chown_LDADD = $(LDADD)
-src_chroot_LDADD = $(LDADD)
 src_cksum_LDADD = $(LDADD)
 src_comm_LDADD = $(LDADD)
 src_nproc_LDADD = $(LDADD)
@@ -153,14 +152,11 @@ src_mkfifo_LDADD = $(LDADD)
 src_mknod_LDADD = $(LDADD)
 src_mktemp_LDADD = $(LDADD)
 src_mv_LDADD = $(LDADD)
-src_nice_LDADD = $(LDADD)
 src_nl_LDADD = $(LDADD)
-src_nohup_LDADD = $(LDADD)
 src_numfmt_LDADD = $(LDADD)
 src_od_LDADD = $(LDADD)
 src_paste_LDADD = $(LDADD)
 src_pathchk_LDADD = $(LDADD)
-src_pinky_LDADD = $(LDADD)
 src_pr_LDADD = $(LDADD)
 src_printenv_LDADD = $(LDADD)
 src_printf_LDADD = $(LDADD)
@@ -184,14 +180,12 @@ src_sort_LDADD = $(LDADD)
 src_split_LDADD = $(LDADD)
 src_stat_LDADD = $(LDADD)
 src_stdbuf_LDADD = $(LDADD)
-src_stty_LDADD = $(LDADD)
 src_sum_LDADD = $(LDADD)
 src_sync_LDADD = $(LDADD)
 src_tac_LDADD = $(LDADD)
 src_tail_LDADD = $(LDADD)
 src_tee_LDADD = $(LDADD)
 src_test_LDADD = $(LDADD)
-src_timeout_LDADD = $(LDADD)
 src_touch_LDADD = $(LDADD)
 src_tr_LDADD = $(LDADD)
 src_true_LDADD = $(LDADD)
@@ -254,7 +248,6 @@ src_date_LDADD += $(LIB_CLOCK_GETTIME)
 src_ginstall_LDADD += $(LIB_CLOCK_GETTIME)
 src_ls_LDADD += $(LIB_CLOCK_GETTIME)
 src_pr_LDADD += $(LIB_CLOCK_GETTIME)
-src_timeout_LDADD += $(LIB_TIMER_TIME)
 src_touch_LDADD += $(LIB_CLOCK_GETTIME)
 
 # for gethrxtime
@@ -302,7 +295,6 @@ src_sha384sum_LDADD += $(LIB_CRYPTO)
 src_sha512sum_LDADD += $(LIB_CRYPTO)
 
 # for canon_host
-src_pinky_LDADD += $(GETADDRINFO_LIB)
 src_who_LDADD += $(GETADDRINFO_LIB)
 
 # for gethostname, uname
@@ -366,7 +358,6 @@ src_chown_SOURCES = src/chown.c src/chown-core.c
 src_chgrp_SOURCES = src/chgrp.c src/chown-core.c
 src_kill_SOURCES = src/kill.c src/operand2sig.c
 src_realpath_SOURCES = src/realpath.c src/relpath.c src/relpath.h
-src_timeout_SOURCES = src/timeout.c src/operand2sig.c
 
 src_mv_SOURCES = src/mv.c src/remove.c $(copy_sources) $(selinux_sources)
 src_rm_SOURCES = src/rm.c src/remove.c

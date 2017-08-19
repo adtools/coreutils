@@ -126,7 +126,7 @@ typedef long int COST;
 
 /* Word descriptor structure.  */
 
-typedef struct Word WORD;
+typedef struct Word fmt_WORD;
 
 struct Word
   {
@@ -145,7 +145,7 @@ struct Word
 
     int line_length;		/* length of the best line starting here */
     COST best_cost;		/* cost of best paragraph starting here */
-    WORD *next_break;		/* break which achieves best_cost */
+    fmt_WORD *next_break;		/* break which achieves best_cost */
   };
 
 /* Forward declarations.  */
@@ -160,12 +160,12 @@ static int copy_rest (FILE *f, int c);
 static bool same_para (int c);
 static void flush_paragraph (void);
 static void fmt_paragraph (void);
-static void check_punctuation (WORD *w);
-static COST base_cost (WORD *this);
-static COST line_cost (WORD *next, int len);
-static void put_paragraph (WORD *finish);
-static void put_line (WORD *w, int indent);
-static void put_word (WORD *w);
+static void check_punctuation (fmt_WORD *w);
+static COST base_cost (fmt_WORD *this);
+static COST line_cost (fmt_WORD *next, int len);
+static void put_paragraph (fmt_WORD *finish);
+static void put_line (fmt_WORD *w, int indent);
+static void put_word (fmt_WORD *w);
 static void put_space (int space);
 
 /* Option values.  */
@@ -220,12 +220,12 @@ static char *wptr;
 
 /* The words of a paragraph -- longer paragraphs are handled neatly
    (cf. flush_paragraph()).  */
-static WORD word[MAXWORDS];
+static fmt_WORD word[MAXWORDS];
 
 /* A pointer into the above word array, indicating the first position
    after the last complete word.  Sometimes it will point at an incomplete
    word.  */
-static WORD *word_limit;
+static fmt_WORD *word_limit;
 
 /* If true, current input file contains tab characters, and so tabs can be
    used for white space on output.  */
@@ -664,7 +664,7 @@ get_line (FILE *f, int c)
 {
   int start;
   char *end_of_parabuf;
-  WORD *end_of_word;
+  fmt_WORD *end_of_word;
 
   end_of_parabuf = &parabuf[MAXCHARS];
   end_of_word = &word[MAXWORDS - 2];
@@ -764,7 +764,7 @@ get_space (FILE *f, int c)
 /* Set extra fields in word W describing any attached punctuation.  */
 
 static void
-check_punctuation (WORD *w)
+check_punctuation (fmt_WORD *w)
 {
   char const *start = w->text;
   char const *finish = start + (w->length - 1);
@@ -783,8 +783,8 @@ check_punctuation (WORD *w)
 static void
 flush_paragraph (void)
 {
-  WORD *split_point;
-  WORD *w;
+  fmt_WORD *split_point;
+  fmt_WORD *w;
   int shift;
   COST best_break;
 
@@ -847,7 +847,7 @@ flush_paragraph (void)
 static void
 fmt_paragraph (void)
 {
-  WORD *start, *w;
+  fmt_WORD *start, *w;
   int len;
   COST wcost, best;
   int saved_length;
@@ -901,7 +901,7 @@ fmt_paragraph (void)
    word THIS.  */
 
 static COST
-base_cost (WORD *this)
+base_cost (fmt_WORD *this)
 {
   COST cost;
 
@@ -934,7 +934,7 @@ base_cost (WORD *this)
    depends on LEN, the length of the line beginning there.  */
 
 static COST
-line_cost (WORD *next, int len)
+line_cost (fmt_WORD *next, int len)
 {
   int n;
   COST cost;
@@ -955,9 +955,9 @@ line_cost (WORD *next, int len)
    FINISH, which must be in the next_break chain from word.  */
 
 static void
-put_paragraph (WORD *finish)
+put_paragraph (fmt_WORD *finish)
 {
-  WORD *w;
+  fmt_WORD *w;
 
   put_line (word, first_indent);
   for (w = word->next_break; w != finish; w = w->next_break)
@@ -968,9 +968,9 @@ put_paragraph (WORD *finish)
    INDENT, including the prefix (if any).  */
 
 static void
-put_line (WORD *w, int indent)
+put_line (fmt_WORD *w, int indent)
 {
-  WORD *endline;
+  fmt_WORD *endline;
 
   out_column = 0;
   put_space (prefix_indent);
@@ -992,7 +992,7 @@ put_line (WORD *w, int indent)
 /* Output to stdout the word W.  */
 
 static void
-put_word (WORD *w)
+put_word (fmt_WORD *w)
 {
   const char *s;
   int n;

@@ -24,7 +24,9 @@
 #include <pwd.h>
 #include <grp.h>
 #include <selinux/selinux.h>
-#include <sys/wait.h>
+#if !defined __amigaos__ /* AmigaOS */
+# include <sys/wait.h>
+#endif
 
 #include "system.h"
 #include "backupfile.h"
@@ -546,6 +548,12 @@ change_timestamps (struct stat const *src_sb, char const *dest)
 static bool
 strip (char const *name)
 {
+#ifdef __amigaos__
+  char buffer[1024];
+  sprintf(buffer, "strip %s\n", name);
+
+  return system(buffer);
+#else
   int status;
   bool ok = false;
   pid_t pid = fork ();
@@ -568,6 +576,7 @@ strip (char const *name)
       break;
     }
   return ok;
+#endif
 }
 
 /* Initialize the user and group ownership of the files to install. */

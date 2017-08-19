@@ -45,6 +45,7 @@
 
 #endif
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 #if !@HAVE_STRUCT_SCHED_PARAM@
 
 # if !GNULIB_defined_struct_sched_param
@@ -55,6 +56,7 @@ struct sched_param
 #  define GNULIB_defined_struct_sched_param 1
 # endif
 
+#endif
 #endif
 
 #if !(defined SCHED_FIFO && defined SCHED_RR && defined SCHED_OTHER)

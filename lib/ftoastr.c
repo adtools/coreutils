@@ -34,7 +34,7 @@
 #include <stdlib.h>
 
 #if LENGTH == 3
-# define FLOAT long double
+# define ftoastr_FLOAT long double
 # define FLOAT_DIG LDBL_DIG
 # define FLOAT_MIN LDBL_MIN
 # define FLOAT_PREC_BOUND _GL_LDBL_PREC_BOUND
@@ -44,7 +44,7 @@
 #  define STRTOF strtold
 # endif
 #elif LENGTH == 2
-# define FLOAT double
+# define ftoastr_FLOAT double
 # define FLOAT_DIG DBL_DIG
 # define FLOAT_MIN DBL_MIN
 # define FLOAT_PREC_BOUND _GL_DBL_PREC_BOUND
@@ -52,7 +52,7 @@
 # define PROMOTED_FLOAT double
 #else
 # define LENGTH 1
-# define FLOAT float
+# define ftoastr_FLOAT float
 # define FLOAT_DIG FLT_DIG
 # define FLOAT_MIN FLT_MIN
 # define FLOAT_PREC_BOUND _GL_FLT_PREC_BOUND
@@ -78,7 +78,7 @@
 # define snprintf ftoastr_snprintf
 static int
 ftoastr_snprintf (char *buf, size_t bufsize, char const *format,
-                  int width, int prec, FLOAT x)
+                  int width, int prec, ftoastr_FLOAT x)
 {
   PROMOTED_FLOAT promoted_x = x;
   char width_0_buffer[LENGTH == 1 ? FLT_BUFSIZE_BOUND
@@ -100,7 +100,7 @@ ftoastr_snprintf (char *buf, size_t bufsize, char const *format,
 #endif
 
 int
-FTOASTR (char *buf, size_t bufsize, int flags, int width, FLOAT x)
+FTOASTR (char *buf, size_t bufsize, int flags, int width, ftoastr_FLOAT x)
 {
   /* The following method is simple but slow.
      For ideas about speeding things up, please see:
@@ -112,7 +112,7 @@ FTOASTR (char *buf, size_t bufsize, int flags, int width, FLOAT x)
 
   PROMOTED_FLOAT promoted_x = x;
   char format[sizeof "%-+ 0*.*Lg"];
-  FLOAT abs_x = x < 0 ? -x : x;
+  ftoastr_FLOAT abs_x = x < 0 ? -x : x;
   int prec;
 
   char *p = format;

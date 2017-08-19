@@ -29,7 +29,11 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <sys/types.h>
+
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 #include <sys/wait.h>
+#endif
+
 #include <unistd.h>
 
 #include "assure.h"
@@ -63,6 +67,9 @@ savewd_save (struct savewd *wd)
       }
       wd->state = FORKING_STATE;
       wd->val.child = -1;
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using clib2 */
+# warning "implement for clib2 for AmigaOS"
+#else
       /* Fall through.  */
     case FORKING_STATE:
       if (wd->val.child < 0)
@@ -80,6 +87,7 @@ savewd_save (struct savewd *wd)
             }
         }
       break;
+#endif
 
     case FD_STATE:
     case FD_POST_CHDIR_STATE:
@@ -90,7 +98,6 @@ savewd_save (struct savewd *wd)
     default:
       assure (false);
     }
-
   return false;
 }
 
@@ -193,7 +200,10 @@ savewd_restore (struct savewd *wd, int status)
       /* Report an error if asked to restore the working directory.  */
       errno = wd->val.errnum;
       return -1;
-
+      
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using clib2 */
+# warning "implement for clib2 for AmigaOS"
+#else
     case FORKING_STATE:
       /* "Restore" the working directory by waiting for the subprocess
          to finish.  */
@@ -213,11 +223,11 @@ savewd_restore (struct savewd *wd, int status)
           }
       }
       break;
+#endif
 
     default:
       assure (false);
     }
-
   return 0;
 }
 
@@ -235,9 +245,13 @@ savewd_finish (struct savewd *wd)
       close (wd->val.fd);
       break;
 
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using clib2 */
+# warning "implement for clib2 for AmigaOS"
+#else
     case FORKING_STATE:
       assure (wd->val.child < 0);
       break;
+#endif
 
     default:
       assure (false);

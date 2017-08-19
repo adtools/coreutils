@@ -96,6 +96,7 @@
 #endif
 
 #ifndef HAVE_MKFIFO
+# undef mkfifo //from src/system.h
 static int
 rpl_mkfifo (char const *file, mode_t mode)
 {

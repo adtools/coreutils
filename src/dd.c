@@ -61,6 +61,12 @@
 # define SA_RESETHAND 0
 #endif
 
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+# ifndef SIGUSR1
+#  define SIGUSR1 7
+# endif
+#endif
+
 #ifndef SIGINFO
 # define SIGINFO SIGUSR1
 #endif

@@ -1,2 +1,2 @@
-#define LONG 1
+#define GL_LONG 1
 #include "c-strtod.c"

@@ -115,6 +115,13 @@ freadptr (FILE *fp, size_t *sizep)
   /* This implementation is correct on any ANSI C platform.  It is just
      awfully slow.  */
   return NULL;
+#elif defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+  if ((size = fp->num_read_bytes) == 0) {
+	  return NULL;
+  } else {
+	  *sizep = size;
+	  return fp->buffer;
+  }
 #else
  #error "Please port gnulib freadptr.c to your platform! Look at the definition of fflush, fread, getc, getc_unlocked on your system, then report this to bug-gnulib."
 #endif

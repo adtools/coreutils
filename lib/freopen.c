@@ -51,6 +51,10 @@ rpl_freopen (const char *filename, const char *mode, FILE *stream)
   char const *null_device = "NUL";
   if (filename && strcmp (filename, "/dev/null") == 0)
     filename = null_device;
+#elif defined __amigaos__ /* AmigaOS */
+  char const *null_device = "/nil";
+  if (filename && strcmp (filename, "/dev/null") == 0)
+    filename = null_device;
 #else
   char const *null_device = "/dev/null";
 #endif

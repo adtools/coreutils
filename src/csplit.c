@@ -37,6 +37,11 @@
 #include "xdectoint.h"
 #include "xstrtol.h"
 
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+// look in lib/sigaction.c
+int sigismember(const sigset_t *set, int signo);
+#endif
+
 /* The official name of this program (e.g., no 'g' prefix).  */
 #define PROGRAM_NAME "csplit"
 
@@ -1427,8 +1432,13 @@ main (int argc, char **argv)
     int i;
     static int const sig[] =
       {
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+        /* The usual suspects.  */
+        SIGINT, SIGTERM,
+#else
         /* The usual suspects.  */
         SIGALRM, SIGHUP, SIGINT, SIGPIPE, SIGQUIT, SIGTERM,
+#endif
 #ifdef SIGPOLL
         SIGPOLL,
 #endif

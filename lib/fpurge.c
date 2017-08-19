@@ -139,6 +139,10 @@ fpurge (FILE *fp)
 # elif defined EPLAN9               /* Plan9 */
   fp->rp = fp->wp = fp->lp = fp->buf;
   return 0;
+#elif defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+# warning "TODO: Implement for clib2"
+  fp->num_read_bytes=0;
+  return 0;
 # else
 #  error "Please port gnulib fpurge.c to your platform! Look at the definitions of fflush, setvbuf and ungetc on your system, then report this to bug-gnulib."
 # endif

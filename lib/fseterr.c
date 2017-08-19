@@ -74,6 +74,8 @@ fseterr (FILE *fp)
       close (fd2);
     }
   errno = saved_errno;
+#elif defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+  fp->flags |= __FILE_ERROR;
 #else
  #error "Please port gnulib fseterr.c to your platform! Look at the definitions of ferror and clearerr on your system, then report this to bug-gnulib."
 #endif

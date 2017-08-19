@@ -26,24 +26,24 @@
 #include <stdlib.h>
 #include <string.h>
 
-#if LONG
+#if GL_LONG
 # define C_STRTOD c_strtold
-# define DOUBLE long double
+# define GL_DOUBLE long double
 # define STRTOD_L strtold_l
 #else
 # define C_STRTOD c_strtod
-# define DOUBLE double
+# define GL_DOUBLE double
 # define STRTOD_L strtod_l
 #endif
 
 /* c_strtold falls back on strtod if strtold doesn't conform to C99.  */
-#if LONG && HAVE_C99_STRTOLD
+#if GL_LONG && HAVE_C99_STRTOLD
 # define STRTOD strtold
 #else
 # define STRTOD strtod
 #endif
 
-#if defined LC_ALL_MASK && (LONG ? HAVE_STRTOLD_L : HAVE_STRTOD_L)
+#if defined LC_ALL_MASK && (GL_LONG ? HAVE_STRTOLD_L : HAVE_STRTOD_L)
 
 /* Cache for the C locale object.
    Marked volatile so that different threads see the same value
@@ -62,12 +62,12 @@ c_locale (void)
 
 #endif
 
-DOUBLE
+GL_DOUBLE
 C_STRTOD (char const *nptr, char **endptr)
 {
-  DOUBLE r;
+  GL_DOUBLE r;
 
-#if defined LC_ALL_MASK && (LONG ? HAVE_STRTOLD_L : HAVE_STRTOD_L)
+#if defined LC_ALL_MASK && (GL_LONG ? HAVE_STRTOLD_L : HAVE_STRTOD_L)
 
   locale_t locale = c_locale ();
   if (!locale)

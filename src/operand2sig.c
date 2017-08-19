@@ -24,7 +24,9 @@
 #include <config.h>
 #include <stdio.h>
 #include <sys/types.h>
-#include <sys/wait.h>
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
+# include <sys/wait.h>
+#endif
 
 #include "system.h"
 #include "error.h"
@@ -53,6 +55,10 @@ operand2sig (char const *operand, char *signame)
       char *endp;
       long int l = (errno = 0, strtol (operand, &endp, 10));
       int i = l;
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+# define WIFSIGNALED(x)	(((x) & 0177) != 0177 && ((x) & 0177) != 0)
+# define WTERMSIG(x)	((x) & 0177)
+#endif
       signum = (operand == endp || *endp || errno || i != l ? -1
                 : WIFSIGNALED (i) ? WTERMSIG (i) : i);
     }

@@ -656,8 +656,6 @@ USE_NLS
 CROSS_COMPILING_FALSE
 CROSS_COMPILING_TRUE
 built_programs
-EXTRA_MANS
-man1_MANS
 pkglibexec_PROGRAMS
 bin_PROGRAMS
 single_binary_install_type
@@ -3890,7 +3888,6 @@ as_fn_append ac_header_list " sys/statvfs.h"
 as_fn_append ac_header_list " sys/types.h"
 as_fn_append ac_header_list " sys/select.h"
 as_fn_append ac_func_list " nl_langinfo"
-as_fn_append ac_func_list " pipe"
 gl_printf_safe=yes
 as_fn_append ac_header_list " priv.h"
 as_fn_append ac_header_list " pthread.h"
@@ -3927,6 +3924,7 @@ as_fn_append ac_header_list " sys/utsname.h"
 as_fn_append ac_header_list " sys/wait.h"
 as_fn_append ac_func_list " localtime_r"
 as_fn_append ac_func_list " timegm"
+as_fn_append ac_func_list " pipe"
 as_fn_append ac_func_list " unlinkat"
 as_fn_append ac_header_list " utime.h"
 as_fn_append ac_func_list " futimes"
@@ -7977,9 +7975,7 @@ $as_echo "$as_me: autobuild timestamp... $date" >&6;}
   # Code from module memrchr-tests:
   # Code from module mgetgroups:
   # Code from module minmax:
-  # Code from module mkancesdirs:
   # Code from module mkdir:
-  # Code from module mkdir-p:
   # Code from module mkdir-tests:
   # Code from module mkfifo:
   # Code from module mkfifo-tests:
@@ -21457,8 +21453,6 @@ $as_echo "#define HAVE__SYSTEM_CONFIGURATION 1" >>confdefs.h
 
 
 
-
-
   { $as_echo "$as_me:${as_lineno-$LINENO}: checking for desired default level of POSIX conformance" >&5
 $as_echo_n "checking for desired default level of POSIX conformance... " >&6; }
   gl_default_posix2_version=none-specified
@@ -22873,6 +22867,8 @@ $as_echo "$gl_cv_next_time_h" >&6; }
        gl_next_as_first_directive=$gl_cv_next_time_h
      fi
      NEXT_AS_FIRST_DIRECTIVE_TIME_H=$gl_next_as_first_directive
+
+
 
 
 
@@ -41589,15 +41585,17 @@ $as_echo "#define MOUNTED_INTERIX_STATVFS 1" >>confdefs.h
 fi
 
 if test -z "$ac_list_mounted_fs"; then
-  as_fn_error $? "could not determine how to read list of mounted file systems" "$LINENO" 5
+  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: could not determine how to read list of mounted file systems" >&5
+$as_echo "$as_me: WARNING: could not determine how to read list of mounted file systems" >&2;}
   # FIXME -- no need to abort building the whole package
   # Can't build mountlist.c or anything that needs its functions
 fi
 
+## HACK TO GET IT TO WORK ON AMIGAOS4
 if test $ac_list_mounted_fs = found; then :
   gl_cv_list_mounted_fs=yes
 else
-  gl_cv_list_mounted_fs=no
+  gl_cv_list_mounted_fs=yes
 fi
 
 
@@ -42840,26 +42838,6 @@ fi
 
 
 
-
-
-
-
-  if test $ac_cv_func_pipe != yes; then
-    HAVE_PIPE=0
-  fi
-
-  if test $HAVE_PIPE = 0; then
-
-
-
-
-
-
-
-
-  gl_LIBOBJS="$gl_LIBOBJS pipe.$ac_objext"
-
-  fi
 
 
 
@@ -63000,23 +62978,6 @@ fi
 
 
 optional_bin_progs=
-for ac_func in chroot
-do :
-  ac_fn_c_check_func "$LINENO" "chroot" "ac_cv_func_chroot"
-if test "x$ac_cv_func_chroot" = xyes; then :
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_CHROOT 1
-_ACEOF
- {
-  if test -z "$optional_bin_progs"; then
-    optional_bin_progs=chroot
-  else
-    optional_bin_progs="$optional_bin_progs chroot"
-  fi
-}
-fi
-done
-
 for ac_func in gethostid
 do :
   ac_fn_c_check_func "$LINENO" "gethostid" "ac_cv_func_gethostid"
@@ -63029,23 +62990,6 @@ _ACEOF
     optional_bin_progs=hostid
   else
     optional_bin_progs="$optional_bin_progs hostid"
-  fi
-}
-fi
-done
-
-for ac_func in sigsuspend
-do :
-  ac_fn_c_check_func "$LINENO" "sigsuspend" "ac_cv_func_sigsuspend"
-if test "x$ac_cv_func_sigsuspend" = xyes; then :
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_SIGSUSPEND 1
-_ACEOF
- {
-  if test -z "$optional_bin_progs"; then
-    optional_bin_progs=timeout
-  else
-    optional_bin_progs="$optional_bin_progs timeout"
   fi
 }
 fi
@@ -63339,29 +63283,6 @@ rm -f core conftest.err conftest.$ac_objext \
 fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $utils_cv_func_setpriority" >&5
 $as_echo "$utils_cv_func_setpriority" >&6; }
-if test $utils_cv_func_setpriority = no; then
-  for ac_func in nice
-do :
-  ac_fn_c_check_func "$LINENO" "nice" "ac_cv_func_nice"
-if test "x$ac_cv_func_nice" = xyes; then :
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_NICE 1
-_ACEOF
-
-fi
-done
-
-fi
-case $utils_cv_func_setpriority,$ac_cv_func_nice in
-*yes*)
-  {
-  if test -z "$optional_bin_progs"; then
-    optional_bin_progs=nice
-  else
-    optional_bin_progs="$optional_bin_progs nice"
-  fi
-}
-esac
 
 
 
@@ -63379,13 +63300,6 @@ esac
     optional_bin_progs=users
   else
     optional_bin_progs="$optional_bin_progs users"
-  fi
-}
-    {
-  if test -z "$optional_bin_progs"; then
-    optional_bin_progs=pinky
-  else
-    optional_bin_progs="$optional_bin_progs pinky"
   fi
 }
   fi
@@ -63628,14 +63542,6 @@ $as_echo "#define GWINSZ_IN_SYS_IOCTL 1" >>confdefs.h
 
 
 if test $ac_cv_sys_posix_termios = yes; then
-  {
-  if test -z "$optional_bin_progs"; then
-    optional_bin_progs=stty
-  else
-    optional_bin_progs="$optional_bin_progs stty"
-  fi
-}
-
   { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether termios.h needs _XOPEN_SOURCE" >&5
 $as_echo_n "checking whether termios.h needs _XOPEN_SOURCE... " >&6; }
   if ${su_cv_sys_termios_needs_xopen_source+:} false; then :
@@ -64475,13 +64381,6 @@ LDFLAGS=$ac_save_LDFLAGS
 }
 {
   if test -z "$optional_bin_progs"; then
-    optional_bin_progs=nohup
-  else
-    optional_bin_progs="$optional_bin_progs nohup"
-  fi
-}
-{
-  if test -z "$optional_bin_progs"; then
     optional_bin_progs=numfmt
   else
     optional_bin_progs="$optional_bin_progs numfmt"
@@ -64898,29 +64797,12 @@ case " $optional_bin_progs " in
   *) pkglibexec_PROGRAMS='';;
 esac
 
-man1_MANS=`
-  for p in $optional_bin_progs; do
-    # Change "ginstall.1" to "install.1".
-    test $p = ginstall && p=install
-    # Ignore the "[" program, since writing a portable make rule to
-    # generate its manpage is not practical.
-            test x$p = x'[' && continue
-    echo "man/$p.1"
-  done`
-
-# Not installed by "make install", but must be built when creating
-# a distribution tarball.
-EXTRA_MANS=`for p in $no_install_progs_default $gl_no_install_prog; do
-              echo man/$p.1
-            done`
-
 # Replace all the programs by the single binary and symlinks if specified.
 single_binary_progs=
 single_binary_libs=
 single_binary_deps=
 single_binary_install_type=
 if test "$gl_single_binary" != no; then
-  man1_MANS="$man1_MANS man/coreutils.1"
   # Convert the list to a space separated list
   gl_single_binary_exceptions=`echo $gl_single_binary_exceptions | tr ',' ' '`
 
@@ -64981,13 +64863,8 @@ single_binary_install_type=$single_binary_install_type
 bin_PROGRAMS=`
   for p in $optional_bin_progs; do echo src/"$p"'$(EXEEXT)'; done`
 
-# Normalize whitespace.
-man1_MANS=`echo $man1_MANS`
-EXTRA_MANS=`echo $EXTRA_MANS`
 bin_PROGRAMS=`echo $bin_PROGRAMS`
 pkglibexec_PROGS=`echo $pkglibexec_PROGRAMS`
-
-
 
 
 

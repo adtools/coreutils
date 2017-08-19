@@ -473,6 +473,9 @@ _GL_CXXALIASWARN (fscanf);
    Most gnulib clients that perform stream operations should fall into
    category 3.  */
 
+
+/* The clib2 version of fseek is POSIX compliant */
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 #if @GNULIB_FSEEK@
 # if defined GNULIB_POSIXCHECK && !defined _GL_NO_LARGE_FILES
 #  define _GL_FSEEK_WARN /* Category 2, above.  */
@@ -491,7 +494,10 @@ _GL_CXXALIAS_SYS (fseek, int, (FILE *fp, long offset, int whence));
 # endif
 _GL_CXXALIASWARN (fseek);
 #endif
+#endif /* AmigaOS using clib2 */
 
+/* The clib2 version of fseek is POSIX compliant */
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 #if @GNULIB_FSEEKO@
 # if !@GNULIB_FSEEK@ && !defined _GL_NO_LARGE_FILES
 #  define _GL_FSEEK_WARN /* Category 3, above.  */
@@ -524,6 +530,7 @@ _GL_WARN_ON_USE (fseeko, "fseeko is unportable - "
                  "use gnulib module fseeko for portability");
 # endif
 #endif
+#endif /* AmigaOS using clib2 */
 
 #ifdef _GL_FSEEK_WARN
 # undef _GL_FSEEK_WARN

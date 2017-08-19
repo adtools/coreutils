@@ -27,6 +27,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+#if defined __amigaos__ /* AmigaOS */
+# define __USE_INLINE__ 1
+# include <dos/dos.h>
+# include <proto/dos.h>
+#endif
 
 /* String containing name the program is called with.
    To be initialized by main().  */
@@ -55,6 +60,10 @@ set_program_name (const char *argv0)
              stderr);
       abort ();
     }
+
+#if defined __amigaos__ /* AmigaOS */
+  program_name = FilePart(argv0);
+#else
 
   slash = strrchr (argv0, '/');
   base = (slash != NULL ? slash + 1 : argv0);
@@ -88,5 +97,6 @@ set_program_name (const char *argv0)
      as well.  */
 #if HAVE_DECL_PROGRAM_INVOCATION_NAME
   program_invocation_name = (char *) argv0;
+#endif
 #endif
 }

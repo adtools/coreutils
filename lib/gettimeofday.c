@@ -76,6 +76,7 @@ rpl_gmtime (time_t const *timep)
 
 #endif /* GETTIMEOFDAY_CLOBBERS_LOCALTIME || TZSET_CLOBBERS_LOCALTIME */
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 #if TZSET_CLOBBERS_LOCALTIME
 
 # undef tzset
@@ -92,6 +93,7 @@ rpl_tzset (void)
   tzset ();
   *localtime_buffer_addr = save;
 }
+#endif
 #endif
 
 /* This is a wrapper for gettimeofday.  It is used only on systems

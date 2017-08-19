@@ -64,6 +64,28 @@
 # define SIGSTOP (-1)
 #endif
 
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+#define NSIG 7
+
+int
+sigfillset(sigset_t *set)
+{
+  *set = ~(sigset_t)0;
+  return (0);
+}
+
+// for csplit
+int
+sigismember(const sigset_t *set, int signo)
+{
+	if (signo <= 0 || signo >= NSIG) {
+		errno = EINVAL;
+		return -1;
+	}
+	return ((*set & sigmask(signo)) != 0);
+}
+#endif
+
 /* On native Windows, as of 2008, the signal SIGABRT_COMPAT is an alias
    for the signal SIGABRT.  Only one signal handler is stored for both
    SIGABRT and SIGABRT_COMPAT.  SIGABRT_COMPAT is not a signal of its own.  */

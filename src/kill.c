@@ -22,6 +22,10 @@
 #include <sys/types.h>
 #include <signal.h>
 
+#ifdef __amigaos4__
+#include <proto/dos.h>
+#endif
+
 #include "system.h"
 #include "error.h"
 #include "sig2str.h"
@@ -201,7 +205,13 @@ send_signals (int signum, char *const *argv)
       intmax_t n = (errno = 0, strtoimax (arg, &endp, 10));
       pid_t pid = n;
 
+#ifdef __amigaos4__
+      /* Convert the given process id (Cli number) to an address */
+      pid = (pid_t)IDOS->FindCliProc((uint32)n);
+      if (errno == ERANGE || arg == endp || *endp)
+#else
       if (errno == ERANGE || pid != n || arg == endp || *endp)
+#endif
         {
           error (0, 0, _("%s: invalid process id"), quote (arg));
           status = EXIT_FAILURE;

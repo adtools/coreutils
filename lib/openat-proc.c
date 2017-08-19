@@ -53,6 +53,11 @@ openat_proc_name (char buf[OPENAT_BUFFER_SIZE], int fd, char const *file)
       return buf;
     }
 
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+# warning not implemented for clib2 on AmigaOS
+  return NULL;
+#endif
+
 #ifndef __KLIBC__
 # define PROC_SELF_FD_FORMAT "/proc/self/fd/%d/"
   {

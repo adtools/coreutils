@@ -46,6 +46,14 @@ isapipe (int fd)
   return (GetFileType (h) == FILE_TYPE_PIPE);
 }
 
+#elif defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+int
+isapipe (int fd)
+{
+#warning "implement on clib2 for AmigaOS"
+  errno = EBADF;
+  return -1;
+}
 #else
 /* Unix platforms.  */
 

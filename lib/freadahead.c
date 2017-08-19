@@ -88,6 +88,8 @@ freadahead (FILE *fp)
 #elif defined SLOW_BUT_NO_HACKS     /* users can define this */
   abort ();
   return 0;
+#elif defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+  return fp->num_read_bytes;
 #else
  #error "Please port gnulib freadahead.c to your platform! Look at the definition of fflush, fread, ungetc on your system, then report this to bug-gnulib."
 #endif

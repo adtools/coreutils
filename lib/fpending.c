@@ -53,6 +53,8 @@ __fpending (FILE *fp)
   return fp->wp - fp->buf;
 #elif defined __VMS                  /* VMS */
   return (*fp)->_ptr - (*fp)->_base;
+#elif defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+  return (((fp->flags & __FILE_WRITABLE) == (__FILE_WRITABLE)) ? (fp->num_write_bytes) : 0);
 #else
 # error "Please port gnulib fpending.c to your platform!"
   return 1;

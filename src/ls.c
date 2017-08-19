@@ -62,6 +62,15 @@
 # include <langinfo.h>
 #endif
 
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+#ifndef SIGSTOP
+# define SIGSTOP (-1)
+#endif
+#ifndef SIGTSTP
+# define SIGTSTP (-1)
+#endif
+#endif
+
 /* Use SA_NOCLDSTOP as a proxy for whether the sigaction machinery is
    present.  */
 #ifndef SA_NOCLDSTOP
@@ -1333,11 +1342,16 @@ signal_setup (bool init)
   /* The signals that are trapped, and the number of such signals.  */
   static int const sig[] =
     {
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+      /* The usual suspects.  */
+      SIGINT, SIGTERM,
+#else
       /* This one is handled specially.  */
       SIGTSTP,
 
       /* The usual suspects.  */
       SIGALRM, SIGHUP, SIGINT, SIGPIPE, SIGQUIT, SIGTERM,
+#endif
 #ifdef SIGPOLL
       SIGPOLL,
 #endif
@@ -4867,8 +4881,14 @@ attach (char *dest, const char *dirname, const char *name)
       while (*dirnamep)
         *dest++ = *dirnamep++;
       /* Add '/' if 'dirname' doesn't already end with it.  */
+#ifdef __amigaos__
+      /* For AmigaOS, we also need to check if there's a colon */
+      if (dirnamep > dirname && dirnamep[-1] != '/' && dirnamep[-1] != ':')
+        *dest++ = '/';
+#else
       if (dirnamep > dirname && dirnamep[-1] != '/')
         *dest++ = '/';
+#endif
     }
   while (*name)
     *dest++ = *name++;

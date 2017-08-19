@@ -105,8 +105,8 @@ static struct regex_data context_regex;	/* end of context */
 static struct regex_data word_regex;	/* keyword */
 
 /* A BLOCK delimit a region in memory of arbitrary size, like the copy of a
-   whole file.  A WORD is something smaller, its length should fit in a
-   short integer.  A WORD_TABLE may contain several WORDs.  */
+   whole file.  A ptx_WORD is something smaller, its length should fit in a
+   short integer.  A ptx_WORD_TABLE may contain several ptx_WORDs.  */
 
 typedef struct
   {
@@ -120,15 +120,15 @@ typedef struct
     char *start;		/* pointer to beginning of region */
     short int size;		/* length of the region */
   }
-WORD;
+ptx_WORD;
 
 typedef struct
   {
-    WORD *start;		/* array of WORDs */
+    ptx_WORD *start;		/* array of ptx_WORDs */
     size_t alloc;		/* allocated length */
     size_t length;		/* number of used entries */
   }
-WORD_TABLE;
+ptx_WORD_TABLE;
 
 /* Pattern description tables.  */
 
@@ -156,8 +156,8 @@ static int reference_max_width;
 
 /* Ignore and Only word tables.  */
 
-static WORD_TABLE ignore_table;	/* table of words to ignore */
-static WORD_TABLE only_table;		/* table of words to select */
+static ptx_WORD_TABLE ignore_table;	/* table of words to ignore */
+static ptx_WORD_TABLE only_table;		/* table of words to select */
 
 /* Source text table, and scanning macros.  */
 
@@ -228,7 +228,7 @@ typedef short int DELTA;	/* to hold displacement within one context */
 
 typedef struct
   {
-    WORD key;			/* description of the keyword */
+    ptx_WORD key;			/* description of the keyword */
     DELTA left;			/* distance to left context start */
     DELTA right;		/* distance to right context end */
     int reference;		/* reference descriptor */
@@ -538,8 +538,8 @@ swallow_file_in_memory (const char *file_name, BLOCK *block)
 static int
 compare_words (const void *void_first, const void *void_second)
 {
-#define first ((const WORD *) void_first)
-#define second ((const WORD *) void_second)
+#define first ((const ptx_WORD *) void_first)
+#define second ((const ptx_WORD *) void_second)
   int length;			/* minimum of two lengths */
   int counter;			/* cursor in words */
   int value;			/* value of comparison */
@@ -592,11 +592,11 @@ compare_occurs (const void *void_first, const void *void_second)
 }
 
 /*------------------------------------------------------------.
-| Return !0 if WORD appears in TABLE.  Uses a binary search.  |
+| Return !0 if ptx_WORD appears in TABLE.  Uses a binary search.  |
 `------------------------------------------------------------*/
 
 static int _GL_ATTRIBUTE_PURE
-search_table (WORD *word, WORD_TABLE *table)
+search_table (ptx_WORD *word, ptx_WORD_TABLE *table)
 {
   int lowest;			/* current lowest possible index */
   int highest;			/* current highest possible index */
@@ -678,13 +678,13 @@ digest_break_file (const char *file_name)
 
 /*-----------------------------------------------------------------------.
 | Read a file named FILE_NAME, containing one word per line, then	 |
-| construct in TABLE a table of WORD descriptors for them.  The routine	 |
+| construct in TABLE a table of ptx_WORD descriptors for them.  The routine	 |
 | swallows the whole file in memory; this is at the expense of space	 |
 | needed for newlines, which are useless; however, the reading is fast.	 |
 `-----------------------------------------------------------------------*/
 
 static void
-digest_word_file (const char *file_name, WORD_TABLE *table)
+digest_word_file (const char *file_name, ptx_WORD_TABLE *table)
 {
   BLOCK file_contents;		/* to receive a copy of the file */
   char *cursor;			/* cursor in file copy */
@@ -751,7 +751,7 @@ find_occurs_in_text (size_t file_index)
   char *line_start;		/* start of the current input line */
   char *line_scan;		/* newlines scanned until this point */
   int reference_length;		/* length of reference in input mode */
-  WORD possible_key;		/* possible key, to ease searches */
+  ptx_WORD possible_key;		/* possible key, to ease searches */
   OCCURS *occurs_cursor;	/* current OCCURS under construction */
 
   char *context_start;		/* start of left context */

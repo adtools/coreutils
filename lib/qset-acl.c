@@ -38,6 +38,14 @@
 int
 qset_acl (char const *name, int desc, mode_t mode)
 {
+#if defined __amigaos__ /* AmigaOS */
+  mode_t newmode = mode & (S_ISUID | S_ISGID | S_ISVTX);
+
+  if (desc != -1)
+    return fchmod (desc, newmode);
+  else
+    return chmod (name, newmode);
+#else
   struct permission_context ctx;
   int ret;
 
@@ -46,4 +54,5 @@ qset_acl (char const *name, int desc, mode_t mode)
   ret = set_permissions (&ctx, name, desc);
   free_permission_context (&ctx);
   return ret;
+#endif
 }
