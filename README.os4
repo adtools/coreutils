@@ -1,6 +1,6 @@
 coreutils 8.29 ported to AmigaOS4.
 
-The sourcecode can be found on http://os4depot.net if you search for coreutils-src.
+The sourcecode can be found on: https://github.com/adtools/coreutils
 
 Please read the original README file that is in the same directory.
 
@@ -8,6 +8,10 @@ Best regards,
 Henning Nielsen Lund
 hnl_dk@amigaos.dk
 
+
+19-08-2017 - Version 54.8
+no need to try to open /dev/tty.
+changed the sourcecode, so it should now also be possible to compile for classic AmigaOS (using clib2).
 
 18-08-2017 - Version 54.7
 replace /dev/null with /nil.

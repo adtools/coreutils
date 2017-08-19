@@ -1,0 +1,6 @@
+.KEY filename/A
+PUSHCD >NIL:
+CD SDK:Local/C
+DELETE <filename> FORCE
+MAKELINK FROM <filename> TO coreutils SOFT
+POPCD
