@@ -19,6 +19,82 @@
 
 #include <stdlib.h>
 
+#if defined __amigaos__ && defined __CLIB2__ /* AmigaOS using CLIB2 */
+# define __USE_INLINE__ 1
+# include <dos/dos.h>
+# include <proto/dos.h>
+# if defined __amigaos4__
+#  include <dos/obsolete.h>
+# endif
+# define MAX_ENV_SIZE 1024  /* maximum number of environ entries */
+
+char **environ = 0;
+
+void ___makeenviron() __attribute__((constructor));
+void ___freeenviron() __attribute__((destructor));
+
+uint32
+copy_env(struct Hook *hook, APTR userdata, struct ScanVarsMsg *message)
+{
+  static uint32 env_size = 1;  // environ is null terminated
+
+  if ( strlen(message->sv_GDir) <= 4 )
+  {
+    if ( env_size == MAX_ENV_SIZE )
+    {
+      return 0;
+    }
+
+    ++env_size;
+
+    char **env = (char **)hook->h_Data;
+    uint32 size = strlen(message->sv_Name) + 1 + message->sv_VarLen + 1 + 1;
+    char *buffer= (char*)malloc(size);
+
+    snprintf(buffer, size-1, "%s=%s", message->sv_Name, message->sv_Var);
+
+    *env = buffer;
+    ++env;
+    hook->h_Data = env;
+  }
+
+  return 0;
+}
+
+void
+___makeenviron()
+{
+  size_t environ_size = MAX_ENV_SIZE * sizeof(char*);
+  environ = (char **)malloc(environ_size);
+  if ( !environ )
+  {
+    return;
+  }
+
+  memset(environ, 0, environ_size);
+
+  struct Hook hook;
+  memset(&hook, 0, sizeof(struct Hook));
+  hook.h_Entry = copy_env;
+  hook.h_Data = environ;
+
+  ScanVars(&hook, GVF_LOCAL_ONLY, 0);
+}
+
+void
+___freeenviron()
+{
+  for ( char **i = environ; *i != NULL; ++i )
+  {
+    free(*i);
+    *i = 0;
+  }
+
+  free(environ);
+  environ = 0;
+}
+#endif
+
 #if !HAVE___SECURE_GETENV
 # if HAVE_ISSETUGID || (HAVE_GETUID && HAVE_GETEUID && HAVE_GETGID && HAVE_GETEGID)
 #  include <unistd.h>

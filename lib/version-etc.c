@@ -39,7 +39,7 @@
 #endif
 
 #ifdef __amigaos__
-const char *amiversion __attribute__((used)) = "$VER: coreutils 54.8 (19.08.17)";
+const char *amiversion __attribute__((used)) = "$VER: coreutils 54.9 (25.08.17)";
 #endif
 
 enum { COPYRIGHT_YEAR = 2017 };
