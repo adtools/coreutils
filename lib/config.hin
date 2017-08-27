@@ -260,9 +260,11 @@
    whether the gnulib module fscanf shall be considered present. */
 #undef GNULIB_FSCANF
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 /* Define to a C preprocessor expression that evaluates to 1 or 0, depending
    whether the gnulib module getcwd shall be considered present. */
 #undef GNULIB_GETCWD
+#endif
 
 /* Define to a C preprocessor expression that evaluates to 1 or 0, depending
    whether the gnulib module lock shall be considered present. */
@@ -438,8 +440,10 @@
 /* Define to 1 when the gnulib module getaddrinfo should be tested. */
 #undef GNULIB_TEST_GETADDRINFO
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 /* Define to 1 when the gnulib module getcwd should be tested. */
 #undef GNULIB_TEST_GETCWD
+#endif
 
 /* Define to 1 when the gnulib module getdelim should be tested. */
 #undef GNULIB_TEST_GETDELIM
@@ -1731,9 +1735,13 @@
 /* Define to 1 if you have the `microuptime' function. */
 #undef HAVE_MICROUPTIME
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 /* Define to 1 if getcwd minimally works, that is, its result can be trusted
    when it succeeds. */
 #undef HAVE_MINIMALLY_WORKING_GETCWD
+#else
+#define HAVE_MINIMALLY_WORKING_GETCWD 1
+#endif
 
 /* Define to 1 if <limits.h> defines the MIN and MAX macros. */
 #undef HAVE_MINMAX_IN_LIMITS_H
