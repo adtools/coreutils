@@ -120,6 +120,26 @@ _GL_CXXALIAS_SYS (nanosleep, int,
 _GL_CXXALIASWARN (nanosleep);
 # endif
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
+/* Initialize time conversion information.  */
+# if @GNULIB_TZSET@
+#  if @REPLACE_TZSET@
+#   if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+#    undef tzset
+#    define tzset rpl_tzset
+#   endif
+_GL_FUNCDECL_RPL (tzset, void, (void));
+_GL_CXXALIAS_RPL (tzset, void, (void));
+#  else
+#   if ! @HAVE_TZSET@
+_GL_FUNCDECL_SYS (tzset, void, (void));
+#   endif
+_GL_CXXALIAS_SYS (tzset, void, (void));
+#  endif
+_GL_CXXALIASWARN (tzset);
+# endif
+#endif
+
 /* Return the 'time_t' representation of TP and normalize TP.  */
 # if @GNULIB_MKTIME@
 #  if @REPLACE_MKTIME@
@@ -134,6 +154,7 @@ _GL_CXXALIAS_SYS (mktime, time_t, (struct tm *__tp));
 _GL_CXXALIASWARN (mktime);
 # endif
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 /* Convert TIMER to RESULT, assuming local time and UTC respectively.  See
    <http://www.opengroup.org/susv3xsh/localtime_r.html> and
    <http://www.opengroup.org/susv3xsh/gmtime_r.html>.  */
@@ -187,7 +208,7 @@ _GL_CXXALIASWARN (gmtime_r);
 /* Convert TIMER to RESULT, assuming local time and UTC respectively.  See
    <http://www.opengroup.org/susv3xsh/localtime.html> and
    <http://www.opengroup.org/susv3xsh/gmtime.html>.  */
-# if @GNULIB_GETTIMEOFDAY@
+# if @GNULIB_LOCALTIME@ || @REPLACE_LOCALTIME@
 #  if @REPLACE_LOCALTIME@
 #   if !(defined __cplusplus && defined GNULIB_NAMESPACE)
 #    undef localtime
@@ -202,7 +223,7 @@ _GL_CXXALIAS_SYS (localtime, struct tm *, (time_t const *__timer));
 _GL_CXXALIASWARN (localtime);
 # endif
 
-# if @GNULIB_GETTIMEOFDAY@
+# if 0 || @REPLACE_GMTIME@
 #  if @REPLACE_GMTIME@
 #   if !(defined __cplusplus && defined GNULIB_NAMESPACE)
 #    undef gmtime
@@ -216,6 +237,7 @@ _GL_CXXALIAS_SYS (gmtime, struct tm *, (time_t const *__timer));
 #  endif
 _GL_CXXALIASWARN (gmtime);
 # endif
+#endif /* AmigaOS and clib2 */
 
 /* Parse BUF as a timestamp, assuming FORMAT specifies its layout, and store
    the resulting broken-down time into TM.  See
@@ -232,6 +254,45 @@ _GL_CXXALIAS_SYS (strptime, char *, (char const *restrict __buf,
                                      struct tm *restrict __tm));
 _GL_CXXALIASWARN (strptime);
 # endif
+
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
+/* Convert *TP to a date and time string.  See
+   <http://pubs.opengroup.org/onlinepubs/9699919799/functions/ctime.html>.  */
+# if @GNULIB_CTIME@
+#  if @REPLACE_CTIME@
+#   if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+#    define ctime rpl_ctime
+#   endif
+_GL_FUNCDECL_RPL (ctime, char *, (time_t const *__tp)
+                                 _GL_ARG_NONNULL ((1)));
+_GL_CXXALIAS_RPL (ctime, char *, (time_t const *__tp));
+#  else
+_GL_CXXALIAS_SYS (ctime, char *, (time_t const *__tp));
+#  endif
+_GL_CXXALIASWARN (ctime);
+# endif
+#endif
+
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
+/* Convert *TP to a date and time string.  See
+   <http://pubs.opengroup.org/onlinepubs/9699919799/functions/strftime.html>.  */
+# if @GNULIB_STRFTIME@
+#  if @REPLACE_STRFTIME@
+#   if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+#    define strftime rpl_strftime
+#   endif
+_GL_FUNCDECL_RPL (strftime, size_t, (char *__buf, size_t __bufsize,
+                                     const char *__fmt, const struct tm *__tp)
+                                    _GL_ARG_NONNULL ((1, 3, 4)));
+_GL_CXXALIAS_RPL (strftime, size_t, (char *__buf, size_t __bufsize,
+                                     const char *__fmt, const struct tm *__tp));
+#  else
+_GL_CXXALIAS_SYS (strftime, size_t, (char *__buf, size_t __bufsize,
+                                     const char *__fmt, const struct tm *__tp));
+#  endif
+_GL_CXXALIASWARN (strftime);
+# endif
+#endif
 
 # if defined _GNU_SOURCE && @GNULIB_TIME_RZ@ && ! @HAVE_TIMEZONE_T@
 typedef struct tm_zone *timezone_t;

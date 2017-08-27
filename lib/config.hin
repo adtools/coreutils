@@ -175,8 +175,10 @@
    */
 #undef GETGROUPS_ZERO_BUG
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 /* Define if gettimeofday clobbers the localtime buffer. */
 #undef GETTIMEOFDAY_CLOBBERS_LOCALTIME
+#endif
 
 /* Define this to 'void' or 'struct timezone' to match the system's
    declaration of the second argument to gettimeofday. */
@@ -3002,8 +3004,10 @@
    timespec. */
 #undef TYPEOF_STRUCT_STAT_ST_ATIM_IS_STRUCT_TIMESPEC
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 /* Define if tzset clobbers localtime's static buffer. */
 #undef TZSET_CLOBBERS_LOCALTIME
+#endif
 
 /* Define to 1 for Encore UMAX. */
 #undef UMAX
@@ -3455,8 +3459,10 @@
 /* Define as a signed type of the same size as size_t. */
 #undef ssize_t
 
+#if !(defined __amigaos__ && defined __CLIB2__) /* AmigaOS using CLIB2 */
 /* Define to rpl_tzset if the wrapper function should be used. */
 #undef tzset
+#endif
 
 /* Define to `int' if <sys/types.h> doesn't define. */
 #undef uid_t

@@ -10,6 +10,9 @@ hnl_dk@amigaos.dk
 
 
 
+27-08-2017 - Version 54.10
+Use the clib2 versions of localtime/gettimeofday directly.
+
 25-08-2017 - Version 54.9
 Setup the environment in clib2.
 
